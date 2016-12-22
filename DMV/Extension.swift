@@ -24,4 +24,10 @@ extension URL {
     }
 }
 
+extension UIControlState {
+    public static var all: UIControlState {
+        return UIControlState()
+    }
+}
+
 let dmvLogo = UIImage(named: "dmvLogo.png")

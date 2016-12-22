@@ -13,16 +13,18 @@
 		520A57741E0B4D010000BCB6 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A57731E0B4D010000BCB6 /* Identifier.swift */; };
 		520A57771E0B55900000BCB6 /* manual.json in Resources */ = {isa = PBXBuildFile; fileRef = 520A57761E0B55900000BCB6 /* manual.json */; };
 		520A577A1E0B59950000BCB6 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A57791E0B59950000BCB6 /* Quiz.swift */; };
+		521B0D3C1E0C54BF00C7A801 /* AnswerSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B0D3B1E0C54BF00C7A801 /* AnswerSelectionViewController.swift */; };
 		525FBFC01E0BA3BA009BE702 /* dmvLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 525FBFBF1E0BA3BA009BE702 /* dmvLogo.png */; };
-		525FBFC41E0BB337009BE702 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 525FBFC11E0BB337009BE702 /* Kingfisher.framework */; };
-		525FBFC51E0BB337009BE702 /* Pods_DMV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 525FBFC21E0BB337009BE702 /* Pods_DMV.framework */; };
-		525FBFC61E0BB337009BE702 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 525FBFC31E0BB337009BE702 /* SwiftyJSON.framework */; };
-		525FBFC81E0BB675009BE702 /* QuizTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525FBFC71E0BB675009BE702 /* QuizTableViewController.swift */; };
+		525FBFC81E0BB675009BE702 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525FBFC71E0BB675009BE702 /* QuizViewController.swift */; };
 		525FBFCB1E0BCBB0009BE702 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 525FBFC91E0BCBB0009BE702 /* LaunchScreen.storyboard */; };
 		527E21591E0B9E7600543D03 /* quiz.json in Resources */ = {isa = PBXBuildFile; fileRef = 527E21581E0B9E7600543D03 /* quiz.json */; };
 		5299DE241E0B120F00DC56B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5299DE231E0B120F00DC56B1 /* AppDelegate.swift */; };
 		5299DE291E0B120F00DC56B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5299DE271E0B120F00DC56B1 /* Main.storyboard */; };
 		5299DE2B1E0B120F00DC56B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5299DE2A1E0B120F00DC56B1 /* Assets.xcassets */; };
+		529E2B2D1E0C691000122EF2 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 529E2B291E0C691000122EF2 /* Kingfisher.framework */; };
+		529E2B2E1E0C691000122EF2 /* Pods_DMV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 529E2B2A1E0C691000122EF2 /* Pods_DMV.framework */; };
+		529E2B2F1E0C691000122EF2 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 529E2B2B1E0C691000122EF2 /* SwiftyJSON.framework */; };
+		529E2B301E0C691000122EF2 /* TTGSnackbar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 529E2B2C1E0C691000122EF2 /* TTGSnackbar.framework */; };
 		52DF982E1E0B9A0A00725DB6 /* QuestionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF982D1E0B9A0A00725DB6 /* QuestionListViewController.swift */; };
 		52E7E4BC1E0B7A4900AD3484 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E7E4BB1E0B7A4900AD3484 /* Extension.swift */; };
 /* End PBXBuildFile section */
@@ -36,11 +38,9 @@
 		520A57731E0B4D010000BCB6 /* Identifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
 		520A57761E0B55900000BCB6 /* manual.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = manual.json; sourceTree = "<group>"; };
 		520A57791E0B59950000BCB6 /* Quiz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
+		521B0D3B1E0C54BF00C7A801 /* AnswerSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerSelectionViewController.swift; sourceTree = "<group>"; };
 		525FBFBF1E0BA3BA009BE702 /* dmvLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dmvLogo.png; sourceTree = "<group>"; };
-		525FBFC11E0BB337009BE702 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = "../../../Library/Developer/Xcode/DerivedData/DMV-biaykzneaqqwregjqlscmghmfffv/Build/Products/Debug-iphonesimulator/Kingfisher/Kingfisher.framework"; sourceTree = "<group>"; };
-		525FBFC21E0BB337009BE702 /* Pods_DMV.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_DMV.framework; path = "../../../Library/Developer/Xcode/DerivedData/DMV-biaykzneaqqwregjqlscmghmfffv/Build/Products/Debug-iphonesimulator/Pods_DMV.framework"; sourceTree = "<group>"; };
-		525FBFC31E0BB337009BE702 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../Library/Developer/Xcode/DerivedData/DMV-biaykzneaqqwregjqlscmghmfffv/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
-		525FBFC71E0BB675009BE702 /* QuizTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizTableViewController.swift; sourceTree = "<group>"; };
+		525FBFC71E0BB675009BE702 /* QuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		525FBFCA1E0BCBB0009BE702 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		527E21581E0B9E7600543D03 /* quiz.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = quiz.json; sourceTree = "<group>"; };
 		5299DE201E0B120F00DC56B1 /* DMV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DMV.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +48,10 @@
 		5299DE281E0B120F00DC56B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5299DE2A1E0B120F00DC56B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5299DE2F1E0B120F00DC56B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		529E2B291E0C691000122EF2 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = "../../../Library/Developer/Xcode/DerivedData/DMV-biaykzneaqqwregjqlscmghmfffv/Build/Products/Debug-iphonesimulator/Kingfisher/Kingfisher.framework"; sourceTree = "<group>"; };
+		529E2B2A1E0C691000122EF2 /* Pods_DMV.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_DMV.framework; path = "../../../Library/Developer/Xcode/DerivedData/DMV-biaykzneaqqwregjqlscmghmfffv/Build/Products/Debug-iphonesimulator/Pods_DMV.framework"; sourceTree = "<group>"; };
+		529E2B2B1E0C691000122EF2 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../Library/Developer/Xcode/DerivedData/DMV-biaykzneaqqwregjqlscmghmfffv/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
+		529E2B2C1E0C691000122EF2 /* TTGSnackbar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TTGSnackbar.framework; path = "../../../Library/Developer/Xcode/DerivedData/DMV-biaykzneaqqwregjqlscmghmfffv/Build/Products/Debug-iphonesimulator/TTGSnackbar/TTGSnackbar.framework"; sourceTree = "<group>"; };
 		52DF982D1E0B9A0A00725DB6 /* QuestionListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionListViewController.swift; sourceTree = "<group>"; };
 		52E7E4BB1E0B7A4900AD3484 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -57,9 +61,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				525FBFC41E0BB337009BE702 /* Kingfisher.framework in Frameworks */,
-				525FBFC51E0BB337009BE702 /* Pods_DMV.framework in Frameworks */,
-				525FBFC61E0BB337009BE702 /* SwiftyJSON.framework in Frameworks */,
+				529E2B2D1E0C691000122EF2 /* Kingfisher.framework in Frameworks */,
+				529E2B2E1E0C691000122EF2 /* Pods_DMV.framework in Frameworks */,
+				529E2B2F1E0C691000122EF2 /* SwiftyJSON.framework in Frameworks */,
+				529E2B301E0C691000122EF2 /* TTGSnackbar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,7 +126,8 @@
 				5299DE271E0B120F00DC56B1 /* Main.storyboard */,
 				520A575E1E0B3F960000BCB6 /* EntryTableViewController.swift */,
 				52DF982D1E0B9A0A00725DB6 /* QuestionListViewController.swift */,
-				525FBFC71E0BB675009BE702 /* QuizTableViewController.swift */,
+				525FBFC71E0BB675009BE702 /* QuizViewController.swift */,
+				521B0D3B1E0C54BF00C7A801 /* AnswerSelectionViewController.swift */,
 				520A57731E0B4D010000BCB6 /* Identifier.swift */,
 				52E7E4BB1E0B7A4900AD3484 /* Extension.swift */,
 				520A57751E0B52670000BCB6 /* Model */,
@@ -151,9 +157,10 @@
 		92853DBCFFE4EC9842FB2F00 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				525FBFC11E0BB337009BE702 /* Kingfisher.framework */,
-				525FBFC21E0BB337009BE702 /* Pods_DMV.framework */,
-				525FBFC31E0BB337009BE702 /* SwiftyJSON.framework */,
+				529E2B291E0C691000122EF2 /* Kingfisher.framework */,
+				529E2B2A1E0C691000122EF2 /* Pods_DMV.framework */,
+				529E2B2B1E0C691000122EF2 /* SwiftyJSON.framework */,
+				529E2B2C1E0C691000122EF2 /* TTGSnackbar.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -286,7 +293,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				525FBFC81E0BB675009BE702 /* QuizTableViewController.swift in Sources */,
+				521B0D3C1E0C54BF00C7A801 /* AnswerSelectionViewController.swift in Sources */,
+				525FBFC81E0BB675009BE702 /* QuizViewController.swift in Sources */,
 				520A575F1E0B3F960000BCB6 /* EntryTableViewController.swift in Sources */,
 				520A577A1E0B59950000BCB6 /* Quiz.swift in Sources */,
 				5299DE241E0B120F00DC56B1 /* AppDelegate.swift in Sources */,

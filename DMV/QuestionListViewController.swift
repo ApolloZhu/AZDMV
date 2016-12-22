@@ -39,7 +39,7 @@ class QuestionListViewController: UITableViewController, UISplitViewControllerDe
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Identifier.ShowQuizSegue,
-            let vc = segue.terminus as? QuizTableViewController {
+            let vc = segue.terminus as? QuizViewController {
             vc.id = ids[tableView.indexPathForSelectedRow!.row]
         }
     }

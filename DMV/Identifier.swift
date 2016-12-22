@@ -9,7 +9,9 @@
 open class Identifier {
     public static let NoQuizReusableTableViewCell = "No Quiz"
     public static let NormalReusableTableViewCell = "Has Quiz"
-    public static let ChoiceReusableTableViewCell = "Choice"
     public static let ShowQuestionListSegue = "Show Question List"
     public static let ShowQuizSegue = "Show Quiz"
+    public static let ShowAnswersSegue = "To Select Answers"
+    public static let NoQuizSelected = "<~ Select Quiz Here"
+    public static let Nothing = "╮(￣▽￣)╭"
 }
