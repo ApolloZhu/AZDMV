@@ -10,12 +10,12 @@ import UIKit
 import Kingfisher
 import TTGSnackbar
 
-class QuizViewController: UIViewController, UISplitViewControllerDelegate, AnswerSelectionViewDelegate, AnswerSelectionViewDataSource {
+class QuizViewController: UIViewController, AnswerSelectionViewDelegate, AnswerSelectionViewDataSource, TTGSnackbarPresenter {
 
     @IBOutlet weak var question: UILabel!
     @IBOutlet weak var image: UIImageView!
 
-    private lazy var snackBar = TTGSnackbar()
+    var snackBar = TTGSnackbar()
 
     private weak var answerSelectionViewController: AnswerSelectionViewController? {
         willSet {
@@ -55,13 +55,15 @@ class QuizViewController: UIViewController, UISplitViewControllerDelegate, Answe
         if isCorrect {
             snackBar.dismiss()
             question.text = "Correct!\n\(quiz!.reason)"
+            showSnackBar(message: question?.text, in: image)
         } else {
-            showSnackBar(message: quiz?.reason)
+            showSnackBar(message: quiz?.reason, in: image)
         }
     }
 
     private func updateQuestion() {
         question?.text = quiz?.question ?? Identifier.NoQuizSelected
+        showSnackBar(message: question?.text, in: image)
         if let url = URL(dmvImageName: quiz?.image) {
             image?.kf.setImage(with: url, placeholder: dmvLogo)
         }
@@ -69,7 +71,8 @@ class QuizViewController: UIViewController, UISplitViewControllerDelegate, Answe
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        splitViewController?.delegate = self
+        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+        navigationItem.leftItemsSupplementBackButton = true
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -78,26 +81,15 @@ class QuizViewController: UIViewController, UISplitViewControllerDelegate, Answe
             answerSelectionViewController = vc
         }
     }
+
     @IBAction func didTap(_ sender: UITapGestureRecognizer) {
         snackBar.dismiss()
     }
 
     @IBAction func showLongQuestion(_ sender: UILongPressGestureRecognizer) {
         if sender.state == .began {
-            showSnackBar(message: question?.text)
+            showSnackBar(message: question?.text, in: image)
         }
-    }
-
-    private func showSnackBar(message: String?) {
-        snackBar.dismiss()
-        snackBar = TTGSnackbar(message: message ?? Identifier.Nothing, duration: .long)
-        snackBar.animationType = .slideFromTopBackToTop
-        snackBar.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-        snackBar.show()
-    }
-
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
-        return quiz == nil || false
     }
     
 }

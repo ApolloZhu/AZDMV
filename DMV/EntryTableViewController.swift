@@ -13,6 +13,7 @@ class EntryTableViewController: UITableViewController, UISplitViewControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         splitViewController?.delegate = self
+        splitViewController?.preferredDisplayMode = .allVisible
     }
 
     private func subSectionAtIndexPath(_ indexPath: IndexPath) -> Manual.SubSection {
@@ -61,5 +62,5 @@ class EntryTableViewController: UITableViewController, UISplitViewControllerDele
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
         return true
     }
-
+    
 }

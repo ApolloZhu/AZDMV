@@ -21,7 +21,7 @@ protocol AnswerSelectionViewDelegate: class {
     @objc optional var colorSelected: UIColor { get }
 }
 
-class AnswerSelectionViewController: UIViewController {
+class AnswerSelectionViewController: UIViewController, TTGSnackbarPresenter {
 
     @IBOutlet private weak var a: UIButton!
     @IBOutlet private weak var b: UIButton!
@@ -90,21 +90,21 @@ class AnswerSelectionViewController: UIViewController {
     }
 
     private weak var onTopOf: UIButton? = nil
-    private var snackBar =  TTGSnackbar()
+    var snackBar =  TTGSnackbar()
     @IBAction func didPress(_ sender: UILongPressGestureRecognizer) {
         switch sender.state {
         case .began, .changed:
             let loc = sender.location(in: view)
             for button in buttons {
-                if button?.frame.contains(loc) == true && onTopOf != button {
-                    onTopOf = button
-                    snackBar.dismiss()
-                    snackBar = TTGSnackbar(message: button!.currentTitle!, duration: .middle)
-                    snackBar.show()
+                if let button = button {
+                    if button.isEnabled && button.frame.contains(loc) && onTopOf != button {
+                        onTopOf = button
+                        showSnackBar(message: button.currentTitle, in: view)
+                    }
                 }
             }
         default: break
         }
     }
-
+    
 }

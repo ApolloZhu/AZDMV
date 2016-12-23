@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TTGSnackbar
 
 extension UIStoryboardSegue {
     var terminus: UIViewController {
@@ -31,3 +32,23 @@ extension UIControlState {
 }
 
 let dmvLogo = UIImage(named: "dmvLogo.png")
+
+public protocol TTGSnackbarPresenter: class {
+    var snackBar: TTGSnackbar { get set }
+}
+
+extension TTGSnackbarPresenter {
+    public func showSnackBar(message: String?, in view: UIView? = nil) {
+        let duration = snackBar.animationDuration
+        snackBar.animationDuration = 0
+        snackBar.dismiss()
+        snackBar = TTGSnackbar(message: message ?? Identifier.Nothing, duration: .long)
+        snackBar.animationType = .slideFromTopBackToTop
+        snackBar.animationDuration = duration
+        snackBar.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        if let view = view {
+            snackBar.containerView = view
+        }
+        snackBar.show()
+    }
+}

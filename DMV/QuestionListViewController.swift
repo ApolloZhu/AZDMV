@@ -8,11 +8,11 @@
 
 import UIKit
 
-class QuestionListViewController: UITableViewController, UISplitViewControllerDelegate {
+class QuestionListViewController: UITableViewController {
     private var sectionID = 0
     private var subSectionID = 0
     private var ids = [Int]()
-    
+
     open func setup(_ indexPath: IndexPath) {
         sectionID = indexPath.section + 1
         subSectionID = indexPath.row + 1
@@ -43,9 +43,5 @@ class QuestionListViewController: UITableViewController, UISplitViewControllerDe
             vc.id = ids[tableView.indexPathForSelectedRow!.row]
         }
     }
-
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
-        return true
-    }
-
+    
 }
