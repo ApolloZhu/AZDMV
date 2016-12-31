@@ -22,20 +22,18 @@ protocol AnswerSelectionViewDelegate: class {
 }
 
 class AnswerSelectionViewController: UIViewController, TTGSnackbarPresenter {
-
+    // MARK: Fields
     @IBOutlet private weak var a: UIButton!
     @IBOutlet private weak var b: UIButton!
     @IBOutlet private weak var c: UIButton!
     @IBOutlet private weak var d: UIButton!
-    private var buttons: [UIButton?] {
-        return [a,b,c,d]
-    }
+    private var buttons: [UIButton?] { return [a,b,c,d] }
 
     private var correctButtonID: Int? {
         if let id = dataSource?.correctID {
             switch id {
             case 1...4: return id
-            case 5...6: return id - 4
+            case 5, 6: return id - 4
             case 7: return 4
             default: break
             }
@@ -45,11 +43,10 @@ class AnswerSelectionViewController: UIViewController, TTGSnackbarPresenter {
 
     public weak var delegate: AnswerSelectionViewDelegate?
     public weak var dataSource: AnswerSelectionViewDataSource? {
-        didSet {
-            reloadData()
-        }
+        didSet { reloadData() }
     }
 
+    // MARK: Data loading
     override func viewDidLoad() {
         super.viewDidLoad()
         reloadData()
@@ -57,24 +54,30 @@ class AnswerSelectionViewController: UIViewController, TTGSnackbarPresenter {
 
     public func reloadData() {
         DispatchQueue.main.async { [weak self] in
-            self?.snackBar.dismiss()
-            self?.onTopOf = nil
-            if let answers = self?.dataSource?.answers {
-                for i in 0..<answers.count {
-                    let button = self?.buttons[i]
-                    button?.setTitle(answers[i], for: .all)
-                    button?.isHidden = false
-                    button?.isEnabled = true
-                    button?.backgroundColor = .white
-                    button?.titleLabel?.lineBreakMode = .byTruncatingTail
-                }
-                for i in answers.count..<4 {
-                    self?.buttons[i]?.isHidden = true
+            if let this = self {
+                this.snackBar.dismiss()
+                this.buttonWithTouchOnTop = nil
+                if let answers = this.dataSource?.answers {
+                    for i in 0..<answers.count {
+                        if let button = this.buttons[i] {
+                            button.setTitle(answers[i], for: .all)
+                            button.isHidden = false
+                            button.isEnabled = true
+                            button.backgroundColor = .white
+                            button.titleLabel?.numberOfLines = 0
+                            button.titleLabel?.minimumScaleFactor = 0.2
+                            button.titleLabel?.adjustsFontSizeToFitWidth = true
+                        }
+                    }
+                    for i in answers.count..<4 {
+                        this.buttons[i]?.isHidden = true
+                    }
                 }
             }
         }
     }
 
+    // MARK: Answer Selection
     @IBAction func didSelect(_ button: UIButton) {
         let isCorrect = button.tag == correctButtonID
         if isCorrect {
@@ -89,7 +92,8 @@ class AnswerSelectionViewController: UIViewController, TTGSnackbarPresenter {
         snackBar.dismiss()
     }
 
-    private weak var onTopOf: UIButton? = nil
+    // MARK: Trigger Preview
+    private weak var buttonWithTouchOnTop: UIButton? = nil
     var snackBar =  TTGSnackbar()
     @IBAction func didPress(_ sender: UILongPressGestureRecognizer) {
         switch sender.state {
@@ -97,8 +101,8 @@ class AnswerSelectionViewController: UIViewController, TTGSnackbarPresenter {
             let loc = sender.location(in: view)
             for button in buttons {
                 if let button = button {
-                    if button.isEnabled && button.frame.contains(loc) && onTopOf != button {
-                        onTopOf = button
+                    if button.isEnabled && button.frame.contains(loc) && buttonWithTouchOnTop != button {
+                        buttonWithTouchOnTop = button
                         showSnackBar(message: button.currentTitle, in: view)
                     }
                 }

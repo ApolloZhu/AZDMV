@@ -11,7 +11,7 @@ import Kingfisher
 import TTGSnackbar
 
 class QuizViewController: UIViewController, AnswerSelectionViewDelegate, AnswerSelectionViewDataSource, TTGSnackbarPresenter {
-
+    // MARK: Fields
     @IBOutlet weak var question: UILabel!
     @IBOutlet weak var image: UIImageView!
 
@@ -34,9 +34,7 @@ class QuizViewController: UIViewController, AnswerSelectionViewDelegate, AnswerS
 
     private var quiz: QuizSet.Quiz? = nil {
         didSet {
-            DispatchQueue.main.async { [weak self] in
-                self?.updateQuestion()
-            }
+            updateQuestion()
             DispatchQueue.global(qos: .userInteractive).async { [weak self] in
                 self?.answerSelectionViewController?.reloadData()
             }
@@ -62,10 +60,14 @@ class QuizViewController: UIViewController, AnswerSelectionViewDelegate, AnswerS
     }
 
     private func updateQuestion() {
-        question?.text = quiz?.question ?? Identifier.NoQuizSelected
-        showSnackBar(message: question?.text, in: image)
-        if let url = URL(dmvImageName: quiz?.image) {
-            image?.kf.setImage(with: url, placeholder: dmvLogo)
+        DispatchQueue.main.async { [weak self] in
+            if let this = self {
+                this.question?.text = this.quiz?.question ?? Identifier.NoQuizSelected
+                this.showSnackBar(message: this.question?.text, in: this.image)
+                if let url = URL(dmvImageName: this.quiz?.image) {
+                    this.image?.kf.setImage(with: url, placeholder: dmvLogo)
+                }
+            }
         }
     }
 
