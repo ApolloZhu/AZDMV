@@ -74,8 +74,9 @@
 		520A576C1E0B407F0000BCB6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				525FBFC91E0BCBB0009BE702 /* LaunchScreen.storyboard */,
+				52E7E4BB1E0B7A4900AD3484 /* Extension.swift */,
 				5299DE231E0B120F00DC56B1 /* AppDelegate.swift */,
+				525FBFC91E0BCBB0009BE702 /* LaunchScreen.storyboard */,
 				5299DE2A1E0B120F00DC56B1 /* Assets.xcassets */,
 				5299DE2F1E0B120F00DC56B1 /* Info.plist */,
 			);
@@ -143,10 +144,9 @@
 		5299DE221E0B120F00DC56B1 /* DMV */ = {
 			isa = PBXGroup;
 			children = (
-				52E7E4BB1E0B7A4900AD3484 /* Extension.swift */,
+				520A57751E0B52670000BCB6 /* Model */,
 				529371211E1CC05500F9F74A /* View */,
 				529371201E1CC04E00F9F74A /* Controller */,
-				520A57751E0B52670000BCB6 /* Model */,
 				520A576C1E0B407F0000BCB6 /* Supporting Files */,
 			);
 			path = DMV;
