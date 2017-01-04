@@ -72,19 +72,23 @@ class AnswerSelectionViewController: UIViewController, TTGSnackbarPresenter {
                 this.snackBar.dismiss()
                 this.buttonWithTouchOnTop = nil
                 if let answers = this.dataSource?.answers {
-                    for i in 0..<answers.count {
-                        if let button = this.buttons[i] {
-                            button.setTitle(answers[i], for: .all)
+                    (0..<answers.count).forEach {
+                        if let button = this.buttons[$0] {
+                            button.setTitle(answers[$0], for: .all)
                             button.isHidden = false
                             button.isEnabled = true
                             button.backgroundColor = .white
                             button.titleLabel?.numberOfLines = 0
                             button.titleLabel?.minimumScaleFactor = 0.2
-                            button.titleLabel?.adjustsFontSizeToFitWidth = true
+                            if #available(iOS 10.0, *) {
+                                button.titleLabel?.adjustsFontForContentSizeCategory = true
+                            } else {
+                                button.titleLabel?.adjustsFontSizeToFitWidth = true
+                            }
                         }
                     }
-                    for i in answers.count..<4 {
-                        this.buttons[i]?.isHidden = true
+                    (answers.count..<4).forEach {
+                        this.buttons[$0]?.isHidden = true
                     }
                 }
             }

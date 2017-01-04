@@ -10,11 +10,11 @@ import SwiftyJSON
 
 open class QuizSet {
     public static let shared = QuizSet()
-    private var _quizzes: JSON
+    private init(){}
 
-    private init(){
-        _quizzes = JSON(data: try! Data(contentsOf: Bundle.main.url(forResource: "quiz", withExtension: "json")!))
-    }
+    private lazy var _quizzes: JSON = {
+        return JSON(data: try! Data(contentsOf: Bundle.main.url(forResource: "quiz", withExtension: "json")!))
+    }()
 
     public func allQuizIDsIn(section: Int, subSection: Int) -> [Int] {
         var ids = [Int]()

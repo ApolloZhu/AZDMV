@@ -10,31 +10,37 @@ import SwiftyJSON
 
 open class Manual {
     public static let shared = Manual()
+    private init(){}
 
-    private var _contents: JSON
-    private(set) public var sections = [String]()
-    private(set) public var subsections = [[SubSection]]()
-    fileprivate var _noQuiz = [String]()
-
-    private init(){
-        _contents = JSON(data: try! Data(contentsOf: Bundle.main.url(forResource: "manual", withExtension: "json")!))
-        // Subsections without quiz
-        _noQuiz.append(contentsOf: _contents[2]["manualData"][0]["noQuiz"].arrayObject as! [String])
+    private lazy var _contents: JSON = {
+        return JSON(data: try! Data(contentsOf: Bundle.main.url(forResource: "manual", withExtension: "json")!))
+    }()
+    public lazy var sections: [String] = {
+        var secs = [String]()
         // For all sections
-        for i in 0..<_contents[2]["manualData"][0]["totalSections"].intValue {
+        for i in 0..<self._contents[2]["manualData"][0]["totalSections"].intValue {
             // Get section JSON data
-            let section = _contents[2]["manualData"][0]["sections"][i]
+            let section = self._contents[2]["manualData"][0]["sections"][i]
             // Get section title with image(icon in font)
-            sections.append("\(symbol(named: section["symbol"].stringValue)) \(section["sectionTitle"])")
+            secs.append("\(self.symbol(named: section["symbol"].stringValue)) \(section["sectionTitle"])")
         }
+        return secs
+    }()
+    public lazy var subsections: [[SubSection]] = {
+        var subsecs = [[SubSection]]()
         // For each section
-        for i in 1...sections.count {
+        for i in 1...self.sections.count {
             // Count subsections
-            let subCount = _contents.filter { (_, json) in json["section"].intValue == i }.count
+            let subCount = self._contents.filter { (_, json) in json["section"].intValue == i }.count
             // Add subsection data in ascending order
-            subsections.append((1...subCount).map{ subSection($0, ofSection: i)! })
+            subsecs.append((1...subCount).map{ self.subSection($0, ofSection: i)! })
         }
-    }
+        return subsecs
+    }()
+    fileprivate lazy var _noQuiz: [String] = {
+        // Subsections without quiz
+        return self._contents[2]["manualData"][0]["noQuiz"].arrayObject as! [String]
+    }()
 
     private func symbol(named name: String) -> String {
         switch name {
