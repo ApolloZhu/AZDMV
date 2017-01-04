@@ -104,7 +104,7 @@
         <scene sceneID="rVd-hp-0uG">
             <objects>
                 <navigationController id="2Zn-EQ-oyp" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="OpU-MH-3qW">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OpU-MH-3qW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -127,14 +127,14 @@
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aF6-cN-l1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1555" y="-89"/>
+            <point key="canvasLocation" x="-1332" y="-411"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R0s-16-Gpp">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="do8-2l-Qnl" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="fOW-lM-PTl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fOW-lM-PTl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -145,7 +145,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oYg-ep-LTu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-303" y="722"/>
+            <point key="canvasLocation" x="1725" y="-417"/>
         </scene>
         <!--Quiz View Controller-->
         <scene sceneID="416-7H-VTJ">
@@ -217,7 +217,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="465" y="721"/>
+            <point key="canvasLocation" x="2493" y="-417"/>
         </scene>
         <!--Answer Selection View Controller-->
         <scene sceneID="4mE-Wm-TTw">
@@ -232,7 +232,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="oO2-zx-B8q">
-                                <rect key="frame" x="24" y="8" width="167" height="110.33333333333333"/>
+                                <rect key="frame" x="24" y="8" width="167.33333333333334" height="110.33333333333333"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
@@ -242,7 +242,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="EqR-zd-eQZ">
-                                <rect key="frame" x="199" y="8" width="167" height="110.33333333333333"/>
+                                <rect key="frame" x="199.33333333333337" y="8" width="166.66666666666663" height="110.33333333333333"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
@@ -252,7 +252,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="gwt-YF-zxb">
-                                <rect key="frame" x="24" y="126.33333333333331" width="167" height="109.66666666666669"/>
+                                <rect key="frame" x="24" y="126.33333333333331" width="167.33333333333334" height="109.66666666666669"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
@@ -262,7 +262,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="RtK-V5-VAh">
-                                <rect key="frame" x="199" y="126.33333333333331" width="167" height="109.66666666666669"/>
+                                <rect key="frame" x="199.33333333333337" y="126.33333333333331" width="166.66666666666663" height="109.66666666666669"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
@@ -312,10 +312,10 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1239" y="928"/>
+            <point key="canvasLocation" x="3132" y="-228"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="NIt-7A-Im5"/>
+        <segue reference="4Ye-gT-yam"/>
     </inferredMetricsTieBreakers>
 </document>
