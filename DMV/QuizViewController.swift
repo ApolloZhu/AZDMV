@@ -11,18 +11,17 @@ import Kingfisher
 import TTGSnackbar
 
 class QuizViewController: UIViewController, AnswerSelectionViewDelegate, AnswerSelectionViewDataSource, TTGSnackbarPresenter {
-    // MARK: Fields
+
+    // MARK: Split View
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+        navigationItem.leftItemsSupplementBackButton = true
+    }
+
+    // MARK: Basic
     @IBOutlet weak var question: UILabel!
     @IBOutlet weak var image: UIImageView!
-
-    var snackBar = TTGSnackbar()
-
-    private weak var answerSelectionViewController: AnswerSelectionViewController? {
-        willSet {
-            newValue?.delegate = self
-            newValue?.dataSource = self
-        }
-    }
 
     public var id: Int = 0 {
         willSet {
@@ -35,12 +34,23 @@ class QuizViewController: UIViewController, AnswerSelectionViewDelegate, AnswerS
     private var quiz: QuizSet.Quiz? = nil {
         didSet {
             updateQuestion()
-            DispatchQueue.global(qos: .userInteractive).async { [weak self] in
-                self?.answerSelectionViewController?.reloadData()
+            answerSelectionViewController?.reloadData()
+        }
+    }
+
+    private func updateQuestion() {
+        DispatchQueue.main.async { [weak self] in
+            if let this = self {
+                this.question?.text = this.quiz?.question ?? Identifier.NoQuizSelected
+                this.showSnackBar(message: this.question?.text, in: this.image)
+                if let url = URL(dmvImageName: this.quiz?.imageURL) {
+                    this.image?.kf.setImage(with: url, placeholder: dmvLogo)
+                }
             }
         }
     }
 
+    // MARK: Answer Selection Data Source
     var correctID: Int {
         return quiz?.correctAnswerID ?? 0
     }
@@ -49,6 +59,22 @@ class QuizViewController: UIViewController, AnswerSelectionViewDelegate, AnswerS
         return quiz?.answers ?? []
     }
 
+    // MARK: Answer Selection Setup
+    private weak var answerSelectionViewController: AnswerSelectionViewController? {
+        willSet {
+            newValue?.delegate = self
+            newValue?.dataSource = self
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.terminus as? AnswerSelectionViewController,
+            segue.identifier == Identifier.ShowAnswersSegue {
+            answerSelectionViewController = vc
+        }
+    }
+
+    // MARK: Answer Selection Delegate
     func didSelectAnswer(withID: Int, isCorrect: Bool) {
         if isCorrect {
             snackBar.dismiss()
@@ -59,30 +85,8 @@ class QuizViewController: UIViewController, AnswerSelectionViewDelegate, AnswerS
         }
     }
 
-    private func updateQuestion() {
-        DispatchQueue.main.async { [weak self] in
-            if let this = self {
-                this.question?.text = this.quiz?.question ?? Identifier.NoQuizSelected
-                this.showSnackBar(message: this.question?.text, in: this.image)
-                if let url = URL(dmvImageName: this.quiz?.image) {
-                    this.image?.kf.setImage(with: url, placeholder: dmvLogo)
-                }
-            }
-        }
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-        navigationItem.leftItemsSupplementBackButton = true
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.terminus as? AnswerSelectionViewController,
-            segue.identifier == Identifier.ShowAnswersSegue {
-            answerSelectionViewController = vc
-        }
-    }
+    // MARK: Zoom
+    var snackBar = TTGSnackbar()
 
     @IBAction func didTap(_ sender: UITapGestureRecognizer) {
         snackBar.dismiss()

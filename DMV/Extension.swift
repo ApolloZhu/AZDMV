@@ -9,6 +9,12 @@
 import UIKit
 import TTGSnackbar
 
+// MARK: Convenient Global Variables
+let dmvLogo = UIImage(named: "dmvLogo.png")
+let quizSet = QuizSet.shared
+let manual = Manual.shared
+
+// MARK: Extensions
 extension UIStoryboardSegue {
     var terminus: UIViewController {
         return (destination as? UINavigationController)?.visibleViewController ?? destination
@@ -30,8 +36,6 @@ extension UIControlState {
         return UIControlState()
     }
 }
-
-let dmvLogo = UIImage(named: "dmvLogo.png")
 
 public protocol TTGSnackbarPresenter: class {
     var snackBar: TTGSnackbar { get set }

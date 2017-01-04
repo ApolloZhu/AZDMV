@@ -75,11 +75,9 @@
 			isa = PBXGroup;
 			children = (
 				525FBFC91E0BCBB0009BE702 /* LaunchScreen.storyboard */,
-				525FBFBF1E0BA3BA009BE702 /* dmvLogo.png */,
 				5299DE231E0B120F00DC56B1 /* AppDelegate.swift */,
 				5299DE2A1E0B120F00DC56B1 /* Assets.xcassets */,
 				5299DE2F1E0B120F00DC56B1 /* Info.plist */,
-				520A57711E0B48630000BCB6 /* icomoon.ttf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -87,6 +85,7 @@
 		520A57751E0B52670000BCB6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				520A57731E0B4D010000BCB6 /* Identifier.swift */,
 				52E7E4BD1E0B91CC00AD3484 /* Manual */,
 				520A57781E0B59790000BCB6 /* Quiz */,
 			);
@@ -100,6 +99,27 @@
 				527E21581E0B9E7600543D03 /* quiz.json */,
 			);
 			name = Quiz;
+			sourceTree = "<group>";
+		};
+		529371201E1CC04E00F9F74A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				520A575E1E0B3F960000BCB6 /* EntryTableViewController.swift */,
+				52DF982D1E0B9A0A00725DB6 /* QuestionListViewController.swift */,
+				525FBFC71E0BB675009BE702 /* QuizViewController.swift */,
+				521B0D3B1E0C54BF00C7A801 /* AnswerSelectionViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		529371211E1CC05500F9F74A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				525FBFBF1E0BA3BA009BE702 /* dmvLogo.png */,
+				520A57711E0B48630000BCB6 /* icomoon.ttf */,
+				5299DE271E0B120F00DC56B1 /* Main.storyboard */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		5299DE171E0B120E00DC56B1 = {
@@ -123,13 +143,9 @@
 		5299DE221E0B120F00DC56B1 /* DMV */ = {
 			isa = PBXGroup;
 			children = (
-				5299DE271E0B120F00DC56B1 /* Main.storyboard */,
-				520A575E1E0B3F960000BCB6 /* EntryTableViewController.swift */,
-				52DF982D1E0B9A0A00725DB6 /* QuestionListViewController.swift */,
-				525FBFC71E0BB675009BE702 /* QuizViewController.swift */,
-				521B0D3B1E0C54BF00C7A801 /* AnswerSelectionViewController.swift */,
-				520A57731E0B4D010000BCB6 /* Identifier.swift */,
 				52E7E4BB1E0B7A4900AD3484 /* Extension.swift */,
+				529371211E1CC05500F9F74A /* View */,
+				529371201E1CC04E00F9F74A /* Controller */,
 				520A57751E0B52670000BCB6 /* Model */,
 				520A576C1E0B407F0000BCB6 /* Supporting Files */,
 			);

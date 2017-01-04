@@ -8,24 +8,30 @@
 
 import SwiftyJSON
 
-let manual = Manual.shared
 open class Manual {
     public static let shared = Manual()
 
-    private var contents: JSON
+    private var _contents: JSON
     private(set) public var sections = [String]()
-    private var noQuiz = [String]()
     private(set) public var subsections = [[SubSection]]()
+    fileprivate var _noQuiz = [String]()
 
     private init(){
-        contents = JSON(data: try! Data(contentsOf: Bundle.main.url(forResource: "manual", withExtension: "json")!))
-        noQuiz.append(contentsOf: contents[2]["manualData"][0]["noQuiz"].arrayObject as! [String])
-        for i in 0..<contents[2]["manualData"][0]["totalSections"].intValue {
-            let section = contents[2]["manualData"][0]["sections"][i]
+        _contents = JSON(data: try! Data(contentsOf: Bundle.main.url(forResource: "manual", withExtension: "json")!))
+        // Subsections without quiz
+        _noQuiz.append(contentsOf: _contents[2]["manualData"][0]["noQuiz"].arrayObject as! [String])
+        // For all sections
+        for i in 0..<_contents[2]["manualData"][0]["totalSections"].intValue {
+            // Get section JSON data
+            let section = _contents[2]["manualData"][0]["sections"][i]
+            // Get section title with image(icon in font)
             sections.append("\(symbol(named: section["symbol"].stringValue)) \(section["sectionTitle"])")
         }
+        // For each section
         for i in 1...sections.count {
-            let subCount = contents.filter { (_, json) in json["section"].intValue == i }.count
+            // Count subsections
+            let subCount = _contents.filter { (_, json) in json["section"].intValue == i }.count
+            // Add subsection data in ascending order
             subsections.append((1...subCount).map{ subSection($0, ofSection: i)! })
         }
     }
@@ -43,18 +49,17 @@ open class Manual {
         }
     }
 
-    private func subSection(_ id: Int, ofSection sectionID: Int) -> SubSection? {
-        for (_, subJSON) in contents {
+    private func subSection(_ subSectionID: Int, ofSection sectionID: Int) -> SubSection? {
+        for (_, subJSON) in _contents {
             let section = subJSON["section"].intValue
             let subSection = subJSON["subSectionID"].intValue
-            if section == sectionID && subSection == id {
+            if section == sectionID && subSection == subSectionID {
                 return SubSection(
                     title: subJSON["subSectionTitle"].stringValue,
                     content: subJSON["copy"].stringValue,
-                    section: sectionID,
-                    subSection: id,
-                    updateTime: subJSON["update"].stringValue,
-                    hasQuiz: !noQuiz.contains("\(sectionID).\(id)")
+                    sectionID: sectionID,
+                    subSectionID: subSectionID,
+                    updateTime: subJSON["update"].stringValue
                 )
             }
         }
@@ -69,21 +74,14 @@ extension Manual: CustomStringConvertible {
 }
 
 extension Manual {
-    open class SubSection {
-        open let title: String // subSectionTitle
-        open let content: String // copy
-        open let sectionID: Int // section
-        open let subSectionID: Int // subSectionID
-        open let updateTime: String // update
-        open let hasQuiz: Bool // calculated
-
-        init(title: String, content: String, section: Int, subSection: Int, updateTime: String, hasQuiz: Bool = true) {
-            self.title = title
-            self.content = content
-            self.sectionID = section
-            self.subSectionID = subSection
-            self.updateTime = updateTime
-            self.hasQuiz = hasQuiz
+    public struct SubSection {
+        public let title: String
+        public let content: String
+        public let sectionID: Int
+        public let subSectionID: Int
+        public let updateTime: String
+        public var hasQuiz: Bool {
+            return !Manual.shared._noQuiz.contains("\(sectionID).\(subSectionID)")
         }
     }
 }

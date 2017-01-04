@@ -9,6 +9,8 @@
 import UIKit
 
 class QuestionListViewController: UITableViewController {
+
+    // MARK: Data
     private var sectionID = 0
     private var subSectionID = 0
     private var ids = [Int]()
@@ -19,6 +21,7 @@ class QuestionListViewController: UITableViewController {
         ids = quizSet.allQuizIDsIn(section: sectionID, subSection: subSectionID)
     }
 
+    // MARK: Table View
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ids.count
     }
@@ -33,6 +36,7 @@ class QuestionListViewController: UITableViewController {
         return cell
     }
 
+    // MARK: Navigation
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: Identifier.ShowQuizSegue, sender: nil)
     }

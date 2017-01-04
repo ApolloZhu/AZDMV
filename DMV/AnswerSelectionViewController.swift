@@ -22,13 +22,28 @@ protocol AnswerSelectionViewDelegate: class {
 }
 
 class AnswerSelectionViewController: UIViewController, TTGSnackbarPresenter {
-    // MARK: Fields
+    // MARK: UI
     @IBOutlet private weak var a: UIButton!
     @IBOutlet private weak var b: UIButton!
     @IBOutlet private weak var c: UIButton!
     @IBOutlet private weak var d: UIButton!
     private var buttons: [UIButton?] { return [a,b,c,d] }
 
+    @IBAction func didSelect(_ button: UIButton) {
+        let isCorrect = button.tag == correctButtonID
+        if isCorrect {
+            buttons.forEach { if $0?.isHidden == false { $0?.isEnabled = false } }
+            button.backgroundColor = dataSource?.colorCorrect ?? .green
+        } else {
+            button.isEnabled = false
+            button.backgroundColor = dataSource?.colorCorrect ?? .red
+        }
+        button.setTitleColor(dataSource?.colorSelected ?? .white, for: .disabled)
+        delegate?.didSelectAnswer(withID: button.tag, isCorrect: isCorrect)
+        snackBar.dismiss()
+    }
+
+    // MARK: Data
     private var correctButtonID: Int? {
         if let id = dataSource?.correctID {
             switch id {
@@ -46,7 +61,6 @@ class AnswerSelectionViewController: UIViewController, TTGSnackbarPresenter {
         didSet { reloadData() }
     }
 
-    // MARK: Data loading
     override func viewDidLoad() {
         super.viewDidLoad()
         reloadData()
@@ -77,31 +91,19 @@ class AnswerSelectionViewController: UIViewController, TTGSnackbarPresenter {
         }
     }
 
-    // MARK: Answer Selection
-    @IBAction func didSelect(_ button: UIButton) {
-        let isCorrect = button.tag == correctButtonID
-        if isCorrect {
-            buttons.forEach { if $0?.isHidden == false { $0?.isEnabled = false } }
-            button.backgroundColor = dataSource?.colorCorrect ?? .green
-        } else {
-            button.isEnabled = false
-            button.backgroundColor = dataSource?.colorCorrect ?? .red
-        }
-        button.setTitleColor(dataSource?.colorSelected ?? .white, for: .disabled)
-        delegate?.didSelectAnswer(withID: button.tag, isCorrect: isCorrect)
-        snackBar.dismiss()
-    }
-
-    // MARK: Trigger Preview
+    // MARK: Zoom
     private weak var buttonWithTouchOnTop: UIButton? = nil
     var snackBar =  TTGSnackbar()
     @IBAction func didPress(_ sender: UILongPressGestureRecognizer) {
         switch sender.state {
         case .began, .changed:
-            let loc = sender.location(in: view)
+            let touchLocation = sender.location(in: view)
             for button in buttons {
                 if let button = button {
-                    if button.isEnabled && button.frame.contains(loc) && buttonWithTouchOnTop != button {
+                    if  button.isEnabled &&
+                        button.frame.contains(touchLocation) &&
+                        buttonWithTouchOnTop != button
+                    {
                         buttonWithTouchOnTop = button
                         showSnackBar(message: button.currentTitle, in: view)
                     }

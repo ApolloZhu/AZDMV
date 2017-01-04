@@ -10,12 +10,18 @@ import UIKit
 
 class EntryTableViewController: UITableViewController, UISplitViewControllerDelegate {
 
+    // MARK: Split View
     override func viewDidLoad() {
         super.viewDidLoad()
         splitViewController?.delegate = self
         splitViewController?.preferredDisplayMode = .allVisible
     }
 
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        return true
+    }
+
+    // MARK: Table View
     private func subSectionAtIndexPath(_ indexPath: IndexPath) -> Manual.SubSection {
         return manual.subsections[indexPath.section][indexPath.row]
     }
@@ -46,6 +52,7 @@ class EntryTableViewController: UITableViewController, UISplitViewControllerDele
         return cell
     }
 
+    // MARK: Navigation
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if subSectionAtIndexPath(indexPath).hasQuiz {
             performSegue(withIdentifier: Identifier.ShowQuestionListSegue, sender: nil)
@@ -57,10 +64,6 @@ class EntryTableViewController: UITableViewController, UISplitViewControllerDele
             let vc = segue.terminus as? QuestionListViewController {
             vc.setup(tableView.indexPathForSelectedRow!)
         }
-    }
-
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
-        return true
     }
     
 }

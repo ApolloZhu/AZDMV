@@ -8,18 +8,17 @@
 
 import SwiftyJSON
 
-let quizSet = QuizSet.shared
 open class QuizSet {
     public static let shared = QuizSet()
-    private var quizzes: JSON
+    private var _quizzes: JSON
 
     private init(){
-        quizzes = JSON(data: try! Data(contentsOf: Bundle.main.url(forResource: "quiz", withExtension: "json")!))
+        _quizzes = JSON(data: try! Data(contentsOf: Bundle.main.url(forResource: "quiz", withExtension: "json")!))
     }
 
     public func allQuizIDsIn(section: Int, subSection: Int) -> [Int] {
         var ids = [Int]()
-        for (_, question) in quizzes {
+        for (_, question) in _quizzes {
             if question["section"].intValue == section && question["subsection"].intValue == subSection {
                 ids.append(question["questionID"].intValue)
             }
@@ -28,7 +27,7 @@ open class QuizSet {
     }
 
     public func quiz(withID id: Int) -> Quiz? {
-        for (_, question) in quizzes {
+        for (_, question) in _quizzes {
             if question["questionID"].intValue == id {
                 let answers =
                     question["answers"]
@@ -40,10 +39,10 @@ open class QuizSet {
 
                 return Quiz(
                     question: question["question"].stringValue,
+                    imageURL: question["images"][0].stringValue,
                     reason: question["feedback"].stringValue,
-                    correctID: question["correctAnswer"].intValue,
-                    answers: answers,
-                    image: question["images"][0].stringValue
+                    correctAnswerID: question["correctAnswer"].intValue,
+                    answers: answers
                 )
             }
         }
@@ -52,18 +51,11 @@ open class QuizSet {
 }
 
 extension QuizSet {
-    open class Quiz {
-        open let question: String
-        open let image: String?
-        open let reason: String
-        open let correctAnswerID: Int
-        open let answers: [String]
-        public init(question: String, reason: String, correctID: Int, answers: [String], image: String? = nil) {
-            self.question = question
-            self.image = image
-            self.reason = reason
-            self.correctAnswerID = correctID
-            self.answers = answers
-        }
+    public struct Quiz {
+        public let question: String
+        public let imageURL: String?
+        public let reason: String
+        public let correctAnswerID: Int
+        public let answers: [String]
     }
 }
