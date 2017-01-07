@@ -37,6 +37,10 @@ extension UIControlState {
     }
 }
 
+extension UIFont {
+    static let system: UIFont = .systemFont(ofSize: systemFontSize)
+}
+
 public protocol TTGSnackbarPresenter: class {
     var snackBar: TTGSnackbar { get set }
 }

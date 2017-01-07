@@ -12,9 +12,13 @@ import TTGSnackbar
 
 class QuizViewController: UIViewController, AnswerSelectionViewDelegate, AnswerSelectionViewDataSource, TTGSnackbarPresenter {
 
-    // MARK: Split View
+    // MARK: UI
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 9.0, *) {
+            question.font = .system
+        } // else using titl2
+        // Split View
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         navigationItem.leftItemsSupplementBackButton = true
     }

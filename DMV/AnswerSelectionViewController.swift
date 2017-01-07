@@ -76,13 +76,9 @@ class AnswerSelectionViewController: UIViewController, TTGSnackbarPresenter {
                         button.isHidden = false
                         button.isEnabled = true
                         button.backgroundColor = .white
-                        button.titleLabel?.numberOfLines = 0
-                        button.titleLabel?.minimumScaleFactor = 0.2
-                        if #available(iOS 10.0, *) {
-                            button.titleLabel?.adjustsFontForContentSizeCategory = true
-                        } else {
-                            button.titleLabel?.adjustsFontSizeToFitWidth = true
-                        }
+                        if #available(iOS 9.0, *) {
+                            button.titleLabel?.font = .system
+                        } // else using title2
                     }
                     (answers.count..<buttons.count).forEach {
                         buttons[$0].isHidden = true

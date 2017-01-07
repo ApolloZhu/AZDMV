@@ -25,12 +25,18 @@ You may notice that answer choices/questions are probably not fitted in the butt
 - [Kingfisher](https://github.com/onevcat/Kingfisher)
 - [TTGSnackbar](https://github.com/zekunyan/TTGSnackbar)
 
+## Test UI
+Traffic Signals (Section 2.1) -> 1010
+Yielding and Roundabouts (Section 3.2) -> 1057
+
 ## TODO 
 
 > Anyone read all the way done here: PLEASE HELP! 
 
 - [x] Quiz
-- [ ] Auto adjust text size! It's not good to ask user to do extra things! (But let's keep this long press mechanism, like a magnifier)
+- [ ] Auto adjust text size
+	- [x] Now everything fits! 
+	- [ ] We need to somehow increase the font size so it is easier to see. (But let's preserve long press to magnify mechanism)
 - [ ] Record how many times correct/total tried
 - [ ] Calculate percentage of a question, a subsection, a section, and overall
 - [ ] Notice that there is an attribute called `category` having two possible values: `Sign` and `Safety`, how about some statistics?
