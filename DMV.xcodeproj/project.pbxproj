@@ -194,6 +194,7 @@
 				5299DE1E1E0B120E00DC56B1 /* Resources */,
 				D6EF30DF76E592C59CB4DD32 /* [CP] Embed Pods Frameworks */,
 				2281E84BC7DD7BDD925D3621 /* [CP] Copy Pods Resources */,
+				52CC5E841E2177EE00747920 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -271,6 +272,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DMV/Pods-DMV-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		52CC5E841E2177EE00747920 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
 		};
 		775B654B4363E43B9FD1A157 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
