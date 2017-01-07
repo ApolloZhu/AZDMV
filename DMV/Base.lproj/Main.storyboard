@@ -104,7 +104,7 @@
         <scene sceneID="rVd-hp-0uG">
             <objects>
                 <navigationController id="2Zn-EQ-oyp" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OpU-MH-3qW">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="OpU-MH-3qW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -134,7 +134,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="do8-2l-Qnl" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fOW-lM-PTl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="fOW-lM-PTl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -299,10 +299,10 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="a" destination="oO2-zx-B8q" id="TZe-M2-Q5r"/>
-                        <outlet property="b" destination="EqR-zd-eQZ" id="pAo-hL-fr0"/>
-                        <outlet property="c" destination="gwt-YF-zxb" id="EKd-tt-7IO"/>
-                        <outlet property="d" destination="RtK-V5-VAh" id="rbo-VP-ERG"/>
+                        <outletCollection property="buttons" destination="oO2-zx-B8q" collectionClass="NSMutableArray" id="eri-Z0-M81"/>
+                        <outletCollection property="buttons" destination="EqR-zd-eQZ" collectionClass="NSMutableArray" id="aYp-Hg-ZdN"/>
+                        <outletCollection property="buttons" destination="gwt-YF-zxb" collectionClass="NSMutableArray" id="vUz-sW-gaZ"/>
+                        <outletCollection property="buttons" destination="RtK-V5-VAh" collectionClass="NSMutableArray" id="cG6-xV-iB2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Tl-vN-6BB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -316,6 +316,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4Ye-gT-yam"/>
+        <segue reference="NIt-7A-Im5"/>
     </inferredMetricsTieBreakers>
 </document>
