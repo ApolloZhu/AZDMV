@@ -3,21 +3,36 @@
 I have no relationship with Virginia Department of Motor Vehicles (DMV). All information might be outdated, so please refer to the following links for accurate information:
 
 - Data Provider: [Driver's Study Guide](https://www.dmv.virginia.gov/dmv-manuals/#/sections/manual/1)
-- Logo Borrowed From: [DMV Website](https://www.dmv.virginia.gov/#/)
+- Logo/Photos Borrowed From: [DMV Website](https://www.dmv.virginia.gov/#/)
 
-The reason why the informations are outdated is because the app is powered by JSON data I manually added to the project. The way I got the data is by looking into session data of the website and found `manualQuiz` and `manual`. 
+The reason why the informations are outdated is because the app is powered by JSON file I manually added to the project. The way I got the data is by looking into session data of the website and found `manualQuiz` and `manual`. 
 
 > Apollo, 2016/12/22, preparing for DMV test
 
+> UPDATE: I got ALL correct on the exam!
+
 ---
 
-# DMV
+# DMV A-Z
 
-An app you can use to practice for Virginia DMV tests written in Swift 3 under MIT license.
+An app you can use to practice for (Virginia) DMV tests
 
-## How to use?
+## Tips of Usage
 
-You may notice that answer choices/questions are probably not fitted in the button/label and ends with `...`. To view the whole answer/question, long press on them!
+You may notice that answer choices/questions are too small to see. Long press on it and you'll get a pop up!
+
+Generally you should read the driver's manual carefully, and practice all the problems. But here are a few problems that people I know got wrong
+
+- 3.7 Backing and Parking, 1121
+- 3.8 Dangerous Driving Behaviors, 1143
+
+---
+
+# For Developers
+
+This app is written in Swift 3, under MIT license.
+
+Run `pod install` before opening the `DMV.xcworkspace` file
 
 ## Dependencies
 
@@ -26,8 +41,9 @@ You may notice that answer choices/questions are probably not fitted in the butt
 - [TTGSnackbar](https://github.com/zekunyan/TTGSnackbar)
 
 ## Test UI
-Traffic Signals (Section 2.1) -> 1010
-Yielding and Roundabouts (Section 3.2) -> 1057
+
+- 2.1 Traffic Signals, 1010
+- 3.2 Yielding and Roundabouts, 1057
 
 ## TODO 
 
