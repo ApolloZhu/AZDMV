@@ -31,14 +31,13 @@ extension URL {
     }
 }
 
-extension UIControlState {
-    public static var all: UIControlState {
-        return UIControlState()
-    }
+extension UIFont {
+    static let system = UIFont.systemFont(ofSize: systemFontSize)
 }
 
-extension UIFont {
-    static let system: UIFont = .systemFont(ofSize: systemFontSize)
+extension UIColor {
+    static let positive = UIColor(red: 0, green: 0.5, blue: 0.5, alpha: 1)
+    static let negative = UIColor(red: 0.4, green: 0, blue: 0, alpha: 1)
 }
 
 public protocol TTGSnackbarPresenter: class {

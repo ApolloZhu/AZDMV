@@ -18,7 +18,7 @@ class QuestionListViewController: UITableViewController {
     open func setup(_ indexPath: IndexPath) {
         sectionID = indexPath.section + 1
         subSectionID = indexPath.row + 1
-        ids = quizSet.allQuizIDsIn(section: sectionID, subSection: subSectionID)
+        ids = quizSet.allQuizIDsIn(section: sectionID, subSection: subSectionID).sorted()
     }
 
     // MARK: Table View
@@ -32,7 +32,9 @@ class QuestionListViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.NormalReusableTableViewCell, for: indexPath)
-        cell.textLabel?.text = "\(ids[indexPath.row])"
+        let id = ids[indexPath.row]
+        cell.textLabel?.text = "\(id)"
+        cell.detailTextLabel?.text = quizSet.quizQuestion(withID: id)
         return cell
     }
 

@@ -26,24 +26,39 @@ open class QuizSet {
         return ids
     }
 
+    public func quizQuestion(withID id: Int) -> String? {
+        if let question = quizJSON(withID: id) {
+            return question["question"].stringValue
+        }
+        return nil
+    }
+
     public func quiz(withID id: Int) -> Quiz? {
+        if let quiz = quizJSON(withID: id) {
+            let answers =
+                quiz["answers"]
+                    .map {
+                        return $0.1["text"]
+                            .stringValue
+                            .trimmingCharacters(in: .whitespaces)
+                    }.filter { return !$0.isEmpty }
+
+            return Quiz(
+                question: quiz["question"].stringValue,
+                imageURL: quiz["images"][0].stringValue,
+                reason: quiz["feedback"].stringValue,
+                correctAnswerID: quiz["correctAnswer"].intValue,
+                answers: answers
+            )
+        }
+        return nil
+
+    }
+
+    private func quizJSON(withID id: Int) -> JSON? {
         for (_, question) in _quizzes {
             if question["questionID"].intValue == id {
-                let answers =
-                    question["answers"]
-                        .map {
-                            return $0.1["text"]
-                                .stringValue
-                                .trimmingCharacters(in: .whitespaces)
-                        }.filter { return !$0.isEmpty }
-
-                return Quiz(
-                    question: question["question"].stringValue,
-                    imageURL: question["images"][0].stringValue,
-                    reason: question["feedback"].stringValue,
-                    correctAnswerID: question["correctAnswer"].intValue,
-                    answers: answers
-                )
+                return question
             }
         }
         return nil

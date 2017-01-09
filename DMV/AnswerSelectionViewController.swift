@@ -29,10 +29,10 @@ class AnswerSelectionViewController: UIViewController, TTGSnackbarPresenter {
         let isCorrect = button.tag == correctButtonID
         if isCorrect {
             buttons!.forEach { if $0.isHidden == false { $0.isEnabled = false } }
-            button.backgroundColor = dataSource?.colorCorrect ?? .green
+            button.backgroundColor = dataSource?.colorCorrect ?? .positive
         } else {
             button.isEnabled = false
-            button.backgroundColor = dataSource?.colorCorrect ?? .red
+            button.backgroundColor = dataSource?.colorCorrect ?? .negative
         }
         button.setTitleColor(dataSource?.colorSelected ?? .white, for: .disabled)
         delegate?.didSelectAnswer(withID: button.tag, isCorrect: isCorrect)
@@ -72,7 +72,7 @@ class AnswerSelectionViewController: UIViewController, TTGSnackbarPresenter {
                 {
                     (0..<answers.count).forEach {
                         let button = buttons[$0]
-                        button.setTitle(answers[$0], for: .all)
+                        button.setTitle(answers[$0], for: .normal)
                         button.isHidden = false
                         button.isEnabled = true
                         button.backgroundColor = .white

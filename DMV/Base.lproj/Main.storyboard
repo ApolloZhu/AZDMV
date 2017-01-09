@@ -78,12 +78,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Has Quiz" id="gAA-EG-dlk">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Has Quiz" textLabel="bUB-vF-qgN" detailTextLabel="iAZ-lH-a3K" style="IBUITableViewCellStyleSubtitle" id="gAA-EG-dlk">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gAA-EG-dlk" id="oFN-fL-TcG">
                                     <rect key="frame" x="0.0" y="0.0" width="381" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bUB-vF-qgN">
+                                            <rect key="frame" x="15" y="5" width="33.333333333333336" height="20.333333333333332"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iAZ-lH-a3K">
+                                            <rect key="frame" x="15" y="25.333333333333332" width="32.666666666666664" height="14.333333333333334"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -104,7 +120,7 @@
         <scene sceneID="rVd-hp-0uG">
             <objects>
                 <navigationController id="2Zn-EQ-oyp" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="OpU-MH-3qW">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OpU-MH-3qW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -134,7 +150,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="do8-2l-Qnl" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="fOW-lM-PTl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fOW-lM-PTl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -232,7 +248,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="oO2-zx-B8q">
-                                <rect key="frame" x="24" y="8" width="167.33333333333334" height="110.33333333333333"/>
+                                <rect key="frame" x="16" y="8" width="167.33333333333334" height="110.33333333333333"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
@@ -242,7 +258,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="EqR-zd-eQZ">
-                                <rect key="frame" x="199.33333333333337" y="8" width="166.66666666666663" height="110.33333333333333"/>
+                                <rect key="frame" x="191.33333333333337" y="8" width="166.66666666666663" height="110.33333333333333"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
@@ -252,7 +268,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="gwt-YF-zxb">
-                                <rect key="frame" x="24" y="126.33333333333331" width="167.33333333333334" height="109.66666666666669"/>
+                                <rect key="frame" x="16" y="126.33333333333331" width="167.33333333333334" height="109.66666666666669"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
@@ -262,7 +278,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="RtK-V5-VAh">
-                                <rect key="frame" x="199.33333333333337" y="126.33333333333331" width="166.66666666666663" height="109.66666666666669"/>
+                                <rect key="frame" x="191.33333333333337" y="126.33333333333331" width="166.66666666666663" height="109.66666666666669"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
@@ -275,23 +291,23 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="EqR-zd-eQZ" firstAttribute="trailing" secondItem="dyG-iB-Bog" secondAttribute="trailingMargin" constant="8" id="5Fd-2u-Rfp"/>
+                            <constraint firstItem="EqR-zd-eQZ" firstAttribute="trailing" secondItem="dyG-iB-Bog" secondAttribute="trailingMargin" id="5Fd-2u-Rfp"/>
                             <constraint firstItem="RtK-V5-VAh" firstAttribute="leading" secondItem="gwt-YF-zxb" secondAttribute="trailing" constant="8" id="7Gs-iJ-ffB"/>
                             <constraint firstAttribute="bottomMargin" secondItem="gwt-YF-zxb" secondAttribute="bottom" constant="8" id="9Wl-tB-Rvw"/>
                             <constraint firstItem="EqR-zd-eQZ" firstAttribute="top" secondItem="dyG-iB-Bog" secondAttribute="topMargin" constant="8" id="BxN-d1-iEW"/>
                             <constraint firstItem="EqR-zd-eQZ" firstAttribute="leading" secondItem="oO2-zx-B8q" secondAttribute="trailing" constant="8" id="F2Q-AJ-EcX"/>
                             <constraint firstAttribute="bottomMargin" secondItem="RtK-V5-VAh" secondAttribute="bottom" constant="8" id="H0z-mj-hek"/>
                             <constraint firstItem="gwt-YF-zxb" firstAttribute="height" secondItem="oO2-zx-B8q" secondAttribute="height" id="HPb-IY-Egb"/>
-                            <constraint firstItem="gwt-YF-zxb" firstAttribute="leading" secondItem="dyG-iB-Bog" secondAttribute="leadingMargin" constant="8" id="T4I-3k-Npb"/>
+                            <constraint firstItem="gwt-YF-zxb" firstAttribute="leading" secondItem="dyG-iB-Bog" secondAttribute="leadingMargin" id="T4I-3k-Npb"/>
                             <constraint firstItem="gwt-YF-zxb" firstAttribute="width" secondItem="oO2-zx-B8q" secondAttribute="width" id="YAs-A9-yL6"/>
                             <constraint firstItem="RtK-V5-VAh" firstAttribute="top" secondItem="EqR-zd-eQZ" secondAttribute="bottom" constant="8" id="ZeX-3J-Dec"/>
-                            <constraint firstItem="RtK-V5-VAh" firstAttribute="trailing" secondItem="dyG-iB-Bog" secondAttribute="trailingMargin" constant="8" id="cTL-JF-DFF"/>
+                            <constraint firstItem="RtK-V5-VAh" firstAttribute="trailing" secondItem="dyG-iB-Bog" secondAttribute="trailingMargin" id="cTL-JF-DFF"/>
                             <constraint firstItem="RtK-V5-VAh" firstAttribute="width" secondItem="oO2-zx-B8q" secondAttribute="width" id="cjY-IS-cB4"/>
                             <constraint firstItem="EqR-zd-eQZ" firstAttribute="width" secondItem="oO2-zx-B8q" secondAttribute="width" id="evI-wZ-a7J"/>
                             <constraint firstItem="oO2-zx-B8q" firstAttribute="top" secondItem="dyG-iB-Bog" secondAttribute="topMargin" constant="8" id="lUJ-1V-BIh"/>
                             <constraint firstItem="gwt-YF-zxb" firstAttribute="top" secondItem="oO2-zx-B8q" secondAttribute="bottom" constant="8" id="mkR-KL-nJV"/>
                             <constraint firstItem="EqR-zd-eQZ" firstAttribute="height" secondItem="oO2-zx-B8q" secondAttribute="height" id="nYT-4l-204"/>
-                            <constraint firstItem="oO2-zx-B8q" firstAttribute="leading" secondItem="dyG-iB-Bog" secondAttribute="leadingMargin" constant="8" id="pX8-La-lev"/>
+                            <constraint firstItem="oO2-zx-B8q" firstAttribute="leading" secondItem="dyG-iB-Bog" secondAttribute="leadingMargin" id="pX8-La-lev"/>
                             <constraint firstItem="RtK-V5-VAh" firstAttribute="height" secondItem="oO2-zx-B8q" secondAttribute="height" id="q4L-Zp-l85"/>
                         </constraints>
                         <connections>

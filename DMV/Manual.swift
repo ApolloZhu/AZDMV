@@ -12,6 +12,16 @@ open class Manual {
     public static let shared = Manual()
     private init(){}
 
+    private lazy var symbol: [String:String] = [
+        "edit": "\u{f044}",
+        "signIcon": "\u{e606}",
+        "steeringWheel": "\u{e603}",
+        "seatBelt": "\u{e607}",
+        "exclamation-circle": "\u{f06a}",
+        "license": "\u{e611}",
+        "info" : "\u{f129}"
+    ]
+
     private lazy var _contents: JSON = {
         return JSON(data: try! Data(contentsOf: Bundle.main.url(forResource: "manual", withExtension: "json")!))
     }()
@@ -22,7 +32,7 @@ open class Manual {
             // Get section JSON data
             let section = self._contents[2]["manualData"][0]["sections"][i]
             // Get section title with image(icon in font)
-            secs.append("\(self.symbol(named: section["symbol"].stringValue)) \(section["sectionTitle"])")
+            secs.append("\(self.symbol[section["symbol"].stringValue] ?? "") \(section["sectionTitle"])")
         }
         return secs
     }()
@@ -41,19 +51,6 @@ open class Manual {
         // Subsections without quiz
         return self._contents[2]["manualData"][0]["noQuiz"].arrayObject as! [String]
     }()
-
-    private func symbol(named name: String) -> String {
-        switch name {
-        case "edit": return "\u{f044}"
-        case "signIcon": return "\u{e606}"
-        case "steeringWheel": return "\u{e603}"
-        case "seatBelt": return "\u{e607}"
-        case "exclamation-circle": return "\u{f06a}"
-        case "license": return "\u{e611}"
-        case "info": return "\u{f129}"
-        default: return ""
-        }
-    }
 
     private func subSection(_ subSectionID: Int, ofSection sectionID: Int) -> SubSection? {
         for (_, subJSON) in _contents {
