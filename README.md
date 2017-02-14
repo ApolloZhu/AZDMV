@@ -17,6 +17,8 @@ The reason why the informations are outdated is because the app is powered by JS
 
 An app you can use to practice for (Virginia) DMV tests
 
+[![Download on the App Store](https://devimages.apple.com.edgekey.net/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg)](https://itunes.apple.com/us/app/azdmv/id1193281712)
+
 ## Tips of Usage
 
 You may notice that answer choices/questions are too small to see. Long press on it and you'll get a pop up!
@@ -25,6 +27,8 @@ Generally you should read the driver's manual carefully, and practice all the pr
 
 - 3.7 Backing and Parking, 1121
 - 3.8 Dangerous Driving Behaviors, 1143
+
+BTW, a kahoot game we used in Drivers Education as a review: [Driver Education Review by NSWalsh](https://play.kahoot.it/#/k/5e087226-a672-426e-b561-59f7d9f237ef/intro)
 
 ---
 
