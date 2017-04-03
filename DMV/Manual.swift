@@ -41,9 +41,9 @@ open class Manual {
         // For each section
         for i in 1...self.sections.count {
             // Count subsections
-            let subCount = self._contents.filter { (_, json) in json["section"].intValue == i }.count
+            let subCount = self._contents.lazy.filter { (_, json) in json["section"].intValue == i }.count
             // Add subsection data in ascending order
-            subsecs.append((1...subCount).map{ self.subSection($0, ofSection: i)! })
+            subsecs.append((1...subCount).lazy.map { self.subSection($0, ofSection: i)! })
         }
         return subsecs
     }()
@@ -53,7 +53,7 @@ open class Manual {
     }()
 
     private func subSection(_ subSectionID: Int, ofSection sectionID: Int) -> SubSection? {
-        for (_, subJSON) in _contents {
+        for (_, subJSON) in _contents.lazy {
             let section = subJSON["section"].intValue
             let subSection = subJSON["subSectionID"].intValue
             if section == sectionID && subSection == subSectionID {
@@ -72,7 +72,7 @@ open class Manual {
 
 extension Manual: CustomStringConvertible {
     public var description: String {
-        return "Virginia DMV Driver's Manual"
+        return NSLocalizedString("Virginia DMV Driver's Manual", comment: "Name for the driver's manual in VA, US")
     }
 }
 

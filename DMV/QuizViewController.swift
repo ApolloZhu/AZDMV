@@ -15,9 +15,6 @@ class QuizViewController: UIViewController, AnswerSelectionViewDelegate, AnswerS
     // MARK: UI
     override func viewDidLoad() {
         super.viewDidLoad()
-        if #available(iOS 9.0, *) {
-            question.font = .system
-        } // else using titl2
         // Split View
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         navigationItem.leftItemsSupplementBackButton = true
@@ -44,13 +41,14 @@ class QuizViewController: UIViewController, AnswerSelectionViewDelegate, AnswerS
 
     private func updateQuestion() {
         DispatchQueue.main.async { [weak self] in
-            if let this = self {
-                this.question?.text = this.quiz?.question ?? Identifier.NoQuizSelected
-                this.showSnackBar(message: this.question?.text, in: this.image)
-                if let url = URL(dmvImageName: this.quiz?.imageURL) {
-                    this.image?.kf.setImage(with: url, placeholder: dmvLogo)
-                }
+            guard let this = self else { return }
+            let text = this.quiz?.question ?? Localized.NoQuizSelected
+            this.showSnackBar(message: text, in: this.image)
+            if let url = URL(dmvImageName: this.quiz?.imageURL) {
+                this.image?.kf.setImage(with: url, placeholder: dmvLogo)
             }
+            this.question.text = text
+            this.question.fit(in: this.question)
         }
     }
 
@@ -66,6 +64,8 @@ class QuizViewController: UIViewController, AnswerSelectionViewDelegate, AnswerS
     // MARK: Answer Selection Setup
     private weak var answerSelectionViewController: AnswerSelectionViewController? {
         willSet {
+            answerSelectionViewController?.delegate = nil
+            answerSelectionViewController?.dataSource = nil
             newValue?.delegate = self
             newValue?.dataSource = self
         }
@@ -83,7 +83,8 @@ class QuizViewController: UIViewController, AnswerSelectionViewDelegate, AnswerS
         if isCorrect {
             snackBar.dismiss()
             question.text = "Correct!\n\(quiz!.reason)"
-            showSnackBar(message: question?.text, in: image)
+            question.fit(in: question)
+            showSnackBar(message: question.text, in: image)
         } else {
             showSnackBar(message: quiz?.reason, in: image)
         }

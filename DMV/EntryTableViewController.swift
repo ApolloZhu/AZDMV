@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import TTGSnackbar
 
-class EntryTableViewController: UITableViewController, UISplitViewControllerDelegate {
+class EntryTableViewController: UITableViewController, UISplitViewControllerDelegate, TTGSnackbarPresenter {
 
     // MARK: Split View
     override func viewDidLoad() {
@@ -53,9 +54,12 @@ class EntryTableViewController: UITableViewController, UISplitViewControllerDele
     }
 
     // MARK: Navigation
+    lazy var snackBar = TTGSnackbar()
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if subSectionAtIndexPath(indexPath).hasQuiz {
             performSegue(withIdentifier: Identifier.ShowQuestionListSegue, sender: nil)
+        } else {
+            showSnackBar(message: Localized.NoQuizForSection)
         }
     }
 

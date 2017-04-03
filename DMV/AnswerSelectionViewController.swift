@@ -24,7 +24,7 @@ protocol AnswerSelectionViewDelegate: class {
 class AnswerSelectionViewController: UIViewController, TTGSnackbarPresenter {
     // MARK: UI
     @IBOutlet var buttons: [UIButton]?
-    
+
     @IBAction func didSelect(_ button: UIButton) {
         let isCorrect = button.tag == correctButtonID
         if isCorrect {
@@ -38,7 +38,7 @@ class AnswerSelectionViewController: UIViewController, TTGSnackbarPresenter {
         delegate?.didSelectAnswer(withID: button.tag, isCorrect: isCorrect)
         snackBar.dismiss()
     }
-    
+
     // MARK: Data
     private var correctButtonID: Int? {
         if let id = dataSource?.correctID {
@@ -51,17 +51,17 @@ class AnswerSelectionViewController: UIViewController, TTGSnackbarPresenter {
         }
         return nil
     }
-    
+
     public weak var delegate: AnswerSelectionViewDelegate?
     public weak var dataSource: AnswerSelectionViewDataSource? {
         didSet { reloadData() }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         reloadData()
     }
-    
+
     public func reloadData() {
         DispatchQueue.main.async { [weak self] in
             if let this = self {
@@ -76,9 +76,6 @@ class AnswerSelectionViewController: UIViewController, TTGSnackbarPresenter {
                         button.isHidden = false
                         button.isEnabled = true
                         button.backgroundColor = .white
-                        if #available(iOS 9.0, *) {
-                            button.titleLabel?.font = .system
-                        } // else using title2
                     }
                     (answers.count..<buttons.count).forEach {
                         buttons[$0].isHidden = true
@@ -87,7 +84,16 @@ class AnswerSelectionViewController: UIViewController, TTGSnackbarPresenter {
             }
         }
     }
-    
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        guard buttons?.first?.titleLabel?.frame.size != .zero else { return }
+        buttons!.forEach {
+            // lFrame.height > bFrame.height || lFrame.width > bFrame.width {
+            $0.titleLabel!.fit(in: $0)
+        }
+    }
+
     // MARK: Zoom
     private weak var buttonWithTouchOnTop: UIButton? = nil
     var snackBar =  TTGSnackbar()

@@ -18,7 +18,7 @@ open class QuizSet {
 
     public func allQuizIDsIn(section: Int, subSection: Int) -> [Int] {
         var ids = [Int]()
-        for (_, question) in _quizzes {
+        for (_, question) in _quizzes.lazy {
             if question["section"].intValue == section && question["subsection"].intValue == subSection {
                 ids.append(question["questionID"].intValue)
             }
@@ -38,10 +38,10 @@ open class QuizSet {
             let answers =
                 quiz["answers"]
                     .map {
-                        return $0.1["text"]
+                        $0.1["text"]
                             .stringValue
                             .trimmingCharacters(in: .whitespaces)
-                    }.filter { return !$0.isEmpty }
+                    }.filter { !$0.isEmpty }
 
             return Quiz(
                 question: quiz["question"].stringValue,
@@ -56,7 +56,7 @@ open class QuizSet {
     }
 
     private func quizJSON(withID id: Int) -> JSON? {
-        for (_, question) in _quizzes {
+        for (_, question) in _quizzes.lazy {
             if question["questionID"].intValue == id {
                 return question
             }

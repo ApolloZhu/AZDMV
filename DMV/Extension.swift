@@ -23,11 +23,8 @@ extension UIStoryboardSegue {
 
 extension URL {
     init?(dmvImageName name: String?) {
-        if let imageName = name, !imageName.isEmpty {
-            self.init(string: "https://dmvstore.blob.core.windows.net/manuals/images/1/\(imageName)")
-        } else {
-            return nil
-        }
+        guard let imageName = name, !imageName.isEmpty else { return nil }
+        self.init(string: "https://dmvstore.blob.core.windows.net/manuals/images/1/\(imageName)")
     }
 }
 
@@ -40,6 +37,33 @@ extension UIColor {
     static let negative = UIColor(red: 0.4, green: 0, blue: 0, alpha: 1)
 }
 
+extension CGSize {
+    var area: CGFloat {
+        return width * height
+    }
+    func adding(insects: UIEdgeInsets) -> CGSize {
+        return CGSize(width: width + insects.left + insects.right, height: height + insects.top + insects.bottom)
+    }
+}
+
+extension UILabel {
+    func fit(in view: UIView) {
+        guard let text = text else { return }
+        let area = (text as NSString)
+            .size(attributes: [NSFontAttributeName: font])
+            .adding(insects: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))
+            .area
+        let ratio = sqrt(view.bounds.size.area / area)
+        if ratio < 1.1 {
+            font = font.withSize(font.pointSize * ratio)
+        }
+    }
+}
+
+extension String {
+    static let placeholder = "╮(￣▽￣)╭"
+}
+
 public protocol TTGSnackbarPresenter: class {
     var snackBar: TTGSnackbar { get set }
 }
@@ -49,7 +73,7 @@ extension TTGSnackbarPresenter {
         let duration = snackBar.animationDuration
         snackBar.animationDuration = 0
         snackBar.dismiss()
-        snackBar = TTGSnackbar(message: message ?? Identifier.Nothing, duration: .long)
+        snackBar = TTGSnackbar(message: message ?? .placeholder, duration: .long)
         snackBar.animationType = .slideFromTopBackToTop
         snackBar.animationDuration = duration
         snackBar.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
