@@ -33,8 +33,8 @@ class QuestionListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.NormalReusableTableViewCell, for: indexPath)
         let id = ids[indexPath.row]
-        cell.textLabel?.text = "\(id)"
-        cell.detailTextLabel?.text = quizSet.quizQuestion(withID: id)
+        cell.textLabel?.text = quizSet.quizQuestion(withID: id)
+        cell.detailTextLabel?.text = "#\(id)"
         return cell
     }
 
