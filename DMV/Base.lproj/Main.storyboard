@@ -176,23 +176,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="boq-tP-w6a">
-                                <rect key="frame" x="20" y="472" width="374" height="244"/>
+                                <rect key="frame" x="20" y="506.66666666666674" width="374" height="209.33333333333326"/>
                                 <connections>
                                     <segue destination="R9u-Zw-gvf" kind="embed" identifier="To Select Answers" id="gsg-mh-J4O"/>
                                 </connections>
                             </containerView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v4L-QG-TQl">
-                                <rect key="frame" x="20" y="72" width="374" height="192"/>
+                                <rect key="frame" x="20" y="72" width="374" height="209.33333333333331"/>
                             </imageView>
                             <label opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;~ Select Quiz Here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ry0-Ad-StW">
-                                <rect key="frame" x="20" y="272" width="374" height="192"/>
+                                <rect key="frame" x="20" y="289.33333333333331" width="374" height="209.33333333333337"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="XEp-Yw-TVf" appends="YES" id="awH-Ge-Ov8"/>
-                                </connections>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -200,25 +197,36 @@
                         <constraints>
                             <constraint firstAttribute="leadingMargin" secondItem="boq-tP-w6a" secondAttribute="leading" id="2SZ-bT-Apo"/>
                             <constraint firstItem="ymS-Mf-wLM" firstAttribute="top" secondItem="boq-tP-w6a" secondAttribute="bottom" constant="20" id="FcO-4m-ZXM"/>
+                            <constraint firstItem="boq-tP-w6a" firstAttribute="height" secondItem="ry0-Ad-StW" secondAttribute="height" id="NH1-lD-hqR"/>
                             <constraint firstAttribute="leadingMargin" secondItem="ry0-Ad-StW" secondAttribute="leading" id="RBs-9A-VKi"/>
                             <constraint firstAttribute="leadingMargin" secondItem="v4L-QG-TQl" secondAttribute="leading" id="Vb7-5m-0tP"/>
                             <constraint firstItem="v4L-QG-TQl" firstAttribute="top" secondItem="gmN-YH-j7B" secondAttribute="bottom" constant="8" id="ZPx-UD-ktu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="v4L-QG-TQl" secondAttribute="trailing" id="js4-yR-5EP"/>
                             <constraint firstItem="ry0-Ad-StW" firstAttribute="height" secondItem="v4L-QG-TQl" secondAttribute="height" id="p9b-eJ-n4M"/>
                             <constraint firstItem="ry0-Ad-StW" firstAttribute="centerX" secondItem="NLh-cm-P52" secondAttribute="centerX" id="tqO-ro-9M8"/>
-                            <constraint firstItem="ry0-Ad-StW" firstAttribute="centerY" secondItem="NLh-cm-P52" secondAttribute="centerY" id="uXF-PO-w8S"/>
                             <constraint firstItem="boq-tP-w6a" firstAttribute="top" secondItem="ry0-Ad-StW" secondAttribute="bottom" constant="8" id="w3u-1y-LPZ"/>
+                            <constraint firstItem="ry0-Ad-StW" firstAttribute="top" secondItem="gmN-YH-j7B" secondAttribute="bottom" constant="8" id="xbL-as-coE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="boq-tP-w6a" secondAttribute="trailing" id="y2K-Od-up2"/>
                             <constraint firstItem="ry0-Ad-StW" firstAttribute="top" secondItem="v4L-QG-TQl" secondAttribute="bottom" constant="8" id="yH6-ob-mQw"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="xbL-as-coE"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="els-P3-pN8" appends="YES" id="8lZ-qo-DrN"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="fPG-eU-Biv"/>
                     <connections>
+                        <outlet property="constraintWhenNoImage" destination="xbL-as-coE" id="quW-95-eyS"/>
                         <outlet property="image" destination="v4L-QG-TQl" id="dll-xn-tme"/>
                         <outlet property="question" destination="ry0-Ad-StW" id="mHK-xs-GT7"/>
+                        <outletCollection property="constraintsWhenHasImage" destination="yH6-ob-mQw" collectionClass="NSMutableArray" id="uUM-gP-Br9"/>
+                        <outletCollection property="constraintsWhenHasImage" destination="p9b-eJ-n4M" collectionClass="NSMutableArray" id="G04-9t-Otq"/>
+                        <outletCollection property="constraintsWhenHasImage" destination="p9b-eJ-n4M" collectionClass="NSMutableArray" id="D6B-Ly-Uu2"/>
+                        <outletCollection property="constraintsWhenHasImage" destination="ZPx-UD-ktu" collectionClass="NSMutableArray" id="Azf-sn-oKf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7fd-Py-TKd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -227,11 +235,6 @@
                         <action selector="didTap:" destination="wWF-MP-ttH" id="umw-mO-JdD"/>
                     </connections>
                 </tapGestureRecognizer>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="XEp-Yw-TVf">
-                    <connections>
-                        <action selector="showLongQuestion:" destination="wWF-MP-ttH" id="TOl-Db-2Vt"/>
-                    </connections>
-                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2493" y="-417"/>
         </scene>
@@ -244,11 +247,11 @@
                         <viewControllerLayoutGuide type="bottom" id="drw-Cj-lhM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dyG-iB-Bog">
-                        <rect key="frame" x="0.0" y="0.0" width="374" height="244"/>
+                        <rect key="frame" x="0.0" y="0.0" width="374" height="209.33333333333326"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="oO2-zx-B8q">
-                                <rect key="frame" x="16" y="8" width="163.33333333333334" height="106.33333333333333"/>
+                                <rect key="frame" x="16" y="8" width="163.33333333333334" height="89"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
@@ -258,7 +261,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="EqR-zd-eQZ">
-                                <rect key="frame" x="195.33333333333337" y="8" width="162.66666666666663" height="106.33333333333333"/>
+                                <rect key="frame" x="195.33333333333337" y="8" width="162.66666666666663" height="89"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
@@ -268,7 +271,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="gwt-YF-zxb">
-                                <rect key="frame" x="16" y="130.33333333333337" width="163.33333333333334" height="105.66666666666666"/>
+                                <rect key="frame" x="16" y="113.00000000000001" width="163.33333333333334" height="88.333333333333357"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
@@ -278,7 +281,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="RtK-V5-VAh">
-                                <rect key="frame" x="195.33333333333337" y="130.33333333333337" width="162.66666666666663" height="105.66666666666666"/>
+                                <rect key="frame" x="195.33333333333337" y="113.00000000000001" width="162.66666666666663" height="88.333333333333357"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
@@ -310,9 +313,6 @@
                             <constraint firstItem="oO2-zx-B8q" firstAttribute="leading" secondItem="dyG-iB-Bog" secondAttribute="leadingMargin" id="pX8-La-lev"/>
                             <constraint firstItem="RtK-V5-VAh" firstAttribute="height" secondItem="oO2-zx-B8q" secondAttribute="height" id="q4L-Zp-l85"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="ImO-Sq-KjD" appends="YES" id="pEe-t8-ZCi"/>
-                        </connections>
                     </view>
                     <connections>
                         <outletCollection property="buttons" destination="oO2-zx-B8q" collectionClass="NSMutableArray" id="eri-Z0-M81"/>
@@ -322,11 +322,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Tl-vN-6BB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="ImO-Sq-KjD">
-                    <connections>
-                        <action selector="didPress:" destination="R9u-Zw-gvf" id="Cyo-4k-8pi"/>
-                    </connections>
-                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3132" y="-228"/>
         </scene>

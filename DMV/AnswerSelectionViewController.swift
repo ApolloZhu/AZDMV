@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import TTGSnackbar
 
 protocol AnswerSelectionViewDelegate: class {
     func didSelectAnswer(withID: Int, isCorrect: Bool)
@@ -21,7 +20,7 @@ protocol AnswerSelectionViewDelegate: class {
     @objc optional var colorSelected: UIColor { get }
 }
 
-class AnswerSelectionViewController: UIViewController, TTGSnackbarPresenter {
+class AnswerSelectionViewController: UIViewController {
     // MARK: UI
     @IBOutlet var buttons: [UIButton]?
 
@@ -36,7 +35,6 @@ class AnswerSelectionViewController: UIViewController, TTGSnackbarPresenter {
         }
         button.setTitleColor(dataSource?.colorSelected ?? .white, for: .disabled)
         delegate?.didSelectAnswer(withID: button.tag, isCorrect: isCorrect)
-        snackBar.dismiss()
     }
 
     // MARK: Data
@@ -64,23 +62,18 @@ class AnswerSelectionViewController: UIViewController, TTGSnackbarPresenter {
 
     public func reloadData() {
         DispatchQueue.main.async { [weak self] in
-            if let this = self {
-                this.snackBar.dismiss()
-                this.buttonWithTouchOnTop = nil
-                if  let answers = this.dataSource?.answers,
-                    let buttons = this.buttons
-                {
-                    (0..<answers.count).forEach {
-                        let button = buttons[$0]
-                        button.setTitle(answers[$0], for: .normal)
-                        button.isHidden = false
-                        button.isEnabled = true
-                        button.backgroundColor = .white
-                    }
-                    (answers.count..<buttons.count).forEach {
-                        buttons[$0].isHidden = true
-                    }
-                }
+            guard let this = self,
+                let answers = this.dataSource?.answers,
+                let buttons = this.buttons else { return }
+            (0..<answers.count).forEach {
+                let button = buttons[$0]
+                button.setTitle(answers[$0], for: .normal)
+                button.isHidden = false
+                button.isEnabled = true
+                button.backgroundColor = .white
+            }
+            (answers.count..<buttons.count).forEach {
+                buttons[$0].isHidden = true
             }
         }
     }
@@ -89,31 +82,8 @@ class AnswerSelectionViewController: UIViewController, TTGSnackbarPresenter {
         super.viewDidLayoutSubviews()
         guard buttons?.first?.titleLabel?.frame.size != .zero else { return }
         buttons!.forEach {
-            // lFrame.height > bFrame.height || lFrame.width > bFrame.width {
             $0.titleLabel!.fit(in: $0)
         }
     }
 
-    // MARK: Zoom
-    private weak var buttonWithTouchOnTop: UIButton? = nil
-    var snackBar =  TTGSnackbar()
-    @IBAction func didPress(_ sender: UILongPressGestureRecognizer) {
-        switch sender.state {
-        case .began, .changed:
-            let touchLocation = sender.location(in: view)
-            if let buttons = buttons {
-                for button in buttons {
-                    if  button.isEnabled &&
-                        button.frame.contains(touchLocation) &&
-                        buttonWithTouchOnTop != button
-                    {
-                        buttonWithTouchOnTop = button
-                        showSnackBar(message: button.currentTitle, in: view)
-                    }
-                }
-            }
-        default: break
-        }
-    }
-    
 }

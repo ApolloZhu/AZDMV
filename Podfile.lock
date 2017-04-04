@@ -1,7 +1,7 @@
 PODS:
-  - Kingfisher (3.2.4)
-  - SwiftyJSON (3.1.3)
-  - TTGSnackbar (1.4.1)
+  - Kingfisher (3.6.1)
+  - SwiftyJSON (3.1.4)
+  - TTGSnackbar (1.5.2)
 
 DEPENDENCIES:
   - Kingfisher
@@ -9,9 +9,9 @@ DEPENDENCIES:
   - TTGSnackbar
 
 SPEC CHECKSUMS:
-  Kingfisher: 8d80f39da403cd9c9ee11984e1655f4d6a566cdb
-  SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
-  TTGSnackbar: 466f11eb59fb7e0f7af7f05d9165abce72adf5cc
+  Kingfisher: 2f31cb75f3e98d3d4c406cbdcd9b263e956cfa67
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  TTGSnackbar: ca69045c72188fef27f575581052d72aff15abe2
 
 PODFILE CHECKSUM: 3f234fa2089715fe8a75beea8290b455c3bfe548
 

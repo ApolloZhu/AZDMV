@@ -39,13 +39,24 @@ class QuizViewController: UIViewController, AnswerSelectionViewDelegate, AnswerS
         }
     }
 
+    @IBOutlet var constraintsWhenHasImage: [NSLayoutConstraint]?
+
+    @IBOutlet weak var constraintWhenNoImage: NSLayoutConstraint?
+
     private func updateQuestion() {
         DispatchQueue.main.async { [weak self] in
             guard let this = self else { return }
             let text = this.quiz?.question ?? Localized.NoQuizSelected
-            this.showSnackBar(message: text, in: this.image)
             if let url = URL(dmvImageName: this.quiz?.imageURL) {
                 this.image?.kf.setImage(with: url, placeholder: dmvLogo)
+            } else if this.image != nil {
+                UIView.animate(withDuration: 1) {
+                    this.image.isHidden = true
+                    this.constraintsWhenHasImage?.forEach {
+                        $0.isActive = false
+                    }
+                    this.constraintWhenNoImage?.isActive = true
+                }
             }
             this.question.text = text
             this.question.fit(in: this.question)
@@ -84,23 +95,14 @@ class QuizViewController: UIViewController, AnswerSelectionViewDelegate, AnswerS
             snackBar.dismiss()
             question.text = "Correct!\n\(quiz!.reason)"
             question.fit(in: question)
-            showSnackBar(message: question.text, in: image)
         } else {
-            showSnackBar(message: quiz?.reason, in: image)
+            showSnackBar(message: quiz?.reason, in: image.isHidden ? nil : image)
         }
     }
 
-    // MARK: Zoom
     var snackBar = TTGSnackbar()
 
     @IBAction func didTap(_ sender: UITapGestureRecognizer) {
         snackBar.dismiss()
     }
-
-    @IBAction func showLongQuestion(_ sender: UILongPressGestureRecognizer) {
-        if sender.state == .began {
-            showSnackBar(message: question?.text, in: image)
-        }
-    }
-    
 }

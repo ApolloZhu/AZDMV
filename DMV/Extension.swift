@@ -51,10 +51,10 @@ extension UILabel {
         guard let text = text else { return }
         let area = (text as NSString)
             .size(attributes: [NSFontAttributeName: font])
-            .adding(insects: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))
+            .adding(insects: UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4))
             .area
         let ratio = sqrt(view.bounds.size.area / area)
-        if ratio < 1.1 {
+        if ratio < 1 {
             font = font.withSize(font.pointSize * ratio)
         }
     }
