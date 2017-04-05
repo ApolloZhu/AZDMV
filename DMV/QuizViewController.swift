@@ -26,6 +26,7 @@ class QuizViewController: UIViewController, AnswerSelectionViewDelegate, AnswerS
 
     public var id: Int = 0 {
         willSet {
+            title = "#\(newValue)"
             DispatchQueue.global(qos: .userInteractive).async { [weak self] in
                 self?.quiz = quizSet.quiz(withID: newValue)
             }
@@ -45,21 +46,24 @@ class QuizViewController: UIViewController, AnswerSelectionViewDelegate, AnswerS
 
     private func updateQuestion() {
         DispatchQueue.main.async { [weak self] in
-            guard let this = self else { return }
-            let text = this.quiz?.question ?? Localized.NoQuizSelected
-            if let url = URL(dmvImageName: this.quiz?.imageURL) {
-                this.image?.kf.setImage(with: url, placeholder: dmvLogo)
-            } else if this.image != nil {
-                UIView.animate(withDuration: 1) {
-                    this.image.isHidden = true
-                    this.constraintsWhenHasImage?.forEach {
-                        $0.isActive = false
-                    }
-                    this.constraintWhenNoImage?.isActive = true
-                }
+            guard self != nil else { return }
+            self!.question.text = self!.quiz?.question ?? Localized.NoQuizSelected
+            let url = URL(dmvImageName: self!.quiz?.imageURL)
+            if let url = url {
+                self!.image?.kf.setImage(with: url, placeholder: dmvLogo)
             }
-            this.question.text = text
-            this.question.fit(in: this.question)
+            UIView.animate(withDuration: 1, animations: { [weak self] in
+                guard let this = self, url == nil else { return }
+                this.image.isHidden = true
+                this.constraintsWhenHasImage?.forEach {
+                    $0.priority = 1
+                }
+                this.constraintWhenNoImage?.priority = 999
+                this.view.layoutIfNeeded()
+                }, completion: { [weak self] _ in
+                    guard self != nil else { return }
+                    self!.question.fit(in: self!.question)
+            })
         }
     }
 

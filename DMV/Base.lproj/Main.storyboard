@@ -200,20 +200,15 @@
                             <constraint firstItem="boq-tP-w6a" firstAttribute="height" secondItem="ry0-Ad-StW" secondAttribute="height" id="NH1-lD-hqR"/>
                             <constraint firstAttribute="leadingMargin" secondItem="ry0-Ad-StW" secondAttribute="leading" id="RBs-9A-VKi"/>
                             <constraint firstAttribute="leadingMargin" secondItem="v4L-QG-TQl" secondAttribute="leading" id="Vb7-5m-0tP"/>
-                            <constraint firstItem="v4L-QG-TQl" firstAttribute="top" secondItem="gmN-YH-j7B" secondAttribute="bottom" constant="8" id="ZPx-UD-ktu"/>
+                            <constraint firstItem="v4L-QG-TQl" firstAttribute="top" secondItem="gmN-YH-j7B" secondAttribute="bottom" priority="999" constant="8" id="ZPx-UD-ktu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="v4L-QG-TQl" secondAttribute="trailing" id="js4-yR-5EP"/>
-                            <constraint firstItem="ry0-Ad-StW" firstAttribute="height" secondItem="v4L-QG-TQl" secondAttribute="height" id="p9b-eJ-n4M"/>
+                            <constraint firstItem="ry0-Ad-StW" firstAttribute="height" secondItem="v4L-QG-TQl" secondAttribute="height" priority="999" id="p9b-eJ-n4M"/>
                             <constraint firstItem="ry0-Ad-StW" firstAttribute="centerX" secondItem="NLh-cm-P52" secondAttribute="centerX" id="tqO-ro-9M8"/>
                             <constraint firstItem="boq-tP-w6a" firstAttribute="top" secondItem="ry0-Ad-StW" secondAttribute="bottom" constant="8" id="w3u-1y-LPZ"/>
-                            <constraint firstItem="ry0-Ad-StW" firstAttribute="top" secondItem="gmN-YH-j7B" secondAttribute="bottom" constant="8" id="xbL-as-coE"/>
+                            <constraint firstItem="ry0-Ad-StW" firstAttribute="top" secondItem="gmN-YH-j7B" secondAttribute="bottom" priority="1" constant="8" id="xbL-as-coE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="boq-tP-w6a" secondAttribute="trailing" id="y2K-Od-up2"/>
-                            <constraint firstItem="ry0-Ad-StW" firstAttribute="top" secondItem="v4L-QG-TQl" secondAttribute="bottom" constant="8" id="yH6-ob-mQw"/>
+                            <constraint firstItem="ry0-Ad-StW" firstAttribute="top" secondItem="v4L-QG-TQl" secondAttribute="bottom" priority="999" constant="8" id="yH6-ob-mQw"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="xbL-as-coE"/>
-                            </mask>
-                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="els-P3-pN8" appends="YES" id="8lZ-qo-DrN"/>
                         </connections>
@@ -255,7 +250,6 @@
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
-                                <state key="normal" title="╮(￣▽￣)╭"/>
                                 <connections>
                                     <action selector="didSelect:" destination="R9u-Zw-gvf" eventType="touchUpInside" id="L2Z-uu-61N"/>
                                 </connections>
@@ -265,7 +259,6 @@
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
-                                <state key="normal" title="╮(￣▽￣)╭"/>
                                 <connections>
                                     <action selector="didSelect:" destination="R9u-Zw-gvf" eventType="touchUpInside" id="LCe-dD-fa7"/>
                                 </connections>
@@ -275,7 +268,6 @@
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
-                                <state key="normal" title="╮(￣▽￣)╭"/>
                                 <connections>
                                     <action selector="didSelect:" destination="R9u-Zw-gvf" eventType="touchUpInside" id="bp5-hq-6dN"/>
                                 </connections>
@@ -285,7 +277,6 @@
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
-                                <state key="normal" title="╮(￣▽￣)╭"/>
                                 <connections>
                                     <action selector="didSelect:" destination="R9u-Zw-gvf" eventType="touchUpInside" id="EJn-Rt-xgt"/>
                                 </connections>
