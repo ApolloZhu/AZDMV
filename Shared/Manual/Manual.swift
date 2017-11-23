@@ -41,7 +41,7 @@ open class Manual {
         // For each section
         for i in 1...self.sections.count {
             // Count subsections
-            let subCount = self._contents.lazy.filter { (_, json) in json["section"].intValue == i }.count
+            let subCount = self._contents.lazy.filter { $0.1["section"].intValue == i }.count
             // Add subsection data in ascending order
             subsecs.append((1...subCount).lazy.map { self.subSection($0, ofSection: i)! })
         }

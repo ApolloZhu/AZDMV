@@ -8,27 +8,19 @@
 
 import UIKit
 
-protocol AnswerSelectionViewDelegate: class {
-    func didSelectAnswer(withID: Int, isCorrect: Bool)
-}
-
-@objc protocol AnswerSelectionViewDataSource: class {
-    var answers: [String] { get }
-    var correctID: Int { get }
-    @objc optional var colorCorrect: UIColor { get }
-    @objc optional var colorWrong: UIColor { get }
-    @objc optional var colorSelected: UIColor { get }
-}
-
 class AnswerSelectionViewController: UIViewController {
     // MARK: UI
-    @IBOutlet var buttons: [UIButton]?
+    @IBOutlet var buttons: [UIButton]!
 
     @IBAction func didSelect(_ button: UIButton) {
+        buttons.first(where: { !$0.isEnabled && !$0.isHidden })?.isHidden = true
         let isCorrect = button.tag == correctButtonID
         if isCorrect {
-            buttons!.forEach { if $0.isHidden == false { $0.isEnabled = false } }
-            button.backgroundColor = dataSource?.colorCorrect ?? .positive
+            /* V1
+             buttons.forEach { if $0.isHidden == false { $0.isEnabled = false } }
+             button.backgroundColor = dataSource?.colorCorrect ?? .positive
+             */
+            buttons.forEach { $0.isHidden = true }
         } else {
             button.isEnabled = false
             button.backgroundColor = dataSource?.colorCorrect ?? .negative
@@ -80,10 +72,9 @@ class AnswerSelectionViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        guard buttons?.first?.titleLabel?.frame.size != .zero else { return }
-        buttons!.forEach {
+        guard buttons.first?.titleLabel?.frame.size != .zero else { return }
+        buttons.forEach {
             $0.titleLabel!.fit(in: $0)
         }
     }
-
 }

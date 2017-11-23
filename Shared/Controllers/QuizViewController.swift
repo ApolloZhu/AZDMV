@@ -8,22 +8,29 @@
 
 import UIKit
 import Kingfisher
-import TTGSnackbar
 
-class QuizViewController: UIViewController, AnswerSelectionViewDelegate, AnswerSelectionViewDataSource, TTGSnackbarPresenter {
+#if os(iOS)
+    import TTGSnackbar
+#endif
 
+class QuizViewController: UIViewController,
+AnswerSelectionViewDelegate, AnswerSelectionViewDataSource {
     // MARK: UI
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Split View
-        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-        navigationItem.leftItemsSupplementBackButton = true
-    }
-
-    // MARK: Basic
     @IBOutlet weak var question: UILabel!
     @IBOutlet weak var image: UIImageView!
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        image.kf.indicatorType = .activity
+        image.isHidden = true
+        // Split View
+        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+        #if os(iOS)
+            navigationItem.leftItemsSupplementBackButton = true
+        #endif
+    }
+
+    // MARK: Basic
     public var id: Int = 0 {
         willSet {
             title = "#\(newValue)"
@@ -36,6 +43,7 @@ class QuizViewController: UIViewController, AnswerSelectionViewDelegate, AnswerS
     private var quiz: QuizSet.Quiz? = nil {
         didSet {
             updateQuestion()
+            answerSelectionViewController?.view.isHidden = false
             answerSelectionViewController?.reloadData()
         }
     }
@@ -46,24 +54,24 @@ class QuizViewController: UIViewController, AnswerSelectionViewDelegate, AnswerS
 
     private func updateQuestion() {
         DispatchQueue.main.async { [weak self] in
-            guard self != nil else { return }
-            self!.question.text = self!.quiz?.question ?? Localized.NoQuizSelected
-            let url = URL(dmvImageName: self!.quiz?.imageURL)
-            if let url = url {
-                self!.image?.kf.setImage(with: url, placeholder: dmvLogo)
+            guard let this = self else { return }
+            this.question.text = this.quiz?.question ?? Localized.NoQuizSelected
+            if let url = URL(dmvImageName: this.quiz?.imageURL) {
+                this.image?.kf.setImage(with: url, placeholder: .dmvLogo)
+            } else {
+                UIView.animate(
+                    withDuration: 1,
+                    animations: { [weak self] in
+                        guard let this = self else { return }
+                        this.image.isHidden = true
+                        this.constraintsWhenHasImage?.forEach { $0.priority = .defaultLow }
+                        this.constraintWhenNoImage?.priority = .defaultHigh
+                        this.view.layoutIfNeeded() },
+                    completion: { [weak self] _ in
+                        guard let this = self else { return }
+                        this.question.fit(in: this.question) }
+                )
             }
-            UIView.animate(withDuration: 1, animations: { [weak self] in
-                guard let this = self, url == nil else { return }
-                this.image.isHidden = true
-                this.constraintsWhenHasImage?.forEach {
-                    $0.priority = 1
-                }
-                this.constraintWhenNoImage?.priority = 999
-                this.view.layoutIfNeeded()
-                }, completion: { [weak self] _ in
-                    guard self != nil else { return }
-                    self!.question.fit(in: self!.question)
-            })
         }
     }
 
@@ -77,7 +85,7 @@ class QuizViewController: UIViewController, AnswerSelectionViewDelegate, AnswerS
     }
 
     // MARK: Answer Selection Setup
-    private weak var answerSelectionViewController: AnswerSelectionViewController? {
+    private weak var answerSelectionViewController: AnswerSelectionViewController! {
         willSet {
             answerSelectionViewController?.delegate = nil
             answerSelectionViewController?.dataSource = nil
@@ -90,23 +98,22 @@ class QuizViewController: UIViewController, AnswerSelectionViewDelegate, AnswerS
         if let vc = segue.terminus as? AnswerSelectionViewController,
             segue.identifier == Identifier.ShowAnswersSegue {
             answerSelectionViewController = vc
+            answerSelectionViewController.view.isHidden = true
         }
     }
 
     // MARK: Answer Selection Delegate
     func didSelectAnswer(withID: Int, isCorrect: Bool) {
         if isCorrect {
-            snackBar.dismiss()
+            ErrorPresenter.shared.dismiss()
             question.text = "Correct!\n\(quiz!.reason)"
             question.fit(in: question)
         } else {
-            showSnackBar(message: quiz?.reason, in: image.isHidden ? nil : image)
+            ErrorPresenter.shared.presentError(message: quiz?.reason, in: image.isHidden ? nil : image)
         }
     }
 
-    var snackBar = TTGSnackbar()
-
     @IBAction func didTap(_ sender: UITapGestureRecognizer) {
-        snackBar.dismiss()
+        ErrorPresenter.shared.dismiss()
     }
 }

@@ -9,7 +9,6 @@
 import UIKit
 
 class QuestionListViewController: UITableViewController {
-
     // MARK: Data
     private var sectionID = 0
     private var subSectionID = 0
@@ -49,5 +48,4 @@ class QuestionListViewController: UITableViewController {
             vc.id = ids[tableView.indexPathForSelectedRow!.row]
         }
     }
-    
 }
