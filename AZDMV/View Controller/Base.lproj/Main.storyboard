@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14081.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="icomoon.ttf">
+            <string>icomoon</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Settings-->
         <scene sceneID="L0a-A6-l5n">
@@ -60,20 +65,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dCV-fc-bIN">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dCV-fc-bIN" customClass="CollectionViewSlantedLayout" customModule="CollectionViewSlantedLayout">
                             <size key="itemSize" width="373" height="123"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="UdW-fF-xV6">
-                                <rect key="frame" x="1" y="0.0" width="373" height="123"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ManualsCollectionViewCell" id="UdW-fF-xV6" customClass="ManualsCollectionViewCell" customModule="AZDMV" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="275"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="373" height="123"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="275"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;# Icon #&gt;" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="BEV-do-gzr">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="275"/>
+                                            <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="144"/>
+                                            <color key="textColor" red="0.0" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;# Section Title #&gt;" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kT0-7v-h7F">
+                                            <rect key="frame" x="20" y="121.99999999999999" width="335" height="31.333333333333329"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                            <color key="textColor" red="0.74509805439999999" green="0.15686275059999999" blue="0.074509806930000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="kT0-7v-h7F" firstAttribute="centerY" secondItem="UdW-fF-xV6" secondAttribute="centerY" id="73m-7l-hBY"/>
+                                    <constraint firstAttribute="trailing" secondItem="BEV-do-gzr" secondAttribute="trailing" id="Mhj-g2-lgz"/>
+                                    <constraint firstAttribute="bottom" secondItem="BEV-do-gzr" secondAttribute="bottom" id="Sld-qB-Ifs"/>
+                                    <constraint firstItem="BEV-do-gzr" firstAttribute="leading" secondItem="UdW-fF-xV6" secondAttribute="leading" id="b1c-6u-QC4"/>
+                                    <constraint firstItem="BEV-do-gzr" firstAttribute="top" secondItem="UdW-fF-xV6" secondAttribute="top" id="jo9-qF-eZ4"/>
+                                    <constraint firstAttribute="trailing" secondItem="kT0-7v-h7F" secondAttribute="trailing" constant="20" id="kcT-rB-Vv8"/>
+                                    <constraint firstItem="kT0-7v-h7F" firstAttribute="leading" secondItem="UdW-fF-xV6" secondAttribute="leading" constant="20" id="xdw-iq-oFD"/>
+                                </constraints>
+                                <size key="customSize" width="375" height="275"/>
+                                <connections>
+                                    <outlet property="iconLabel" destination="BEV-do-gzr" id="S40-2R-vqx"/>
+                                    <outlet property="sectionTitleLabel" destination="kT0-7v-h7F" id="WVP-Hj-JPP"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
