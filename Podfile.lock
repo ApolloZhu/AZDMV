@@ -1,12 +1,18 @@
 PODS:
+  - AcknowList (1.5)
+  - CollectionViewSlantedLayout (3.0.1)
   - Kingfisher (4.6.1)
 
 DEPENDENCIES:
+  - AcknowList
+  - CollectionViewSlantedLayout
   - Kingfisher
 
 SPEC CHECKSUMS:
+  AcknowList: 93c5dbde36f37ba7f74c8a92c8d9cfb52ed73e47
+  CollectionViewSlantedLayout: 8c8ebc112e3ac1c3318a916aa9c8d9f1901f0dd9
   Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
 
-PODFILE CHECKSUM: ff5faf8967b4e1d2f96d1239af22e2d981beec98
+PODFILE CHECKSUM: 12e9c13bb839c6aa9c8c900f1def185eab940a9b
 
 COCOAPODS: 1.4.0

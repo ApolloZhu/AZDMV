@@ -8,18 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		5258CED22030A06B00FB48DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258CED12030A06B00FB48DC /* AppDelegate.swift */; };
-		5258CED42030A06C00FB48DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258CED32030A06C00FB48DC /* ViewController.swift */; };
 		5258CED72030A06C00FB48DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5258CED52030A06C00FB48DC /* Main.storyboard */; };
 		5258CED92030A07800FB48DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5258CED82030A07800FB48DC /* Assets.xcassets */; };
 		5258CEDC2030A07800FB48DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5258CEDA2030A07800FB48DC /* LaunchScreen.storyboard */; };
 		5258CEE82030ACDD00FB48DC /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258CEE72030ACDD00FB48DC /* URL+Extensions.swift */; };
+		5258CEEC2030CF3F00FB48DC /* Pods-AZDMV-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5258CEEB2030CF3E00FB48DC /* Pods-AZDMV-acknowledgements.plist */; };
+		5258CEEE2030D01200FB48DC /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258CEED2030D01200FB48DC /* SettingsTableViewController.swift */; };
+		5258CEF02030D11A00FB48DC /* ManualsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258CEEF2030D11A00FB48DC /* ManualsCollectionViewController.swift */; };
+		5258CEF22030D12900FB48DC /* QuizzesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258CEF12030D12900FB48DC /* QuizzesTableViewController.swift */; };
 		C22AEFB9A20112D0AD794E49 /* Pods_AZDMV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D300C5BD38B278CBCE5F79A1 /* Pods_AZDMV.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5258CECF2030A06B00FB48DC /* AZDMV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AZDMV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5258CED12030A06B00FB48DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5258CED32030A06C00FB48DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5258CED62030A06C00FB48DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5258CED82030A07800FB48DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5258CEDB2030A07800FB48DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -27,6 +29,11 @@
 		5258CEE52030A63000FB48DC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5258CEE62030A63B00FB48DC /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		5258CEE72030ACDD00FB48DC /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
+		5258CEE92030C0C700FB48DC /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		5258CEEB2030CF3E00FB48DC /* Pods-AZDMV-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-AZDMV-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-AZDMV/Pods-AZDMV-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
+		5258CEED2030D01200FB48DC /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		5258CEEF2030D11A00FB48DC /* ManualsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualsCollectionViewController.swift; sourceTree = "<group>"; };
+		5258CEF12030D12900FB48DC /* QuizzesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzesTableViewController.swift; sourceTree = "<group>"; };
 		AE7E81D102AEC2855D84F893 /* Pods-AZDMV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AZDMV.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AZDMV/Pods-AZDMV.debug.xcconfig"; sourceTree = "<group>"; };
 		C093238A876AEA2014E052C6 /* Pods-AZDMV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AZDMV.release.xcconfig"; path = "Pods/Target Support Files/Pods-AZDMV/Pods-AZDMV.release.xcconfig"; sourceTree = "<group>"; };
 		D300C5BD38B278CBCE5F79A1 /* Pods_AZDMV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AZDMV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				5258CEE52030A63000FB48DC /* README.md */,
+				5258CEE92030C0C700FB48DC /* CHANGELOG.md */,
 				5258CEE62030A63B00FB48DC /* LICENSE */,
 				5258CED02030A06B00FB48DC /* AZDMV */,
 				5258CEB320308E3600FB48DC /* Products */,
@@ -82,6 +90,7 @@
 				5258CED82030A07800FB48DC /* Assets.xcassets */,
 				5258CEDA2030A07800FB48DC /* LaunchScreen.storyboard */,
 				5258CEDD2030A07800FB48DC /* Info.plist */,
+				5258CEEB2030CF3E00FB48DC /* Pods-AZDMV-acknowledgements.plist */,
 			);
 			path = "Supporting File";
 			sourceTree = "<group>";
@@ -90,7 +99,9 @@
 			isa = PBXGroup;
 			children = (
 				5258CED52030A06C00FB48DC /* Main.storyboard */,
-				5258CED32030A06C00FB48DC /* ViewController.swift */,
+				5258CEEF2030D11A00FB48DC /* ManualsCollectionViewController.swift */,
+				5258CEF12030D12900FB48DC /* QuizzesTableViewController.swift */,
+				5258CEED2030D01200FB48DC /* SettingsTableViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -190,6 +201,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5258CEEC2030CF3F00FB48DC /* Pods-AZDMV-acknowledgements.plist in Resources */,
 				5258CEDC2030A07800FB48DC /* LaunchScreen.storyboard in Resources */,
 				5258CED92030A07800FB48DC /* Assets.xcassets in Resources */,
 				5258CED72030A06C00FB48DC /* Main.storyboard in Resources */,
@@ -221,10 +233,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-AZDMV/Pods-AZDMV-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AcknowList/AcknowList.framework",
+				"${BUILT_PRODUCTS_DIR}/CollectionViewSlantedLayout/CollectionViewSlantedLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AcknowList.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CollectionViewSlantedLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,8 +273,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5258CED42030A06C00FB48DC /* ViewController.swift in Sources */,
+				5258CEEE2030D01200FB48DC /* SettingsTableViewController.swift in Sources */,
 				5258CEE82030ACDD00FB48DC /* URL+Extensions.swift in Sources */,
+				5258CEF02030D11A00FB48DC /* ManualsCollectionViewController.swift in Sources */,
+				5258CEF22030D12900FB48DC /* QuizzesTableViewController.swift in Sources */,
 				5258CED22030A06B00FB48DC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

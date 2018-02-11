@@ -6,6 +6,8 @@ target 'AZDMV' do
   use_frameworks!
 
   # Pods for AZDMV
+  pod 'AcknowList'
+  pod 'CollectionViewSlantedLayout'
   pod 'Kingfisher'
 
 end
