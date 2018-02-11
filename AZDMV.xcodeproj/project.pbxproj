@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,8 @@
 		5258CED72030A06C00FB48DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5258CED52030A06C00FB48DC /* Main.storyboard */; };
 		5258CED92030A07800FB48DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5258CED82030A07800FB48DC /* Assets.xcassets */; };
 		5258CEDC2030A07800FB48DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5258CEDA2030A07800FB48DC /* LaunchScreen.storyboard */; };
+		5258CEE82030ACDD00FB48DC /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258CEE72030ACDD00FB48DC /* URL+Extensions.swift */; };
+		C22AEFB9A20112D0AD794E49 /* Pods_AZDMV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D300C5BD38B278CBCE5F79A1 /* Pods_AZDMV.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,12 @@
 		5258CED82030A07800FB48DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5258CEDB2030A07800FB48DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5258CEDD2030A07800FB48DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5258CEE52030A63000FB48DC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5258CEE62030A63B00FB48DC /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		5258CEE72030ACDD00FB48DC /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
+		AE7E81D102AEC2855D84F893 /* Pods-AZDMV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AZDMV.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AZDMV/Pods-AZDMV.debug.xcconfig"; sourceTree = "<group>"; };
+		C093238A876AEA2014E052C6 /* Pods-AZDMV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AZDMV.release.xcconfig"; path = "Pods/Target Support Files/Pods-AZDMV/Pods-AZDMV.release.xcconfig"; sourceTree = "<group>"; };
+		D300C5BD38B278CBCE5F79A1 /* Pods_AZDMV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AZDMV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C22AEFB9A20112D0AD794E49 /* Pods_AZDMV.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,8 +47,12 @@
 		5258CEA920308E3600FB48DC = {
 			isa = PBXGroup;
 			children = (
+				5258CEE52030A63000FB48DC /* README.md */,
+				5258CEE62030A63B00FB48DC /* LICENSE */,
 				5258CED02030A06B00FB48DC /* AZDMV */,
 				5258CEB320308E3600FB48DC /* Products */,
+				C51ED9E833B7A9997865D33C /* Pods */,
+				E97DFCE5B06612CF3F7DAEBB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,6 +98,7 @@
 		5258CEE32030A0E400FB48DC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5258CEE72030ACDD00FB48DC /* URL+Extensions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -96,6 +110,23 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		C51ED9E833B7A9997865D33C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AE7E81D102AEC2855D84F893 /* Pods-AZDMV.debug.xcconfig */,
+				C093238A876AEA2014E052C6 /* Pods-AZDMV.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E97DFCE5B06612CF3F7DAEBB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D300C5BD38B278CBCE5F79A1 /* Pods_AZDMV.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +134,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5258CEE02030A07800FB48DC /* Build configuration list for PBXNativeTarget "AZDMV" */;
 			buildPhases = (
+				C69D3C6613AA98A7604BC75F /* [CP] Check Pods Manifest.lock */,
 				5258CECB2030A06B00FB48DC /* Sources */,
 				5258CECC2030A06B00FB48DC /* Frameworks */,
 				5258CECD2030A06B00FB48DC /* Resources */,
+				6F62A99315FB9B7B73D29DCE /* [CP] Embed Pods Frameworks */,
+				64C9FEB39C5DF42938FE7A66 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -124,15 +158,17 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
-				ORGANIZATIONNAME = WWITDC;
+				ORGANIZATIONNAME = "DMV A-Z";
 				TargetAttributes = {
 					5258CECE2030A06B00FB48DC = {
 						CreatedOnToolsVersion = 9.3;
+						DevelopmentTeam = KZ7D8X3PRK;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
 			buildConfigurationList = 5258CEAD20308E3600FB48DC /* Build configuration list for PBXProject "AZDMV" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -162,12 +198,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		64C9FEB39C5DF42938FE7A66 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AZDMV/Pods-AZDMV-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F62A99315FB9B7B73D29DCE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AZDMV/Pods-AZDMV-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AZDMV/Pods-AZDMV-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C69D3C6613AA98A7604BC75F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AZDMV-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5258CECB2030A06B00FB48DC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				5258CED42030A06C00FB48DC /* ViewController.swift in Sources */,
+				5258CEE82030ACDD00FB48DC /* URL+Extensions.swift in Sources */,
 				5258CED22030A06B00FB48DC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -245,7 +336,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -299,27 +390,24 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		5258CEDE2030A07800FB48DC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE7E81D102AEC2855D84F893 /* Pods-AZDMV.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KZ7D8X3PRK;
-				INFOPLIST_FILE = AZDMV/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				INFOPLIST_FILE = "$(SRCROOT)/AZDMV/Supporting File/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wwitdc.apollo.AZDMV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -329,16 +417,14 @@
 		};
 		5258CEDF2030A07800FB48DC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C093238A876AEA2014E052C6 /* Pods-AZDMV.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KZ7D8X3PRK;
-				INFOPLIST_FILE = AZDMV/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				INFOPLIST_FILE = "$(SRCROOT)/AZDMV/Supporting File/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wwitdc.apollo.AZDMV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
