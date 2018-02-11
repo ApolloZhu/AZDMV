@@ -72,19 +72,31 @@ open class Manual {
 
 extension Manual: CustomStringConvertible {
     public var description: String {
-        return NSLocalizedString("Virginia DMV Driver's Manual", comment: "Name for the driver's manual in VA, US")
+        return NSLocalizedString("Virginia DMV Driver's Manual",
+                                 comment: "Name for the driver's manual in VA, US")
     }
 }
 
 extension Manual {
-    public struct SubSection {
+    public struct SubSection: Codable {
         public let title: String
         public let content: String
         public let sectionID: Int
         public let subSectionID: Int
         public let updateTime: String
-        public var hasQuiz: Bool {
-            return !Manual.shared._noQuiz.contains("\(sectionID).\(subSectionID)")
+
+        enum CodingKeys: String, CodingKey {
+            case title = "subSectionTitle"
+            case content = "copy"
+            case sectionID = "section"
+            case subSectionID = "subSectionID"
+            case updateTime = "update"
         }
+    }
+}
+
+extension Manual.SubSection {
+    public var hasQuiz: Bool {
+        return !Manual.shared._noQuiz.contains("\(sectionID).\(subSectionID)")
     }
 }

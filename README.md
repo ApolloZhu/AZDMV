@@ -40,7 +40,6 @@ Run `pod install` before opening the `DMV.xcworkspace` file
 
 ## Dependencies
 
-- [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
 - [Kingfisher](https://github.com/onevcat/Kingfisher)
 - [TTGSnackbar](https://github.com/zekunyan/TTGSnackbar)
 
