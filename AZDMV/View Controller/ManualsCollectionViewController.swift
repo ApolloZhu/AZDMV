@@ -86,7 +86,7 @@ class ManualsCollectionViewController: UICollectionViewController {
 
     // MARK: - UICollectionViewDataSource
 
-    // #warning Incomplete implementation
+    // #warning FIXME: Incomplete implementation
     let sections = [
         (title: "as", icon: "A"),
         (title: "asga g", icon: "B"),
