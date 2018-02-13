@@ -11,6 +11,10 @@
 		521E37C720322EC000BA345D /* Manual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E37C620322EC000BA345D /* Manual.swift */; };
 		521E37CB2032339400BA345D /* Fetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E37CA2032339400BA345D /* Fetchable.swift */; };
 		521E37CD2032360200BA345D /* Persistent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E37CC2032360200BA345D /* Persistent.swift */; };
+		521E37D420325A6100BA345D /* quiz.json in Resources */ = {isa = PBXBuildFile; fileRef = 521E37D120325A6000BA345D /* quiz.json */; };
+		521E37D520325A6100BA345D /* sections.json in Resources */ = {isa = PBXBuildFile; fileRef = 521E37D220325A6000BA345D /* sections.json */; };
+		521E37D620325A6100BA345D /* tboc.json in Resources */ = {isa = PBXBuildFile; fileRef = 521E37D320325A6000BA345D /* tboc.json */; };
+		521E37D8203299CF00BA345D /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E37D7203299CF00BA345D /* Section.swift */; };
 		5258CED22030A06B00FB48DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258CED12030A06B00FB48DC /* AppDelegate.swift */; };
 		5258CED72030A06C00FB48DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5258CED52030A06C00FB48DC /* Main.storyboard */; };
 		5258CED92030A07800FB48DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5258CED82030A07800FB48DC /* Assets.xcassets */; };
@@ -22,6 +26,7 @@
 		5258CEF22030D12900FB48DC /* QuizzesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258CEF12030D12900FB48DC /* QuizzesTableViewController.swift */; };
 		5258CEF42030E23E00FB48DC /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5258CEF32030E23E00FB48DC /* icomoon.ttf */; };
 		5258CEF62030E38300FB48DC /* ManualsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258CEF52030E38300FB48DC /* ManualsCollectionViewCell.swift */; };
+		52E89FAA20331EE2000E6937 /* TableOfContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E89FA920331EE2000E6937 /* TableOfContents.swift */; };
 		C22AEFB9A20112D0AD794E49 /* Pods_AZDMV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D300C5BD38B278CBCE5F79A1 /* Pods_AZDMV.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +35,10 @@
 		521E37C620322EC000BA345D /* Manual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manual.swift; sourceTree = "<group>"; };
 		521E37CA2032339400BA345D /* Fetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetchable.swift; sourceTree = "<group>"; };
 		521E37CC2032360200BA345D /* Persistent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistent.swift; sourceTree = "<group>"; };
+		521E37D120325A6000BA345D /* quiz.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = quiz.json; sourceTree = "<group>"; };
+		521E37D220325A6000BA345D /* sections.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sections.json; sourceTree = "<group>"; };
+		521E37D320325A6000BA345D /* tboc.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tboc.json; sourceTree = "<group>"; };
+		521E37D7203299CF00BA345D /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		5258CECF2030A06B00FB48DC /* AZDMV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AZDMV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5258CED12030A06B00FB48DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5258CED62030A06C00FB48DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,6 +55,7 @@
 		5258CEF12030D12900FB48DC /* QuizzesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzesTableViewController.swift; sourceTree = "<group>"; };
 		5258CEF32030E23E00FB48DC /* icomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = icomoon.ttf; sourceTree = "<group>"; };
 		5258CEF52030E38300FB48DC /* ManualsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualsCollectionViewCell.swift; sourceTree = "<group>"; };
+		52E89FA920331EE2000E6937 /* TableOfContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableOfContents.swift; sourceTree = "<group>"; };
 		AE7E81D102AEC2855D84F893 /* Pods-AZDMV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AZDMV.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AZDMV/Pods-AZDMV.debug.xcconfig"; sourceTree = "<group>"; };
 		C093238A876AEA2014E052C6 /* Pods-AZDMV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AZDMV.release.xcconfig"; path = "Pods/Target Support Files/Pods-AZDMV/Pods-AZDMV.release.xcconfig"; sourceTree = "<group>"; };
 		D300C5BD38B278CBCE5F79A1 /* Pods_AZDMV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AZDMV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,8 +143,12 @@
 			isa = PBXGroup;
 			children = (
 				521E37D02032368400BA345D /* JSON */,
-				5258CEE72030ACDD00FB48DC /* URL+Extensions.swift */,
+				521E37D320325A6000BA345D /* tboc.json */,
+				52E89FA920331EE2000E6937 /* TableOfContents.swift */,
+				521E37D220325A6000BA345D /* sections.json */,
 				521E37C620322EC000BA345D /* Manual.swift */,
+				521E37D7203299CF00BA345D /* Section.swift */,
+				521E37D120325A6000BA345D /* quiz.json */,
 				521E37C420322EB200BA345D /* Quiz.swift */,
 			);
 			path = Model;
@@ -143,6 +157,7 @@
 		5258CEE42030A0FB00FB48DC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				5258CEE72030ACDD00FB48DC /* URL+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -229,7 +244,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5258CEF42030E23E00FB48DC /* icomoon.ttf in Resources */,
+				521E37D620325A6100BA345D /* tboc.json in Resources */,
+				521E37D520325A6100BA345D /* sections.json in Resources */,
 				5258CEEC2030CF3F00FB48DC /* Pods-AZDMV-acknowledgements.plist in Resources */,
+				521E37D420325A6100BA345D /* quiz.json in Resources */,
 				5258CEDC2030A07800FB48DC /* LaunchScreen.storyboard in Resources */,
 				5258CED92030A07800FB48DC /* Assets.xcassets in Resources */,
 				5258CED72030A06C00FB48DC /* Main.storyboard in Resources */,
@@ -318,12 +336,14 @@
 				5258CEE82030ACDD00FB48DC /* URL+Extensions.swift in Sources */,
 				521E37CD2032360200BA345D /* Persistent.swift in Sources */,
 				521E37C520322EB200BA345D /* Quiz.swift in Sources */,
+				521E37D8203299CF00BA345D /* Section.swift in Sources */,
 				5258CEF62030E38300FB48DC /* ManualsCollectionViewCell.swift in Sources */,
 				5258CEF02030D11A00FB48DC /* ManualsCollectionViewController.swift in Sources */,
 				521E37C720322EC000BA345D /* Manual.swift in Sources */,
 				5258CEF22030D12900FB48DC /* QuizzesTableViewController.swift in Sources */,
 				521E37CB2032339400BA345D /* Fetchable.swift in Sources */,
 				5258CED22030A06B00FB48DC /* AppDelegate.swift in Sources */,
+				52E89FAA20331EE2000E6937 /* TableOfContents.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
