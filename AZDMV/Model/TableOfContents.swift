@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct TableOfContents: Codable, Persistent { }
+struct TableOfContents: Codable, Persistent {
+    let manuals: [Manual]
+    enum CodingKeys: String, CodingKey {
+        case manuals = "manualData"
+    }
+}
 
 extension TableOfContents: Fetchable {
     static let localURL = Bundle.main.url(forResource: "tboc", withExtension: "json")

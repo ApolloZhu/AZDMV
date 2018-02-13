@@ -23,6 +23,8 @@ extension Persistent {
 
 // MARK: - Default Implementations
 
+extension Array: Persistent where Element: Codable { }
+
 extension Persistent where Self: Codable {
     @discardableResult
     func persist(withID identifier: String) -> Bool {
