@@ -87,13 +87,7 @@ class ManualsCollectionViewController: UICollectionViewController {
     // MARK: - UICollectionViewDataSource
 
     // #warning FIXME: Incomplete implementation
-    let sections = [
-        (title: "as", icon: "A"),
-        (title: "asga g", icon: "B"),
-        (title: "sdg ", icon: "C"),
-        (title: "sdfg a", icon: "D"),
-        (title: "asdfl", icon: "E"),
-        ]
+    let sections = TableOfContents.fetch(from: .bundled)?.manuals.first?.sections ?? []
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -107,7 +101,7 @@ class ManualsCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ManualsCollectionViewCell.reuseIdentifier, for: indexPath) as? ManualsCollectionViewCell else { return UICollectionViewCell() }
         makeParallel(cell)
-        cell.iconLabel.text = sections[indexPath.row].icon
+        cell.iconLabel.text = sections[indexPath.row].symbol
         cell.sectionTitleLabel.text = sections[indexPath.row].title
         let hue : CGFloat = CGFloat(arc4random() % 256) / 256 // use 256 to get full range from 0.0 to 1.0
         let saturation : CGFloat = CGFloat(arc4random() % 128) / 256 + 0.5 // from 0.5 to 1.0 to stay away from white

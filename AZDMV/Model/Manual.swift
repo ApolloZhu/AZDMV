@@ -8,9 +8,11 @@
 
 import Foundation
 
-struct Manual: Codable, Persistent { }
-
-extension Manual: Fetchable {
-    static let localURL = Bundle.main.url(forResource: "sections", withExtension: "json")
-    static let updateURL: URL = "https://dmv-node-api-2.azurewebsites.net/api/manual/sections?manualID=1"
+struct Manual: Codable {
+    let manualID: Int
+    let title: String
+    let symbol: String
+    let totalSections: Int
+    let sections: [Section]
+    let noQuiz: [String] // x.x
 }

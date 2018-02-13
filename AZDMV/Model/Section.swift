@@ -8,4 +8,12 @@
 
 import Foundation
 
-struct Section: Codable { }
+struct Section: Codable {
+    let symbol: String
+    let title: String
+    let sectionID: String
+    enum CodingKeys: String, CodingKey {
+        case symbol, sectionID
+        case title = "sectionTitle"
+    }
+}
