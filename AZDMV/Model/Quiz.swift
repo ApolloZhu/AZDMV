@@ -8,4 +8,15 @@
 
 import Foundation
 
-struct Quiz: Codable, Fetchable, Persistent { }
+struct Quiz: Codable, Persistent { }
+
+extension Quiz: Fetchable {
+    static let localURL = Bundle.main.url(forResource: "quiz", withExtension: "json")
+    static let updateURL: URL = "https://dmv-node-api-2.azurewebsites.net/api/manual/quiz?manualID=1"
+}
+
+extension URL {
+    static func forImage(named name: String) -> URL! {
+        return URL(string: "https://dmvstore.blob.core.windows.net/manuals/images/1/\(name)")
+    }
+}

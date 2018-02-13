@@ -21,7 +21,9 @@ extension Persistent {
     }
 }
 
-extension Persistent where Self: Encodable {
+// MARK: - Default Implementations
+
+extension Persistent where Self: Codable {
     @discardableResult
     func persist(withID identifier: String) -> Bool {
         guard let encoded = try? JSONEncoder().encode(self)
@@ -30,9 +32,7 @@ extension Persistent where Self: Encodable {
             else { return false }
         return true
     }
-}
 
-extension Persistent where Self: Decodable {
     static func retrieve(withID identifier: String) -> Self? {
         guard let url = Self.url(forID: identifier)
             , let data = try? Data(contentsOf: url)
