@@ -9,7 +9,12 @@
 import UIKit
 import CollectionViewSlantedLayout
 
+let manual = TableOfContents.fetch(from: .bundled)?.manuals.first
+
+
 class ManualsCollectionViewController: UICollectionViewController {
+    let sections = manual?.sections ?? []
+
     private var layout: CollectionViewSlantedLayout! {
         return collectionViewLayout as? CollectionViewSlantedLayout
     }
@@ -85,10 +90,6 @@ class ManualsCollectionViewController: UICollectionViewController {
     }
 
     // MARK: - UICollectionViewDataSource
-
-    // #warning FIXME: Incomplete implementation
-    let sections = TableOfContents.fetch(from: .bundled)?.manuals.first?.sections ?? []
-
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -103,9 +104,10 @@ class ManualsCollectionViewController: UICollectionViewController {
         makeParallel(cell)
         cell.iconLabel.text = sections[indexPath.row].symbol
         cell.sectionTitleLabel.text = sections[indexPath.row].title
-        let hue : CGFloat = CGFloat(arc4random() % 256) / 256 // use 256 to get full range from 0.0 to 1.0
-        let saturation : CGFloat = CGFloat(arc4random() % 128) / 256 + 0.5 // from 0.5 to 1.0 to stay away from white
-        let brightness : CGFloat = CGFloat(arc4random() % 128) / 256 + 0.5 // from 0.5 to 1.0 to stay away from black
+        let range: UInt32 = 118 - 47
+        let hue = CGFloat(arc4random() % range) / 256 + 47 / 256
+        let saturation = CGFloat(arc4random() % 128) / 256 + 0.5 // stay away from white
+        let brightness = CGFloat(arc4random() % 128) / 256 + 0.5 // stay away from black
         cell.contentView.backgroundColor = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1)
         return cell
     }
