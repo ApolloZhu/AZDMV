@@ -16,42 +16,31 @@ enum Source {
 }
 
 protocol Fetchable {
-    static func fetch(from source: Source) -> Self?
     /// URL for `Source.bundled`
     static var localURL: URL? { get }
     /// URL for `Source.online`
     static var updateURL: URL { get }
+    static func fetch(from source: Source) -> Self?
 }
 
 // MARK: - Default Implementations
 
-extension Fetchable where Self: Decodable {
-    static func fetch(from source: Source) -> Self? {
-        let url: URL?
-        switch source {
-        case .bundled: url = localURL
-        case .online: url = updateURL
-        default: return nil
-        }
-        guard let dataURL = url
-            , let data = try? Data(contentsOf: dataURL)
-            , let decoded = try? JSONDecoder().decode(self, from: data)
-            else { return nil }
-        return decoded
-    }
-}
-
-extension Fetchable where Self: Persistent {
-    static func fetch(from source: Source) -> Self? {
-        guard case .cache(let id) = source
-            else { return fetch(from: source) }
-        return retrieve(withID: id)
-    }
-}
-
 extension Fetchable where Self: Persistent & Decodable {
     static func fetch(from source: Source) -> Self? {
-        // #warning FIXME: Check what this does...
-        return fetch(from: source)
+        switch source {
+        case .bundled:
+            guard let url = localURL
+                , let raw = try? String(contentsOf: url)
+                , let data = raw.data(using: .utf8)
+                else { return nil }
+            return try? JSONDecoder().decode(self, from: data)
+        case .online:
+            guard let data = try? Data(contentsOf: updateURL)
+                , let decoded = try? JSONDecoder().decode(self, from: data)
+                else { return nil }
+            return decoded
+        case .cache(let id):
+            return retrieve(withID: id)
+        }
     }
 }

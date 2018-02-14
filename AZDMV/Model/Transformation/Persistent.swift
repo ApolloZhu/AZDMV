@@ -34,7 +34,7 @@ extension Persistent where Self: Codable {
             else { return false }
         return true
     }
-
+    
     static func retrieve(withID identifier: String) -> Self? {
         guard let url = Self.url(forID: identifier)
             , let data = try? Data(contentsOf: url)

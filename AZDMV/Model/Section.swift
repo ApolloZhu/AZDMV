@@ -11,9 +11,16 @@ import Foundation
 struct Section: Codable {
     let symbol: String
     let title: String
-    let sectionID: String
+    let rawSectionID: String
     enum CodingKeys: String, CodingKey {
-        case symbol, sectionID
+        case symbol
+        case rawSectionID = "sectionID"
         case title = "sectionTitle"
+    }
+}
+
+extension Section {
+    var sectionID: Int {
+        return Int(rawSectionID)!
     }
 }

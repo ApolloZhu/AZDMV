@@ -9,13 +9,13 @@
 import Foundation
 
 struct Quiz: Codable, Persistent {
-    let section: Int
-    let subsection: Int
-    let questionID: Int
+    let rawSection: String
+    let rawSubsection: String
+    let rawQuestionID: String
     let question: String
     let images: [String] // .first
     let feedback: String
-    let correctAnswer: Int // 5->1,6->2,7->all
+    let rawCorrectAnswer: String
     let answers: [Answer]
     struct Answer: Codable {
         let value: Int // index, 1-4
@@ -27,9 +27,34 @@ struct Quiz: Codable, Persistent {
         let code: String // SN, SF
         let description: String // Signs, Safety
     }
+    enum CodingKeys: String, CodingKey {
+        case rawSection = "section"
+        case rawSubsection = "subsection"
+        case rawQuestionID = "questionID"
+        case question, images, feedback
+        case rawCorrectAnswer = "correctAnswer"
+        case answers, update, category
+    }
 }
 
 extension Quiz {
+    var section: Int {
+        return Int(rawSection)!
+    }
+    
+    var subsection: Int {
+        return Int(rawSubsection)!
+    }
+    
+    var questionID: Int {
+        return Int(rawQuestionID)!
+    }
+
+    /// 5->1,6->2,7->all
+    var correctAnswer: Int {
+        return Int(rawCorrectAnswer)!
+    }
+    
     var imageURL: URL? {
         guard let name = images.first else { return nil }
         return URL(string: "https://dmvstore.blob.core.windows.net/manuals/images/1/\(name)")
