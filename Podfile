@@ -8,6 +8,7 @@ target 'AZDMV' do
   # Pods for AZDMV
   pod 'AcknowList'
   pod 'CollectionViewSlantedLayout'
+  pod 'HFCardCollectionViewLayout'
   pod 'Kingfisher'
 
 end

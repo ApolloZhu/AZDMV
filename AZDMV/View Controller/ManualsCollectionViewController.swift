@@ -112,5 +112,5 @@ class ManualsCollectionViewController: UICollectionViewController {
         return cell
     }
 
-    // MARK: - UICollectionViewDelegate
+    // MARK: - Collection view delegate
 }

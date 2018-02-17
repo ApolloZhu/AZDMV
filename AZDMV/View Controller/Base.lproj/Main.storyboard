@@ -158,6 +158,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="usV-f5-pUV" kind="show" id="kbo-M0-4Zj"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -171,6 +174,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWU-cZ-Vdq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2031.2" y="20.689655172413794"/>
+        </scene>
+        <!--Collection View Controller-->
+        <scene sceneID="p4W-Cw-TP4">
+            <objects>
+                <collectionViewController id="usV-f5-pUV" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="SON-an-sT1" customClass="HFCardCollectionView" customModule="HFCardCollectionViewLayout">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EIN-II-I1z" customClass="HFCardCollectionViewLayout" customModule="HFCardCollectionViewLayout">
+                            <size key="itemSize" width="375" height="238"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="De8-IL-v4t" customClass="HFCardCollectionViewCell" customModule="HFCardCollectionViewLayout">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="238"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="238"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="usV-f5-pUV" id="2BQ-Qf-BKp"/>
+                            <outlet property="delegate" destination="usV-f5-pUV" id="Xjd-gZ-ZNl"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nyt-FU-ipI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2848.8000000000002" y="20.689655172413794"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Gf8-kF-ZTf">
