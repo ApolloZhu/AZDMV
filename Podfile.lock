@@ -1,18 +1,21 @@
 PODS:
   - AcknowList (1.5)
   - CollectionViewSlantedLayout (3.0.1)
+  - HFCardCollectionViewLayout (0.4.2)
   - Kingfisher (4.6.1)
 
 DEPENDENCIES:
   - AcknowList
   - CollectionViewSlantedLayout
+  - HFCardCollectionViewLayout
   - Kingfisher
 
 SPEC CHECKSUMS:
   AcknowList: 93c5dbde36f37ba7f74c8a92c8d9cfb52ed73e47
   CollectionViewSlantedLayout: 8c8ebc112e3ac1c3318a916aa9c8d9f1901f0dd9
+  HFCardCollectionViewLayout: 88cc7deb86baae9396450d9db323081cce50da59
   Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
 
-PODFILE CHECKSUM: 12e9c13bb839c6aa9c8c900f1def185eab940a9b
+PODFILE CHECKSUM: ac84a72bd03676589e6f8437e704138cb9137678
 
 COCOAPODS: 1.4.0
