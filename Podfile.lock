@@ -10,6 +10,13 @@ DEPENDENCIES:
   - HFCardCollectionViewLayout
   - Kingfisher
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AcknowList
+    - CollectionViewSlantedLayout
+    - HFCardCollectionViewLayout
+    - Kingfisher
+
 SPEC CHECKSUMS:
   AcknowList: 93c5dbde36f37ba7f74c8a92c8d9cfb52ed73e47
   CollectionViewSlantedLayout: 8c8ebc112e3ac1c3318a916aa9c8d9f1901f0dd9
@@ -18,4 +25,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: ac84a72bd03676589e6f8437e704138cb9137678
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3
