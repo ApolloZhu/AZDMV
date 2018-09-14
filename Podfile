@@ -7,8 +7,8 @@ target 'AZDMV' do
 
   # Pods for AZDMV
   pod 'AcknowList'
-  pod 'CollectionViewSlantedLayout'
-  pod 'HFCardCollectionViewLayout'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
   pod 'Kingfisher'
 
 end

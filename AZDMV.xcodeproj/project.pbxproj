@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52148E63214BFC9A0024B46B /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52148E62214BFC9A0024B46B /* Translate.swift */; };
 		521E37C520322EB200BA345D /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E37C420322EB200BA345D /* Quiz.swift */; };
 		521E37C720322EC000BA345D /* Manual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E37C620322EC000BA345D /* Manual.swift */; };
 		521E37CB2032339400BA345D /* Fetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E37CA2032339400BA345D /* Fetchable.swift */; };
 		521E37CD2032360200BA345D /* Persistent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E37CC2032360200BA345D /* Persistent.swift */; };
 		521E37D420325A6100BA345D /* quiz.json in Resources */ = {isa = PBXBuildFile; fileRef = 521E37D120325A6000BA345D /* quiz.json */; };
 		521E37D520325A6100BA345D /* sections.json in Resources */ = {isa = PBXBuildFile; fileRef = 521E37D220325A6000BA345D /* sections.json */; };
-		521E37D620325A6100BA345D /* tboc.json in Resources */ = {isa = PBXBuildFile; fileRef = 521E37D320325A6000BA345D /* tboc.json */; };
+		523C7968214C3A3E005E8E5C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 523C7967214C3A3D005E8E5C /* GoogleService-Info.plist */; };
+		523C796B214C5F1E005E8E5C /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523C796A214C5F1E005E8E5C /* Language.swift */; };
+		523C7970214C7423005E8E5C /* tboc.json in Resources */ = {isa = PBXBuildFile; fileRef = 523C7972214C7423005E8E5C /* tboc.json */; };
+		523C7975214C75DE005E8E5C /* Error+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523C7974214C75DE005E8E5C /* Error+Extensions.swift */; };
 		5258CED22030A06B00FB48DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258CED12030A06B00FB48DC /* AppDelegate.swift */; };
 		5258CED72030A06C00FB48DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5258CED52030A06C00FB48DC /* Main.storyboard */; };
 		5258CED92030A07800FB48DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5258CED82030A07800FB48DC /* Assets.xcassets */; };
@@ -33,13 +37,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52148E62214BFC9A0024B46B /* Translate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translate.swift; sourceTree = "<group>"; };
 		521E37C420322EB200BA345D /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		521E37C620322EC000BA345D /* Manual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manual.swift; sourceTree = "<group>"; };
 		521E37CA2032339400BA345D /* Fetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetchable.swift; sourceTree = "<group>"; };
 		521E37CC2032360200BA345D /* Persistent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistent.swift; sourceTree = "<group>"; };
 		521E37D120325A6000BA345D /* quiz.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = quiz.json; sourceTree = "<group>"; };
 		521E37D220325A6000BA345D /* sections.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sections.json; sourceTree = "<group>"; };
-		521E37D320325A6000BA345D /* tboc.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tboc.json; sourceTree = "<group>"; };
+		523C7967214C3A3D005E8E5C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "AZDMV/Supporting File/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		523C796A214C5F1E005E8E5C /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		523C796C214C6710005E8E5C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		523C796D214C6710005E8E5C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		523C796E214C6718005E8E5C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		523C796F214C6719005E8E5C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		523C7971214C7423005E8E5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = Base.lproj/tboc.json; sourceTree = "<group>"; };
+		523C7973214C7433005E8E5C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = en; path = en.lproj/tboc.json; sourceTree = "<group>"; };
+		523C7974214C75DE005E8E5C /* Error+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extensions.swift"; sourceTree = "<group>"; };
 		5258CECF2030A06B00FB48DC /* AZDMV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AZDMV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5258CED12030A06B00FB48DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5258CED62030A06C00FB48DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -87,6 +100,15 @@
 			path = Transformation;
 			sourceTree = "<group>";
 		};
+		523C7969214C5EFB005E8E5C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				52148E62214BFC9A0024B46B /* Translate.swift */,
+				523C796A214C5F1E005E8E5C /* Language.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		5258CEA920308E3600FB48DC = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +133,7 @@
 		5258CED02030A06B00FB48DC /* AZDMV */ = {
 			isa = PBXGroup;
 			children = (
+				523C7969214C5EFB005E8E5C /* Networking */,
 				5258CEE32030A0E400FB48DC /* Model */,
 				5258CEE22030A0C700FB48DC /* View Controller */,
 				5258CEE42030A0FB00FB48DC /* Extensions */,
@@ -127,6 +150,7 @@
 				5258CEF32030E23E00FB48DC /* icomoon.ttf */,
 				5258CEDA2030A07800FB48DC /* LaunchScreen.storyboard */,
 				5258CEDD2030A07800FB48DC /* Info.plist */,
+				523C7967214C3A3D005E8E5C /* GoogleService-Info.plist */,
 				5258CEEB2030CF3E00FB48DC /* Pods-AZDMV-acknowledgements.plist */,
 			);
 			path = "Supporting File";
@@ -148,7 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				521E37D02032368400BA345D /* Transformation */,
-				521E37D320325A6000BA345D /* tboc.json */,
+				523C7972214C7423005E8E5C /* tboc.json */,
 				52E89FA920331EE2000E6937 /* TableOfContents.swift */,
 				521E37C620322EC000BA345D /* Manual.swift */,
 				52E89FAD20337EC0000E6937 /* Section.swift */,
@@ -164,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				5258CEE72030ACDD00FB48DC /* URL+Extensions.swift */,
+				523C7974214C75DE005E8E5C /* Error+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -249,7 +274,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5258CEF42030E23E00FB48DC /* icomoon.ttf in Resources */,
-				521E37D620325A6100BA345D /* tboc.json in Resources */,
+				523C7970214C7423005E8E5C /* tboc.json in Resources */,
+				523C7968214C3A3E005E8E5C /* GoogleService-Info.plist in Resources */,
 				521E37D520325A6100BA345D /* sections.json in Resources */,
 				5258CEEC2030CF3F00FB48DC /* Pods-AZDMV-acknowledgements.plist in Resources */,
 				521E37D420325A6100BA345D /* quiz.json in Resources */,
@@ -281,22 +307,38 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-AZDMV/Pods-AZDMV-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-AZDMV/Pods-AZDMV-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AcknowList/AcknowList.framework",
-				"${BUILT_PRODUCTS_DIR}/CollectionViewSlantedLayout/CollectionViewSlantedLayout.framework",
-				"${BUILT_PRODUCTS_DIR}/HFCardCollectionViewLayout/HFCardCollectionViewLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AcknowList.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CollectionViewSlantedLayout.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HFCardCollectionViewLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AZDMV/Pods-AZDMV-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AZDMV/Pods-AZDMV-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C69D3C6613AA98A7604BC75F /* [CP] Check Pods Manifest.lock */ = {
@@ -334,20 +376,34 @@
 				521E37C720322EC000BA345D /* Manual.swift in Sources */,
 				52E89FAE20337EC0000E6937 /* Section.swift in Sources */,
 				5258CEF22030D12900FB48DC /* QuizzesTableViewController.swift in Sources */,
+				523C7975214C75DE005E8E5C /* Error+Extensions.swift in Sources */,
 				521E37CB2032339400BA345D /* Fetchable.swift in Sources */,
 				52E89FAC20337E5B000E6937 /* Subsection.swift in Sources */,
 				5258CED22030A06B00FB48DC /* AppDelegate.swift in Sources */,
+				523C796B214C5F1E005E8E5C /* Language.swift in Sources */,
 				52E89FAA20331EE2000E6937 /* TableOfContents.swift in Sources */,
+				52148E63214BFC9A0024B46B /* Translate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		523C7972214C7423005E8E5C /* tboc.json */ = {
+			isa = PBXVariantGroup;
+			children = (
+				523C7971214C7423005E8E5C /* Base */,
+				523C7973214C7433005E8E5C /* en */,
+			);
+			name = tboc.json;
+			sourceTree = "<group>";
+		};
 		5258CED52030A06C00FB48DC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				5258CED62030A06C00FB48DC /* Base */,
+				523C796C214C6710005E8E5C /* es */,
+				523C796E214C6718005E8E5C /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -356,6 +412,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				5258CEDB2030A07800FB48DC /* Base */,
+				523C796D214C6710005E8E5C /* es */,
+				523C796F214C6719005E8E5C /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -367,6 +425,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -427,6 +486,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

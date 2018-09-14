@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CollectionViewSlantedLayout
 
 let manual = TableOfContents.fetch(from: .bundled)?.manuals.first
 
@@ -15,14 +14,8 @@ let manual = TableOfContents.fetch(from: .bundled)?.manuals.first
 class ManualsCollectionViewController: UICollectionViewController {
     let sections = manual?.sections ?? []
 
-    private var layout: CollectionViewSlantedLayout! {
-        return collectionViewLayout as? CollectionViewSlantedLayout
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        layout.isFirstCellExcluded = true
-        layout.isLastCellExcluded = true
         collectionView?.isDirectionalLockEnabled = true
     }
 
@@ -48,8 +41,6 @@ class ManualsCollectionViewController: UICollectionViewController {
         default:
             break
         }
-        layout.scrollDirection = direction
-        layout.itemSize = direction == .vertical ? view.bounds.width : view.bounds.height
         collectionView?.visibleCells.forEach(makeParallel)
     }
 
@@ -75,7 +66,6 @@ class ManualsCollectionViewController: UICollectionViewController {
 
     private func makeParallel(_ cell: UICollectionViewCell) {
         guard let cell = cell as? ManualsCollectionViewCell else { return }
-        cell.sectionTitleLabel.transform = CGAffineTransform(rotationAngle: layout.slantingAngle)
     }
 
     override func viewDidDisappear(_ animated: Bool) {
