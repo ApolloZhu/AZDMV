@@ -13,6 +13,7 @@ class ManualsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var iconLabel: UILabel!
     @IBOutlet weak var sectionTitleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    var subSection: Subsection?
 
     override func layoutSubviews() {
         layer.cornerRadius = 14
