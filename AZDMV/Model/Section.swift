@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Section: Codable {
+final class Section: Codable {
     let symbolID: String
     let title: String
     let rawSectionID: String

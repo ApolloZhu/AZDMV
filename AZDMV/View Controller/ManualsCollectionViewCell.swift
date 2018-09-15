@@ -12,11 +12,7 @@ class ManualsCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "ManualsCollectionViewCell"
     @IBOutlet weak var iconLabel: UILabel!
     @IBOutlet weak var sectionTitleLabel: UILabel!
-
-    override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-
-    }
+    @IBOutlet weak var tableView: UITableView!
 
     override func layoutSubviews() {
         layer.cornerRadius = 14

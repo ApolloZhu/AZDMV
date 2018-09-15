@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Subsection: Codable {
+final class Subsection: Codable, Hashable {
     let rawSection: String
     let rawSubSectionID: String
     let title: String
@@ -20,6 +20,13 @@ struct Subsection: Codable {
         case title = "subSectionTitle"
         case content = "copy"
         case update
+    }
+    static func == (lhs: Subsection, rhs: Subsection) -> Bool {
+        return lhs.rawSection == rhs.rawSection && lhs.rawSubSectionID == rhs.rawSubSectionID
+    }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(section)
+        hasher.combine(subSectionID)
     }
 }
 
@@ -34,18 +41,3 @@ extension Subsection {
 }
 
 typealias Subsections = [OptionalCodable<Subsection>]
-
-extension Array: Fetchable where Element == OptionalCodable<Subsection> {
-    static let localURL = Bundle.main.url(forResource: "sections", withExtension: "json")
-    static let updateURL: URL = "https://dmv-node-api-2.azurewebsites.net/api/manual/sections?manualID=1"
-}
-
-func fetchAllSubsections(from source: Source, in manual: Manual? = nil) -> [[Subsection]]? {
-    guard let subsections = Subsections.fetch(from: source)
-        , let manual = manual ?? TableOfContents.fetch(from: source)?.manuals.first
-        else { return nil }
-    var sorted = [[Subsection]](repeating: [], count: manual.totalSections)
-    subsections.compactMap({ $0.some }).forEach { sorted[$0.section-1].append($0) }
-    return sorted.map { $0.sorted { $0.subSectionID < $1.subSectionID } }
-}
-
