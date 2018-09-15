@@ -19,7 +19,14 @@ class ManualsCollectionViewController: UICollectionViewController, UICollectionV
         if height > width {
             return CGSize(width: width - 20, height: 100)
         } else {
-            return CGSize(width: width / 2 - 20, height: 100)
+            return CGSize(width: width / 2 - 60, height: 100)
+        }
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: { _ in }) { [weak self] _ in
+            self?.collectionViewLayout.invalidateLayout()
         }
     }
 
@@ -37,11 +44,15 @@ class ManualsCollectionViewController: UICollectionViewController, UICollectionV
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ManualsCollectionViewCell.reuseIdentifier, for: indexPath) as? ManualsCollectionViewCell else { return UICollectionViewCell() }
         cell.iconLabel.text = sections[indexPath.row].symbol
         cell.sectionTitleLabel.text = sections[indexPath.row].title
-        let range: UInt32 = 118 - 47
-        let hue = CGFloat(arc4random() % range) / 256 + 47 / 256
-        let saturation = CGFloat(arc4random() % 128) / 256 + 0.5 // stay away from white
-        let brightness = CGFloat(arc4random() % 128) / 256 + 0.5 // stay away from black
-        cell.contentView.backgroundColor = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1)
+        let color = UIColor(
+            hue: .random(in: 0...1),
+            saturation: .random(in: 0.5...1), // stay away from white
+            brightness: .random(in: 0.5...1), // stay away from black
+            alpha: 1
+        )
+        cell.iconLabel.textColor = color
+        cell.sectionTitleLabel.textColor = color
+        cell.layer.shadowColor = color.cgColor
         return cell
     }
 

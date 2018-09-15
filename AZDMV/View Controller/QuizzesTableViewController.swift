@@ -24,8 +24,8 @@ class QuizzesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "QuizzesTableViewCell", for: indexPath)
         let subsection = subsections[indexPath.section][indexPath.row]
-        cell.textLabel?.text = subsection.title
-        cell.detailTextLabel?.text = "\(subsection.section).\(subsection.subSectionID)"
+        cell.textLabel?.text = "\(subsection.section).\(subsection.subSectionID)"
+        cell.detailTextLabel?.text = subsection.title
         return cell
     }
 

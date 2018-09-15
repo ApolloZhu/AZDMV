@@ -6,7 +6,6 @@ PODS:
   - BoringSSL/Implementation (10.0.6):
     - BoringSSL/Interface (= 10.0.6)
   - BoringSSL/Interface (10.0.6)
-  - BouncyLayout (2.1.0)
   - BulletinBoard (2.0.1)
   - Firebase/Core (5.8.0):
     - Firebase/CoreOnly
@@ -110,7 +109,6 @@ PODS:
 
 DEPENDENCIES:
   - AcknowList
-  - BouncyLayout
   - BulletinBoard
   - Firebase/Core
   - Firebase/Firestore
@@ -120,7 +118,6 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AcknowList
     - BoringSSL
-    - BouncyLayout
     - BulletinBoard
     - Firebase
     - FirebaseAnalytics
@@ -143,7 +140,6 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AcknowList: 286185b24c2c2df63a2bb4137f853e4384b4358b
   BoringSSL: e10f92a27043805c01071fe815a5cd98ae8212e7
-  BouncyLayout: a7955879861375cc4e88bb64d42bcf622cd2694c
   BulletinBoard: 99a428f91f64d0ffabf8a8104f79ecd064e2a4db
   Firebase: 25812f43e7a53b11ae2f0a5f4c6d12faeb1f7cd7
   FirebaseAnalytics: df15839e9c6ca6bd14d2e8ab6b0c672e6c49097e
@@ -163,6 +159,6 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
 
-PODFILE CHECKSUM: a4b2dc4c1c630d059affd060d65d5f13e839ca0a
+PODFILE CHECKSUM: 0f2a048daaca36871a6f714484cc0b48eb97d4e8
 
 COCOAPODS: 1.6.0.beta.1
