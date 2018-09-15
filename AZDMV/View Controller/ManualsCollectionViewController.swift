@@ -10,80 +10,24 @@ import UIKit
 
 let manual = TableOfContents.fetch(from: .bundled)?.manuals.first
 
-
-class ManualsCollectionViewController: UICollectionViewController {
+class ManualsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     let sections = manual?.sections ?? []
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        collectionView?.isDirectionalLockEnabled = true
-    }
-
-    // MARK: - Scroll
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(
-            self, selector: #selector(orientationDidChange),
-            name: .UIDeviceOrientationDidChange, object: nil
-        )
-        NotificationCenter.default.addObserver(
-            self, selector: #selector(orientationDidChange),
-            name: .UIApplicationDidChangeStatusBarOrientation, object: nil
-        )
-    }
-
-    @objc private func orientationDidChange() {
-        var direction: UICollectionViewScrollDirection = .vertical
-        switch UIApplication.shared.statusBarOrientation {
-        case .landscapeLeft, .landscapeRight:
-            direction = .horizontal
-        default:
-            break
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.bounds.width
+        let height = collectionView.bounds.height
+        if height > width {
+            return CGSize(width: width - 20, height: 100)
+        } else {
+            return CGSize(width: width / 2 - 20, height: 100)
         }
-        collectionView?.visibleCells.forEach(makeParallel)
-    }
-
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        orientationDidChange()
-    }
-
-    // Make parallax
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let collectionView = collectionView
-            , let visibleCells = collectionView.visibleCells as? [ManualsCollectionViewCell]
-            else { return }
-        for parallaxCell in visibleCells {
-            var yOffset = (collectionView.contentOffset.y - parallaxCell.frame.minY) / parallaxCell.iconLabel.frame.height
-            if yOffset != 0 { yOffset += CGFloat(sections.count / 2) }
-            var xOffset = (collectionView.contentOffset.x - parallaxCell.frame.minX) / parallaxCell.iconLabel.frame.width
-            if xOffset != 0 { xOffset += CGFloat(sections.count / 2) }
-            parallaxCell.iconLabel.frame = parallaxCell.iconLabel.bounds.offsetBy(dx: xOffset * 20, dy: yOffset * 20)
-        }
-    }
-
-    private func makeParallel(_ cell: UICollectionViewCell) {
-        guard let cell = cell as? ManualsCollectionViewCell else { return }
-    }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
-    }
-
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        coordinator.animate(alongsideTransition: { _ in
-            self.orientationDidChange()
-        }, completion: nil)
     }
 
     // MARK: - UICollectionViewDataSource
+
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return sections.count
@@ -91,7 +35,6 @@ class ManualsCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ManualsCollectionViewCell.reuseIdentifier, for: indexPath) as? ManualsCollectionViewCell else { return UICollectionViewCell() }
-        makeParallel(cell)
         cell.iconLabel.text = sections[indexPath.row].symbol
         cell.sectionTitleLabel.text = sections[indexPath.row].title
         let range: UInt32 = 118 - 47

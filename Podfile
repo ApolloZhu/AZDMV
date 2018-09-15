@@ -6,9 +6,13 @@ target 'AZDMV' do
   use_frameworks!
 
   # Pods for AZDMV
-  pod 'AcknowList'
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
   pod 'Kingfisher'
+
+
+  pod 'AcknowList'
+  pod 'BouncyLayout'
+  pod 'BulletinBoard'
 
 end
