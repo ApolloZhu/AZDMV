@@ -12,7 +12,6 @@ target 'AZDMV' do
 
 
   pod 'AcknowList'
-  pod 'BouncyLayout'
   pod 'BulletinBoard'
 
 end
