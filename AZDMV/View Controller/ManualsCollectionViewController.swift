@@ -73,5 +73,17 @@ class ManualsCollectionViewController: UICollectionViewController, UICollectionV
         return cell
     }
 
-    // MARK: - Collection view delegate
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "ShowSubSectionContent",
+                     sender: subsections[tableView.tag][indexPath.row])
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowSubSectionContent",
+            let vc = segue.destination as? SubSectionViewController,
+            let subSection = sender as? Subsection {
+            vc.subSection = subSection
+        }
+    }
 }

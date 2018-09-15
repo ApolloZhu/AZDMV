@@ -23,11 +23,14 @@ struct Quiz: Codable, Persistent {
         let value: String
         let text: String
     }
-    let update: String? // Tue Sep 06 2016 13:15:00 GMT+0000 (Coordinated Universal Time)
+    /// Tue Sep 06 2016 13:15:00 GMT+0000 (Coordinated Universal Time)
+    let update: String?
     let category: Category?
     struct Category: Codable {
-        let code: String // SN, SF
-        let description: String // Signs, Safety
+        /// SN, SF
+        let code: String
+        /// Signs, Safety
+        let description: String
     }
     enum CodingKeys: String, CodingKey {
         case rawSection = "section"
