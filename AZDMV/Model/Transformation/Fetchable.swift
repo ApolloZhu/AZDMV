@@ -33,7 +33,7 @@ extension Fetchable where Self: Persistent & Decodable {
                 , let raw = try? String(contentsOf: url)
                 , let data = raw.data(using: .utf8)
                 else { return nil }
-            return try? JSONDecoder().decode(self, from: data)
+            return try! JSONDecoder().decode(self, from: data)
         case .online:
             guard let data = try? Data(contentsOf: updateURL)
                 , let decoded = try? JSONDecoder().decode(self, from: data)

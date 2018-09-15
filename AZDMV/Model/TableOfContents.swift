@@ -8,14 +8,9 @@
 
 import Foundation
 
-struct TableOfContents: Codable, Persistent {
+final class TableOfContents: Codable, Persistent {
     let manuals: [Manual]
     enum CodingKeys: String, CodingKey {
         case manuals = "manualData"
     }
-}
-
-extension TableOfContents: Fetchable {
-    static let localURL = Bundle.main.url(forResource: "tboc", withExtension: "json")
-    static let updateURL: URL = "https://dmv-node-api-2.azurewebsites.net/api/manual/tboc?manualID=1"
 }

@@ -13,12 +13,14 @@ struct Quiz: Codable, Persistent {
     let rawSubsection: String
     let rawQuestionID: String
     let question: String
-    let images: [String] // .first
+    /// Normally use .first
+    let images: [String]
     let feedback: String
     let rawCorrectAnswer: String
     let answers: [Answer]
     struct Answer: Codable {
-        let value: Int // index, 1-4
+        /// index, 1-4
+        let value: String
         let text: String
     }
     let update: String? // Tue Sep 06 2016 13:15:00 GMT+0000 (Coordinated Universal Time)
@@ -62,8 +64,3 @@ extension Quiz {
 }
 
 typealias Quizzes = [Quiz]
-
-extension Array/*: Fetchable*/ where Element == Quiz {
-    static let localURL = Bundle.main.url(forResource: "quiz", withExtension: "json")
-    static let updateURL: URL = "https://dmv-node-api-2.azurewebsites.net/api/manual/quiz?manualID=1"
-}
