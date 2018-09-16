@@ -43,7 +43,10 @@ class QuizzesTableViewController: UITableViewController {
 
     // MARK: - Table view delegate
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? QuizTableViewController
+            , let indexPath = tableView.indexPathForSelectedRow {
+            vc.quiz = mapped[flattend[indexPath.section]]?[indexPath.row]
+        }
     }
 }
