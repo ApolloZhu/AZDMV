@@ -7,6 +7,7 @@ PODS:
     - BoringSSL/Interface (= 10.0.6)
   - BoringSSL/Interface (10.0.6)
   - BulletinBoard (2.0.1)
+  - CHTCollectionViewWaterfallLayout/Swift (0.9.7)
   - Firebase/Core (5.8.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 5.1.2)
@@ -113,6 +114,7 @@ PODS:
 DEPENDENCIES:
   - AcknowList
   - BulletinBoard
+  - CHTCollectionViewWaterfallLayout/Swift (from `https://github.com/ApolloZhu/CHTCollectionViewWaterfallLayout`)
   - Firebase/Core
   - Firebase/Firestore
   - Kingfisher
@@ -146,10 +148,20 @@ SPEC REPOS:
     - StatusAlert
     - WhatsNew
 
+EXTERNAL SOURCES:
+  CHTCollectionViewWaterfallLayout:
+    :git: https://github.com/ApolloZhu/CHTCollectionViewWaterfallLayout
+
+CHECKOUT OPTIONS:
+  CHTCollectionViewWaterfallLayout:
+    :commit: 9fe150600adffea16029ecb9bb95e89aa56d0cde
+    :git: https://github.com/ApolloZhu/CHTCollectionViewWaterfallLayout
+
 SPEC CHECKSUMS:
   AcknowList: 286185b24c2c2df63a2bb4137f853e4384b4358b
   BoringSSL: e10f92a27043805c01071fe815a5cd98ae8212e7
   BulletinBoard: 99a428f91f64d0ffabf8a8104f79ecd064e2a4db
+  CHTCollectionViewWaterfallLayout: d91ef299609ec50100e249db85f89d7b339daf40
   Firebase: 25812f43e7a53b11ae2f0a5f4c6d12faeb1f7cd7
   FirebaseAnalytics: df15839e9c6ca6bd14d2e8ab6b0c672e6c49097e
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
@@ -171,6 +183,6 @@ SPEC CHECKSUMS:
   StatusAlert: 655a2b64184809e5cde031f7713dff3770965e8e
   WhatsNew: ddf224a0ac4f5fc32deb15188c820ccc625f4929
 
-PODFILE CHECKSUM: 314160e6c59e4907c7c7a5adb5554fcc463ff625
+PODFILE CHECKSUM: 837331529c6b61cbd09e6b78f4fd24e249c578ab
 
 COCOAPODS: 1.6.0.beta.1

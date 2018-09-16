@@ -8,45 +8,26 @@
 
 import UIKit
 import WhatsNew
+import CHTCollectionViewWaterfallLayout
 
 let manual = TableOfContents.fetch(from: .bundled)?.manuals.first
 let subsections = fetchAllSubsections(from: .bundled, in: manual) ?? []
 
-class ManualsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UITableViewDelegate, UITableViewDataSource {
+class ManualsCollectionViewController: UICollectionViewController, CHTCollectionViewDelegateWaterfallLayout, UITableViewDelegate, UITableViewDataSource {
+
+    private var layout: CHTCollectionViewWaterfallLayout {
+        return collectionViewLayout as! CHTCollectionViewWaterfallLayout
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        WhatsNewViewController(items: [
-            WhatsNewItem.image(
-                title: NSLocalizedString(
-                    "WhatsNew.redesign.title",
-                    value: "Better Design",
-                    comment: "Short title for redesign"),
-                subtitle: NSLocalizedString(
-                    "WhatsNew.redesign.content",
-                    value: "Carefully crafted for your convinence.",
-                    comment: "Short description for redesign"),
-                image: #imageLiteral(resourceName: "outline_color_lens_black_24pt")),
-            WhatsNewItem.image(
-                title: NSLocalizedString(
-                    "WhatsNew.languages.title",
-                    value: "Many Languages",
-                    comment: "Short title for auto translate"),
-                subtitle: NSLocalizedString(
-                    "WhatsNew.languages.content",
-                    value: "Everything is now translated into your language.",
-                    comment: "Short description for auto translate"),
-                image: #imageLiteral(resourceName: "outline_language_black_24pt")),
-            WhatsNewItem.image(
-                title: NSLocalizedString(
-                    "WhatsNew.manual.title",
-                    value: "One more thing...",
-                    comment: "Short title for including driver's manual"),
-                subtitle: NSLocalizedString(
-                    "WhatsNew.manual.content",
-                    value: "Driver's Manual and quizzes, 2 in 1.",
-                    comment: "Short description for including driver's manual"),
-                image: #imageLiteral(resourceName: "ic_school"))
-            ]).presentIfNeeded(on: self)
+        whatsNew.presentIfNeeded(on: self)
+        if #available(iOS 11, *) {
+            layout.sectionInsetReference = .fromSafeArea
+        }
+        layout.minimumColumnSpacing = 20
+        layout.minimumInteritemSpacing = 20
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,21 +44,14 @@ class ManualsCollectionViewController: UICollectionViewController, UICollectionV
     let sections = manual?.sections ?? []
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.bounds.width
-        let height = collectionView.bounds.height
         let cellHeight = CGFloat(110 + 44 * subsections[indexPath.row].count)
-        if height > width {
-            return CGSize(width: width - 20, height: cellHeight)
-        } else {
-            return CGSize(width: width / 2 - 60, height: cellHeight)
-        }
+        return CGSize(width: 0, height: cellHeight)
     }
 
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        coordinator.animate(alongsideTransition: { _ in }) { [weak self] _ in
-            self?.collectionViewLayout.invalidateLayout()
-        }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, columnCountFor section: Int) -> Int {
+        let width = collectionView.bounds.width
+        let height = collectionView.bounds.height
+        return height > width ? 1 : 2
     }
 
     // MARK: - UICollectionViewDataSource
@@ -124,3 +98,36 @@ class ManualsCollectionViewController: UICollectionViewController, UICollectionV
         }
     }
 }
+
+let whatsNew = WhatsNewViewController(items: [
+    WhatsNewItem.image(
+        title: NSLocalizedString(
+            "WhatsNew.redesign.title",
+            value: "Better Design",
+            comment: "Short title for redesign"),
+        subtitle: NSLocalizedString(
+            "WhatsNew.redesign.content",
+            value: "Carefully crafted for your convinence.",
+            comment: "Short description for redesign"),
+        image: #imageLiteral(resourceName: "outline_color_lens_black_24pt")),
+    WhatsNewItem.image(
+        title: NSLocalizedString(
+            "WhatsNew.languages.title",
+            value: "Many Languages",
+            comment: "Short title for auto translate"),
+        subtitle: NSLocalizedString(
+            "WhatsNew.languages.content",
+            value: "Everything is now translated into your language.",
+            comment: "Short description for auto translate"),
+        image: #imageLiteral(resourceName: "outline_language_black_24pt")),
+    WhatsNewItem.image(
+        title: NSLocalizedString(
+            "WhatsNew.manual.title",
+            value: "One more thing...",
+            comment: "Short title for including driver's manual"),
+        subtitle: NSLocalizedString(
+            "WhatsNew.manual.content",
+            value: "Driver's Manual and quizzes, 2 in 1.",
+            comment: "Short description for including driver's manual"),
+        image: #imageLiteral(resourceName: "ic_school"))
+    ])

@@ -13,6 +13,7 @@ target 'AZDMV' do
 
   pod 'AcknowList'
   pod 'BulletinBoard'
+  pod 'CHTCollectionViewWaterfallLayout/Swift', :git=>'https://github.com/ApolloZhu/CHTCollectionViewWaterfallLayout'
   pod 'ReverseExtension'
   pod 'StatusAlert'
   pod 'WhatsNew'
