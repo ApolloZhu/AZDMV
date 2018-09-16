@@ -6,9 +6,7 @@
 //  Copyright © 2016-2018 DMV A-Z. MIT License.
 //
 
-import Foundation
-
-final class Section: Codable {
+struct Section: Codable {
     let symbolID: String
     let title: String
     let rawSectionID: String

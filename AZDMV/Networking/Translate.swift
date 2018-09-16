@@ -23,7 +23,7 @@ extension Quiz {
                 images: images,
                 feedback: feedback,
                 rawCorrectAnswer: self.rawCorrectAnswer,
-                answers: zip(1..., answers).map {
+                rawAnswers: zip(1..., answers).map {
                     Answer(value: "\($0.0)", text: $0.1)
                 },
                 update: self.update,

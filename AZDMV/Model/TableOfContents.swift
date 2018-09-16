@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class TableOfContents: Codable, Persistent {
+struct TableOfContents: Codable, Persistent {
     let manuals: [Manual]
     enum CodingKeys: String, CodingKey {
         case manuals = "manualData"

@@ -17,8 +17,11 @@ struct Quiz: Codable, Persistent {
     let images: [String]
     let feedback: String
     let rawCorrectAnswer: String
-    let answers: [Answer]
-    struct Answer: Codable {
+    let rawAnswers: [Answer]
+    var answers: [Answer] {
+        return rawAnswers.filter { !$0.text.isEmpty }
+    }
+    struct Answer: Codable, Equatable {
         /// index, 1-4
         let value: String
         let text: String
@@ -38,7 +41,8 @@ struct Quiz: Codable, Persistent {
         case rawQuestionID = "questionID"
         case question, images, feedback
         case rawCorrectAnswer = "correctAnswer"
-        case answers, update, category
+        case rawAnswers = "answers"
+        case update, category
     }
 }
 
@@ -57,9 +61,20 @@ extension Quiz {
 
     /// 5->1,6->2,7->all
     var correctAnswer: Int {
-        return Int(rawCorrectAnswer)!
+        let correctAnswer = Int(rawCorrectAnswer)!
+        switch correctAnswer {
+        case 1...4: return correctAnswer
+        case 5...6: return correctAnswer - 4
+        case 7: return 4
+        default: fatalError("New Kind of Correct Answers")
+        }
     }
-    
+
+    /// For performance reason, answer is assumed to be in `answers`.
+    func isCorrectAnswer(_ answer: Answer) -> Bool {
+        return Int(answer.value)! == correctAnswer
+    }
+
     var imageURL: URL? {
         guard let name = images.first else { return nil }
         return URL(string: "https://dmvstore.blob.core.windows.net/manuals/images/1/\(name)")

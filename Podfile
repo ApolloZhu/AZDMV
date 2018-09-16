@@ -13,5 +13,8 @@ target 'AZDMV' do
 
   pod 'AcknowList'
   pod 'BulletinBoard'
+  pod 'ReverseExtension'
+  pod 'StatusAlert'
+  pod 'WhatsNew'
 
 end

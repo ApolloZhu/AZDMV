@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class Manual: Codable {
+struct Manual: Codable {
     // let manualID: String
     let title: String
     let symbol: String

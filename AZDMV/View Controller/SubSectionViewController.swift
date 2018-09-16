@@ -9,7 +9,7 @@
 import UIKit
 
 class SubSectionViewController: UIViewController {
-    var subSection: Subsection?
+    var subSection: Subsection!
     @IBOutlet weak var textView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()

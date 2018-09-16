@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class Subsection: Codable, Hashable {
+struct Subsection: Codable, Hashable {
     let rawSection: String
     let rawSubSectionID: String
     let title: String
@@ -20,13 +20,6 @@ final class Subsection: Codable, Hashable {
         case title = "subSectionTitle"
         case content = "copy"
         case update
-    }
-    static func == (lhs: Subsection, rhs: Subsection) -> Bool {
-        return lhs.rawSection == rhs.rawSection && lhs.rawSubSectionID == rhs.rawSubSectionID
-    }
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(section)
-        hasher.combine(subSectionID)
     }
 }
 
