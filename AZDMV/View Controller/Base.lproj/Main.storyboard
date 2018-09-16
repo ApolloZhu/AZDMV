@@ -66,7 +66,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="10" sectionInsetReference="safeArea" id="dCV-fc-bIN">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="10" sectionInsetReference="safeArea" id="dCV-fc-bIN" customClass="CHTCollectionViewWaterfallLayout" customModule="CHTCollectionViewWaterfallLayout">
                             <size key="itemSize" width="300" height="300"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>

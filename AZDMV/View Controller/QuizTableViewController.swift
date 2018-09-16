@@ -50,8 +50,9 @@ class QuizTableViewController: UITableViewController {
         if quiz.answers.count - indexPath.row == quiz.correctAnswer {
             tableView.allowsSelection = false
             quiz.answers.indices.forEach {
-                tableView.cellForRow(at: IndexPath(row: $0, section: 0))?
-                    .textLabel?.textColor = .lightGray
+                let indexPath = IndexPath(row: $0, section: 0)
+                if selected.contains(indexPath) { return }
+                tableView.cellForRow(at: indexPath)?.textLabel?.textColor = .lightGray
             }
             cell?.textLabel?.textColor = .success
             correct.showBulletin(above: self)
