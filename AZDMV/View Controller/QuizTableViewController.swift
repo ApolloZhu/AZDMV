@@ -20,7 +20,13 @@ class QuizTableViewController: UITableViewController {
     var quiz: Quiz!
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "#\(quiz.rawQuestionID), Section \(quiz.rawSection).\(quiz.rawSubsection)"
+        title = String(
+            format: NSLocalizedString(
+                "Quiz.title",
+                value: "#%1$d, Section %2$d.%3$d",
+                comment: "Title for quiz view"),
+            quiz.rawQuestionID, quiz.rawSection, quiz.rawSubsection
+        )
         tableView.allowsSelection = true
         tableView.re.delegate = self
         if #available(iOS 11.0, *) {
@@ -70,6 +76,9 @@ class QuizTableViewController: UITableViewController {
             if let url = quiz.imageURL, indexPath.row == 0 {
                 cell = tableView.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath)
                 let imageView = cell.contentView.subviews.first as! UIImageView
+                if #available(iOS 11.0, *) {
+                    imageView.accessibilityIgnoresInvertColors = true
+                }
                 imageView.kf.indicatorType = .activity
                 imageView.kf.setImage(with: url) { _, error, _, _ in
                     guard let error = error else { return }
@@ -115,11 +124,19 @@ class QuizTableViewController: UITableViewController {
     }
 
     private lazy var wrong: BLTNItemManager = {
-        let page = BLTNPageItem(title: "Not Quite...")
-        let manager = BLTNItemManager.init(rootItem: page)
+        let page = BLTNPageItem(title: NSLocalizedString(
+            "Quiz.wrong.title",
+            value: "Not Quite...",
+            comment: "Friendly tell the user the answer selected is wrong."
+        ))
+        let manager = BLTNItemManager(rootItem: page)
         page.requiresCloseButton = false
         page.descriptionText = quiz?.feedback
-        page.actionButtonTitle = "Try Aagain"
+        page.actionButtonTitle = NSLocalizedString(
+            "Quiz.wrong.action",
+            value: "Try Aagain",
+            comment: "Prompt the user to select another answer."
+        )
         page.appearance.actionButtonColor = .red
         page.appearance.actionButtonTitleColor = .white
         page.actionHandler = { _ in
@@ -132,12 +149,24 @@ class QuizTableViewController: UITableViewController {
     }()
 
     private lazy var correct: BLTNItemManager = {
-        let page = BLTNPageItem(title: "Correct!")
-        let manager = BLTNItemManager.init(rootItem: page)
+        let page = BLTNPageItem(title: NSLocalizedString(
+            "Quiz.correct.title",
+            value: "Correct!",
+            comment: "Enthusiastically congratulate the user."
+        ))
+        let manager = BLTNItemManager(rootItem: page)
         page.requiresCloseButton = false
         page.descriptionText = quiz?.feedback
-        page.actionButtonTitle = "Try Next One"
-        page.alternativeButtonTitle = "Maybe Later"
+        page.actionButtonTitle = NSLocalizedString(
+            "Quiz.correct.action.next",
+            value: "Try Next One",
+            comment: "Prompt the user to move on to next question."
+        )
+        page.alternativeButtonTitle = NSLocalizedString(
+            "Quiz.correct.action.cancel",
+            value: "Maybe Later",
+            comment: "Give the user a choice to stay in the current quiz."
+        )
         page.appearance.actionButtonColor = .success
         page.appearance.actionButtonTitleColor = .white
         page.appearance.alternativeButtonTitleColor = .success

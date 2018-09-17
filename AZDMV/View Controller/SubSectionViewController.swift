@@ -7,25 +7,44 @@
 //
 
 import UIKit
+import WebKit
 
-class SubSectionViewController: UIViewController {
+class SubSectionViewController: UIViewController, WKNavigationDelegate {
     var subSection: Subsection!
-    @IBOutlet weak var textView: UITextView!
+    private var webView: WKWebView {
+        return view as! WKWebView
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         guard let subSection = subSection else { return }
-        title = "\(subSection.section).\(subSection.subSectionID) \(subSection.title)"
-        textView.isScrollEnabled = false
-        textView.attributedText = try? NSAttributedString(
-            data: subSection.content.data(using: .utf8)!,
-            options: [.documentType: NSAttributedString.DocumentType.html],
-            documentAttributes: nil
+        title = String(
+            format: NSLocalizedString(
+                "SubSection.title",
+                value:  "%1$d.%2$d %3$@",
+                comment: "Manual section number and title."),
+            subSection.section, subSection.subSectionID, subSection.title
         )
-    }
+        webView.loadHTMLString(subSection.content, baseURL: nil)
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        textView.isScrollEnabled = true
+        // MARK: - Open Links in Safari
+
+        webView.navigationDelegate = self
+    }
+    private var loaded = false
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        if loaded, let url = navigationAction.request.url {
+            decisionHandler(.cancel)
+            UIApplication.shared.openURL(url)
+        } else {
+            loaded = true
+            decisionHandler(.allow)
+        }
+    }
+    override func loadView() {
+        let configuration = WKWebViewConfiguration()
+        if #available(iOS 10.0, *) {
+            configuration.dataDetectorTypes = .all
+        }
+        view = WKWebView(frame: .zero, configuration: configuration)
     }
 }
