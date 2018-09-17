@@ -24,12 +24,17 @@ class SubSectionViewController: UIViewController, WKNavigationDelegate {
                 comment: "Manual section number and title."),
             subSection.section, subSection.subSectionID, subSection.title
         )
-        webView.loadHTMLString(subSection.content, baseURL: nil)
+        let html = """
+        <!DOCTYPE html>
+        <html><head><style>body{padding:10pt;}img{width:100%;}</style></head><body id="body">\(subSection.content)</body></html>
+        """
+        webView.loadHTMLString(html, baseURL: nil)
 
         // MARK: - Open Links in Safari
 
         webView.navigationDelegate = self
     }
+
     private var loaded = false
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         if loaded, let url = navigationAction.request.url {
@@ -45,6 +50,46 @@ class SubSectionViewController: UIViewController, WKNavigationDelegate {
         if #available(iOS 10.0, *) {
             configuration.dataDetectorTypes = .all
         }
+
+        // MARK: - Dynamic Type
+
+        let controller = WKUserContentController()
+
+        controller.addUserScript(WKUserScript(source: js, injectionTime: .atDocumentEnd, forMainFrameOnly: true))
+        configuration.userContentController = controller
         view = WKWebView(frame: .zero, configuration: configuration)
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        var token: NSObjectProtocol!
+        token = NotificationCenter.default.addObserver(
+            forName: UIContentSizeCategory.didChangeNotification,
+            object: nil, queue: nil
+        ) { [weak self] _ in
+            if let self = self {
+                self.webView.evaluateJavaScript(self.js) { [weak self] (_, error) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    } else {
+                        self?.webView.reload()
+                    }
+                }
+            } else {
+                NotificationCenter.default.removeObserver(token)
+            }
+        }
+    }
+    var js: String {
+        return """
+        HTMLCollection.prototype.forEach = Array.prototype.forEach;
+        document.getElementById("body").style.fontSize = "\(pointSize(ofTextStyle: .body))px";
+        document.getElementsByTagName("h2").forEach(h2 => {
+            h2.style.fontSize = "\(pointSize(ofTextStyle: .title2))px";
+        });
+        document.getElementsByTagName("h3").forEach(h3 => {
+            h3.style.fontSize = "\(pointSize(ofTextStyle: .title3))px";
+        });
+        """
+    }
+    private func pointSize(ofTextStyle style: UIFont.TextStyle) -> CGFloat {
+        return UIFont.preferredFont(forTextStyle: style).pointSize * UIScreen.main.scale
     }
 }
