@@ -80,7 +80,6 @@ class ManualsCollectionViewController: UICollectionViewController, CHTCollection
         return cell
     }
 
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "ShowSubSectionContent",
                      sender: subsections[tableView.tag][indexPath.row])
@@ -94,6 +93,8 @@ class ManualsCollectionViewController: UICollectionViewController, CHTCollection
         }
     }
 }
+
+// MARK: - What's New
 
 var whatsNew: WhatsNewViewController = {
     let controller = WhatsNewViewController(items: [
