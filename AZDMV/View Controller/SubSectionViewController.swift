@@ -26,7 +26,22 @@ class SubSectionViewController: UIViewController, WKNavigationDelegate {
         )
         let html = """
         <!DOCTYPE html>
-        <html><head><style>body{padding:10pt;}img{width:100%;}</style></head><body id="body">\(subSection.content)</body></html>
+        <html>
+        <head>
+            <style>
+                body {
+                    padding: 10pt;
+                }
+                img {
+                    width: 100%;
+                    height: auto !important;
+                }
+            </style>
+        </head>
+        <body id="body">
+            \(subSection.content)
+        </body>
+        </html>
         """
         webView.loadHTMLString(html, baseURL: nil)
 
