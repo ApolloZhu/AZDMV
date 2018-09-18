@@ -25,7 +25,7 @@ class QuizTableViewController: UITableViewController {
                 "Quiz.title",
                 value: "#%1$d, Section %2$d.%3$d",
                 comment: "Title for quiz view"),
-            quiz.rawQuestionID, quiz.rawSection, quiz.rawSubsection
+            quiz.questionID, quiz.section, quiz.subsection
         )
         tableView.allowsSelection = true
         tableView.re.delegate = self

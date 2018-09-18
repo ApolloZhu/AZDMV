@@ -37,8 +37,7 @@ class QuizzesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let subsection = flattend[section]
-        return "\(subsection.section).\(subsection.subSectionID) \(subsection.title)"
+        return flattend[section].name
     }
 
     // MARK: - Table view delegate

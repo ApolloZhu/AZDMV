@@ -36,8 +36,7 @@ class ManualsCollectionViewController: UICollectionViewController, CHTCollection
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SubSectionTableViewCell", for: indexPath)
-        let subsection = subsections[tableView.tag][indexPath.row]
-        cell.textLabel?.text = "\(subsection.section).\(subsection.subSectionID) \(subsection.title)"
+        cell.textLabel?.text = subsections[tableView.tag][indexPath.row].name
         return cell
     }
 
@@ -142,9 +141,6 @@ var whatsNew: WhatsNewViewController = {
     )
     controller.buttonTextColor = .white
     controller.buttonBackgroundColor = .theme
-    #if DEBUG
-    controller.presentationOption = .debug
-    #endif
     return controller
 }()
 

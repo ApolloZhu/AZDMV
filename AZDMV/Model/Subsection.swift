@@ -31,6 +31,16 @@ extension Subsection {
     var subSectionID: Int {
         return Int(rawSubSectionID)!
     }
+
+    var name: String {
+        return String(
+            format: NSLocalizedString(
+                "Subsection.name",
+                value: "%1$d.%2$d %3$@",
+                comment: "Complete section name"),
+            section, subSectionID, title
+        )
+    }
 }
 
 typealias Subsections = [OptionalCodable<Subsection>]
