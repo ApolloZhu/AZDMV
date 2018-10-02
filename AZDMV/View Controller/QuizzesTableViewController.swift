@@ -45,7 +45,10 @@ class QuizzesTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? QuizTableViewController
             , let indexPath = tableView.indexPathForSelectedRow {
-            vc.quiz = mapped[flattend[indexPath.section]]?[indexPath.row]
+            let quiz = mapped[flattend[indexPath.section]]?[indexPath.row]
+            quiz?.translated { translated, _ in
+                vc.quiz = translated ?? quiz
+            }
         }
     }
 }

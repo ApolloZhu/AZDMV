@@ -159,7 +159,6 @@ extension Language {
             }
             let preferred = calculatePreferred()
             cachedPreferred = preferred
-            UserDefaults.standard.set(preferred.rawValue, forKey: preferredKey)
             return preferred
         }
         set {
@@ -176,12 +175,12 @@ extension Language {
     public init?(languageCode: String) {
         if let language = Language(rawValue: languageCode) {
             self = language
-        }
-        if let prefix = languageCode.split(separator: "-").first,
+        } else if let prefix = languageCode.split(separator: "-").first,
             let language = Language(rawValue: "\(prefix)") {
             self = language
+        } else {
+            return nil
         }
-        return nil
     }
     /// Choose the most appropriate language based on many factors.
     private static func calculatePreferred() -> Language {
