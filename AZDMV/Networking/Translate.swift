@@ -55,15 +55,15 @@ extension Quiz {
                                  forHTTPHeaderField: "Ocp-Apim-Subscription-Key")
                 request.addValue("application/json",
                                  forHTTPHeaderField: "Content-Type")
-                let task = URLSession.shared.dataTask(with: request) { (dat, req, err) in
-                    guard let data = dat, !data.isEmpty else { return process(nil, err) }
+                let task = URLSession.shared.dataTask(with: request) { (data, req, err) in
+                    guard let data = data else { return process(nil, err) }
                     let decoder = JSONDecoder()
                     if let decoded = try? decoder.decode([ResponseWrapper].self, from: data) {
-                        let translations = decoded.map { $0.translations.text }
+                        let translations = decoded.map { $0.translations[0].text }
                         db.collection(language.rawValue).document("\(self.questionID)").setData([
                             "question": translations[0],
                             "feedback": translations[1],
-                            "answers": translations[2...]])
+                            "answers": Array(translations[2...])])
                         process(self.translated(
                             question: translations[0],
                             feedback: translations[1],
@@ -82,7 +82,7 @@ extension Quiz {
         let Text: String
     }
     private struct ResponseWrapper: Decodable {
-        let translations: Translation
+        let translations: [Translation]
         struct Translation: Decodable {
             let text: String
             // let to: Language
