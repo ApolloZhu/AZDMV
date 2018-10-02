@@ -50,15 +50,13 @@ extension Quiz {
                 let text = [self.question, self.feedback]
                     + self.answers.map { $0.text }
                 let wrapped = text.map(RequestWrapper.init)
-                request.httpBody = try? JSONEncoder().encode(wrapped)
+                request.httpBody = try! JSONEncoder().encode(wrapped)
                 request.addValue("7a39e268ad224a22a3be9349fa067564",
                                  forHTTPHeaderField: "Ocp-Apim-Subscription-Key")
-                request.addValue(UUID().uuidString,
-                                 forHTTPHeaderField: "X-ClientTraceId")
                 request.addValue("application/json",
-                                 forHTTPHeaderField: "Content-type")
-                let task = URLSession.shared.dataTask(with: request) { (data, res, err) in
-                    guard let data = data else { return process(nil, err) }
+                                 forHTTPHeaderField: "Content-Type")
+                let task = URLSession.shared.dataTask(with: request) { (dat, req, err) in
+                    guard let data = dat, !data.isEmpty else { return process(nil, err) }
                     let decoder = JSONDecoder()
                     if let decoded = try? decoder.decode([ResponseWrapper].self, from: data) {
                         let translations = decoded.map { $0.translations.text }

@@ -17,16 +17,24 @@ extension UIColor {
 }
 
 class QuizTableViewController: UITableViewController {
-    var quiz: Quiz!
+    var quiz: Quiz? {
+        didSet {
+            guard let quiz = quiz else { return }
+            DispatchQueue.main.async { [weak self] in
+                self?.title = String(
+                    format: NSLocalizedString(
+                        "Quiz.title",
+                        value: "#%1$d, Section %2$d.%3$d",
+                        comment: "Title for quiz view"),
+                    quiz.questionID, quiz.section, quiz.subsection
+                )
+                self?.tableView.reloadData()
+            }
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = String(
-            format: NSLocalizedString(
-                "Quiz.title",
-                value: "#%1$d, Section %2$d.%3$d",
-                comment: "Title for quiz view"),
-            quiz.questionID, quiz.section, quiz.subsection
-        )
+
         tableView.allowsSelection = true
         tableView.re.delegate = self
         if #available(iOS 11.0, *) {
@@ -41,6 +49,7 @@ class QuizTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let quiz = quiz else { return 0 }
         switch section {
         case 1: return quiz.images.count + 1
         case 0: return quiz.answers.count
@@ -53,6 +62,7 @@ class QuizTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selected.append(indexPath)
         let cell = tableView.cellForRow(at: indexPath)
+        guard let quiz = quiz else { return }
         if quiz.answers.count - indexPath.row == quiz.correctAnswer {
             tableView.allowsSelection = false
             quiz.answers.indices.forEach {
@@ -70,6 +80,9 @@ class QuizTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let quiz = quiz else {
+            return tableView.dequeueReusableCell(withIdentifier: "TextCell", for: indexPath)
+        }
         switch indexPath.section {
         case 1:
             let cell: UITableViewCell
