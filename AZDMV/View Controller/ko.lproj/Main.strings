@@ -1,0 +1,45 @@
+
+/* Class = "UILabel"; text = "Language"; ObjectID = "3lG-Uc-wqS"; */
+"3lG-Uc-wqS.text" = "Language";
+
+/* Class = "UILabel"; text = "#"; ObjectID = "BEV-do-gzr"; */
+"BEV-do-gzr.text" = "#";
+
+/* Class = "UITabBarItem"; title = "Quiz"; ObjectID = "HCi-0E-Na2"; */
+"HCi-0E-Na2.title" = "Quiz";
+
+/* Class = "UITabBarItem"; title = "Manual"; ObjectID = "Kfc-L1-7lK"; */
+"Kfc-L1-7lK.title" = "Manual";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "NNM-Ws-Uhs"; */
+"NNM-Ws-Uhs.text" = "Subtitle";
+
+/* Class = "UINavigationItem"; title = "Quizzes"; ObjectID = "PZ6-6J-4KK"; */
+"PZ6-6J-4KK.title" = "Quizzes";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "SaN-b3-eOt"; */
+"SaN-b3-eOt.title" = "Settings";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "TJx-ST-Tg1"; */
+"TJx-ST-Tg1.text" = "Title";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "UFM-OQ-dHX"; */
+"UFM-OQ-dHX.text" = "Title";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "VM2-Zn-j4d"; */
+"VM2-Zn-j4d.text" = "Title";
+
+/* Class = "UINavigationItem"; title = "Manuals"; ObjectID = "hI0-UD-xon"; */
+"hI0-UD-xon.title" = "Manuals";
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "i5h-Vq-aHe"; */
+"i5h-Vq-aHe.title" = "Settings";
+
+/* Class = "UILabel"; text = "<# Title #>"; ObjectID = "kT0-7v-h7F"; */
+"kT0-7v-h7F.text" = "<# Title #>";
+
+/* Class = "UILabel"; text = "Acknowledgements"; ObjectID = "oXZ-jZ-dsg"; */
+"oXZ-jZ-dsg.text" = "Acknowledgements";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "xrs-T6-gZb"; */
+"xrs-T6-gZb.text" = "Title";
