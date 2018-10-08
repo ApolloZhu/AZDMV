@@ -81,11 +81,6 @@
 		529726162169FB1400C62F19 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = hi; path = hi.lproj/tboc.json; sourceTree = "<group>"; };
 		529726172169FB1400C62F19 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = hi; path = hi.lproj/sections.json; sourceTree = "<group>"; };
 		529726182169FB1500C62F19 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = hi; path = hi.lproj/quiz.json; sourceTree = "<group>"; };
-		529726192169FC7800C62F19 /* eo */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = eo; path = eo.lproj/Main.strings; sourceTree = "<group>"; };
-		5297261A2169FC7E00C62F19 /* eo */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = eo; path = eo.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		5297261B2169FC8200C62F19 /* eo */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = eo; path = eo.lproj/tboc.json; sourceTree = "<group>"; };
-		5297261C2169FC8400C62F19 /* eo */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = eo; path = eo.lproj/sections.json; sourceTree = "<group>"; };
-		5297261D2169FC8600C62F19 /* eo */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = eo; path = eo.lproj/quiz.json; sourceTree = "<group>"; };
 		5297261E2169FCC300C62F19 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "zh-Hans"; path = "zh-Hans.lproj/quiz.json"; sourceTree = "<group>"; };
 		5297261F2169FCD200C62F19 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = es; path = es.lproj/quiz.json; sourceTree = "<group>"; };
 		52972620216A009700C62F19 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = es; path = es.lproj/tboc.json; sourceTree = "<group>"; };
@@ -288,7 +283,6 @@
 				Base,
 				ko,
 				hi,
-				eo,
 				"zh-Hans",
 				es,
 			);
@@ -442,7 +436,6 @@
 				523C7971214C7423005E8E5C /* Base */,
 				529726112169FAC500C62F19 /* ko */,
 				529726162169FB1400C62F19 /* hi */,
-				5297261B2169FC8200C62F19 /* eo */,
 				52972620216A009700C62F19 /* es */,
 				52972621216A00A000C62F19 /* zh-Hans */,
 			);
@@ -457,7 +450,6 @@
 				523C796E214C6718005E8E5C /* zh-Hans */,
 				5297260F2169FAC300C62F19 /* ko */,
 				529726142169FB1300C62F19 /* hi */,
-				529726192169FC7800C62F19 /* eo */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -470,7 +462,6 @@
 				523C796F214C6719005E8E5C /* zh-Hans */,
 				529726102169FAC400C62F19 /* ko */,
 				529726152169FB1300C62F19 /* hi */,
-				5297261A2169FC7E00C62F19 /* eo */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -481,7 +472,6 @@
 				529726092169F7EF00C62F19 /* Base */,
 				529726122169FAC600C62F19 /* ko */,
 				529726172169FB1400C62F19 /* hi */,
-				5297261C2169FC8400C62F19 /* eo */,
 				52972622216A00A700C62F19 /* es */,
 				52972623216A00AE00C62F19 /* zh-Hans */,
 			);
@@ -494,7 +484,6 @@
 				5297260D2169F80400C62F19 /* Base */,
 				529726132169FAC700C62F19 /* ko */,
 				529726182169FB1500C62F19 /* hi */,
-				5297261D2169FC8600C62F19 /* eo */,
 				5297261E2169FCC300C62F19 /* zh-Hans */,
 				5297261F2169FCD200C62F19 /* es */,
 			);
