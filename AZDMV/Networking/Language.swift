@@ -71,6 +71,9 @@ enum Language: String, CaseIterable {
     case CantoneseTraditional = "yue"
     case ChineseSimplified = "zh-Hans"
     case ChineseTraditional = "zh-Hant"
+}
+
+extension Language {
     /// Suitable for user interface
     var nativeName: String {
         switch self {
@@ -167,11 +170,15 @@ extension Language {
             UserDefaults.standard.set(newValue.rawValue, forKey: preferredKey)
         }
     }
+    
     // MARK: - Helpers
+    
     /// For UserDefaults preference keeping.
     private static let preferredKey = "Language.preferred"
+    
     /// Speed is more important than space.
     private static var cachedPreferred: Language? = nil
+    
     /// A more robust constructor.
     public init?(languageCode: String) {
         if let language = Language(rawValue: languageCode) {
@@ -183,6 +190,7 @@ extension Language {
             return nil
         }
     }
+    
     /// Choose the most appropriate language based on many factors.
     private static func calculatePreferred() -> Language {
         return .English

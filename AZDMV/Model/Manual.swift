@@ -14,7 +14,8 @@ struct Manual: Codable {
     let symbol: String
     let rawTotalSections: String
     let rawSections: [Section]
-    let noQuiz: [String] // x.x
+    /// x.x
+    let noQuiz: [String]
     
     enum CodingKeys: String, CodingKey {
         case title, symbol

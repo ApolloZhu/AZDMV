@@ -13,7 +13,8 @@ struct Subsection: Codable, Hashable {
     let rawSubSectionID: String
     let title: String
     let content: String
-    let update: String? // Wed Sep 07 2016 15:07:58 GMT+0000 (Coordinated Universal Time)
+    /// Wed Sep 07 2016 15:07:58 GMT+0000 (Coordinated Universal Time)
+    let update: String?
     enum CodingKeys: String, CodingKey {
         case rawSection = "section"
         case rawSubSectionID = "subSectionID"

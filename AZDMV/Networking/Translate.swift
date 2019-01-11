@@ -34,16 +34,17 @@ extension Quiz {
     func translated(to language: Language = .preferred,
                     then process: @escaping (Quiz?, Error?) -> Void) {
         guard language != .English else { return process(self, nil) }
-        db.collection(language.rawValue).document("\(questionID)").getDocument {
-            (snapshot, error) in
-            // Stored in Firestore
+        let cache = db.collection(language.rawValue).document("\(questionID)")
+        cache.getDocument { (snapshot, error) in
             if let data = snapshot?.data() {
+                // MARK: Retrieve cached from Firestore
                 process(self.translated(
                     question: data["question"] as! String,
                     feedback: data["feedback"] as! String,
                     answers: data["answers"] as! [String]
                 ), nil)
-            } else { // Ask Microsoft to translate
+            } else {
+                // MARK: Ask Microsoft to translate
                 let url = URL(string: urlPrefix + language.rawValue)
                 var request = URLRequest(url: url!)
                 request.httpMethod = "POST"
@@ -55,32 +56,42 @@ extension Quiz {
                                  forHTTPHeaderField: "Ocp-Apim-Subscription-Key")
                 request.addValue("application/json",
                                  forHTTPHeaderField: "Content-Type")
-                let task = URLSession.shared.dataTask(with: request) { (data, req, err) in
-                    guard let data = data else { return process(nil, err) }
-                    let decoder = JSONDecoder()
-                    if let decoded = try? decoder.decode([ResponseWrapper].self, from: data) {
-                        let translations = decoded.map { $0.translations[0].text }
-                        db.collection(language.rawValue).document("\(self.questionID)").setData([
-                            "question": translations[0],
-                            "feedback": translations[1],
-                            "answers": Array(translations[2...])])
-                        process(self.translated(
-                            question: translations[0],
-                            feedback: translations[1],
-                            answers: translations[2...]
-                        ), nil)
-                    } else if let error = try? decoder.decode(ErrorWrapper.self, from: data) {
-                        process(nil, AnyError(localizedDescription: error.error.message))
-                    } else { process(nil, AnyError.errored) }
+                let task = URLSession.shared.dataTask(with: request) {
+                    self.map(data: $0, request: $1, error: $2,
+                             saveTo: cache, then: process)
                 }
                 task.resume()
             }
         }
     }
-    // MARK: - Helpers
+    
+    private func map(data: Data?, request: URLResponse?, error: Error?,
+                     saveTo cache: DocumentReference,
+                     then process: @escaping (Quiz?, Error?) -> Void) {
+        guard let data = data else { return process(nil, error) }
+        let decoder = JSONDecoder()
+        if let decoded = try? decoder.decode([ResponseWrapper].self, from: data) {
+            let translations = decoded.map { $0.translations[0].text }
+            cache.setData([
+                "question": translations[0],
+                "feedback": translations[1],
+                "answers": Array(translations[2...])])
+            process(translated(
+                question: translations[0],
+                feedback: translations[1],
+                answers: translations[2...]
+            ), nil)
+        } else if let error = try? decoder.decode(ErrorWrapper.self, from: data) {
+            process(nil, AnyError(localizedDescription: error.error.message))
+        } else {
+            process(nil, AnyError.errored)
+        }
+    }
+    
     private struct RequestWrapper: Encodable {
         let Text: String
     }
+    
     private struct ResponseWrapper: Decodable {
         let translations: [Translation]
         struct Translation: Decodable {
@@ -88,6 +99,7 @@ extension Quiz {
             // let to: Language
         }
     }
+    
     private struct ErrorWrapper: Decodable {
         let error: MicrosoftError
         struct MicrosoftError: Decodable {
