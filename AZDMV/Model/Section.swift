@@ -3,7 +3,7 @@
 //  AZDMV
 //
 //  Created by Apollo Zhu on 2/12/18.
-//  Copyright © 2016-2018 DMV A-Z. MIT License.
+//  Copyright © 2016-2019 DMV A-Z. MIT License.
 //
 
 struct Section: Codable {

@@ -7,7 +7,7 @@ An app for preparing the Driver's Knowledge Exam of Virginia.
 This program and its author(s) have not affiliation with the Department of Motor Vehicles (DMV) of Virginia or similar agencies of any other states. All contents provided might be outdated. Please refer to the [Virginia Driver's Study Guide](https://www.dmv.virginia.gov/dmv-manuals/#/sections/manual/1) or the equavalent in your state for the most accurate information. This program's license can be found in the source files, or as stated here:
 
 ```swift
-//  Copyright © 2016-2018 DMV A-Z. MIT License.
+//  Copyright © 2016-2019 DMV A-Z. MIT License.
 ```
 
 ## Why do I want to use this app?

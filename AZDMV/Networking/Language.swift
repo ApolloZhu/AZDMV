@@ -3,7 +3,7 @@
 //  AZDMV
 //
 //  Created by Apollo Zhu on 9/14/18.
-//  Copyright © 2018 DMV A-Z. All rights reserved.
+//  Copyright © 2016-2019 DMV A-Z. MIT License.
 //
 
 /// All languages that Microsoft Translator supports, as of now.
@@ -149,6 +149,7 @@ extension Language {
     /// Preferred Interface Language
     static var preferred: Language {
         get {
+            return .English
             if let preferred = cachedPreferred {
                 return preferred
             }
@@ -184,6 +185,7 @@ extension Language {
     }
     /// Choose the most appropriate language based on many factors.
     private static func calculatePreferred() -> Language {
+        return .English
         var languages = Locale.preferredLanguages
         if let languageCode = Locale.current.languageCode {
             languages.insert(languageCode, at: 1)

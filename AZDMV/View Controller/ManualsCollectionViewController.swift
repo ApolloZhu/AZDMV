@@ -3,7 +3,7 @@
 //  AZDMV
 //
 //  Created by Apollo Zhu on 2/11/18.
-//  Copyright © 2016-2018 DMV A-Z. MIT License.
+//  Copyright © 2016-2019 DMV A-Z. MIT License.
 //
 
 import UIKit
@@ -107,7 +107,7 @@ var whatsNew: WhatsNewViewController = {
                 value: "Carefully crafted for your convinence. Made with ❤️.",
                 comment: "Short description for redesign"),
             image: #imageLiteral(resourceName: "outline_color_lens_black_24pt")),
-        WhatsNewItem.image(
+        /* WhatsNewItem.image(
             title: NSLocalizedString(
                 "WhatsNew.languages.title",
                 value: "Many Languages",
@@ -116,7 +116,7 @@ var whatsNew: WhatsNewViewController = {
                 "WhatsNew.languages.content",
                 value: "Everything is translated into your language. Everyone deserves the right to learn.",
                 comment: "Short description for auto translate"),
-            image: #imageLiteral(resourceName: "outline_language_black_24pt")),
+            image: #imageLiteral(resourceName: "outline_language_black_24pt")), */
         WhatsNewItem.image(
             title: NSLocalizedString(
                 "WhatsNew.manual.title",

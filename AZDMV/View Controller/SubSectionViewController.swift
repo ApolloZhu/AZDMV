@@ -3,7 +3,7 @@
 //  AZDMV
 //
 //  Created by Apollo Zhu on 9/15/18.
-//  Copyright © 2018 DMV A-Z. All rights reserved.
+//  Copyright © 2016-2019 DMV A-Z. MIT License.
 //
 
 import UIKit
