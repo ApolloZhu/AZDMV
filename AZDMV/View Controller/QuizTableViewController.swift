@@ -95,15 +95,29 @@ class QuizTableViewController: UITableViewController {
             return cell
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell", for: indexPath)
-            cell.textLabel?.text = quiz.answers[quiz.answers.count - 1 - indexPath.row].text
+            let text = quiz.answers[quiz.answers.count - 1 - indexPath.row].text
             cell.backgroundColor = .white
+            cell.textLabel?.layer.cornerRadius = 0
+            cell.textLabel?.layer.masksToBounds = false
+            cell.textLabel?.textAlignment = .natural
             cell.accessoryType = .none
             if selectedAnswers.contains(indexPath) {
                 if !tableView.allowsSelection && selectedAnswers.last == indexPath {
-                    cell.textLabel?.textColor = .success
+                    cell.textLabel?.backgroundColor = .success
+                    cell.textLabel?.layer.cornerRadius = 5
+                    cell.textLabel?.layer.masksToBounds = true
+                    cell.textLabel?.textAlignment = .center
+                    cell.textLabel?.textColor = .white
                 } else {
                     cell.isUserInteractionEnabled = false
-                    cell.textLabel?.textColor = .red
+                    cell.textLabel?.attributedText = NSAttributedString(
+                        string: text, attributes: [
+                            .strikethroughStyle: NSUnderlineStyle.single.rawValue,
+                            .foregroundColor: UIColor.red,
+                            .baselineOffset: 0
+                        ]
+                    )
+                    return cell
                 }
             } else {
                 if tableView.allowsSelection {
@@ -113,6 +127,7 @@ class QuizTableViewController: UITableViewController {
                     cell.textLabel?.textColor = .lightGray
                 }
             }
+            cell.textLabel?.text = text
             return cell
         default:
             fatalError("Extra Section")
@@ -126,16 +141,11 @@ class QuizTableViewController: UITableViewController {
         let cell = tableView.cellForRow(at: indexPath)
         if quiz.answers.count - indexPath.row == quiz.correctAnswer {
             tableView.allowsSelection = false
-            quiz.answers.indices.forEach {
-                let indexPath = IndexPath(row: $0, section: 0)
-                if selectedAnswers.contains(indexPath) { return }
-                tableView.cellForRow(at: indexPath)?.textLabel?.textColor = .lightGray
-            }
-            cell?.textLabel?.textColor = .success
+            tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
             correct.showBulletin(above: self)
         } else {
             cell?.isUserInteractionEnabled = false
-            cell?.textLabel?.textColor = .red
+            tableView.reloadRows(at: [indexPath], with: .automatic)
             wrong.showBulletin(above: self)
         }
     }
@@ -214,10 +224,12 @@ class QuizTableViewController: UITableViewController {
                     self.row = 0
                     self.section += 1
                     self.quiz = mapped[flattend[self.section]]![0]
+                    self.needsSelectionUpdate = true
                 }
             } else {
                 self.row = newRow
                 self.quiz = mapped[flattend[self.section]]![newRow]
+                self.needsSelectionUpdate = true
             }
         }
         page.alternativeHandler = { [weak self] _ in
@@ -245,16 +257,20 @@ class QuizTableViewController: UITableViewController {
                     let quizzes = mapped[flattend[self.section]]!
                     self.row = quizzes.count - 1
                     self.quiz = quizzes.last
+                    self.needsSelectionUpdate = true
                 }
             } else {
                 self.row -= 1
                 self.quiz = mapped[flattend[self.section]]![self.row]
+                self.needsSelectionUpdate = true
             }
         }
         return manager
     }
 
     // MARK: - Update Selection in Previous Controller
+    
+    var needsSelectionUpdate = false
     
     weak var allQuizzesVC: QuizzesTableViewController?
     
@@ -263,14 +279,17 @@ class QuizTableViewController: UITableViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        guard needsSelectionUpdate else {
+            return super.viewWillDisappear(animated)
+        }
         if let oldSelection = allQuizzesTableView?.indexPathForSelectedRow {
             allQuizzesTableView?.deselectRow(at: oldSelection, animated: false)
         }
         super.viewWillDisappear(animated)
         if let coordinator = transitionCoordinator {
-            coordinator.animate(alongsideTransition: { [weak self] context in
+            coordinator.animate(alongsideTransition: nil) { [weak self] (context) in
                 self?.updateSelection(animated: animated && context.isAnimated)
-            })
+            }
         } else {
             updateSelection(animated: animated)
         }
@@ -278,7 +297,7 @@ class QuizTableViewController: UITableViewController {
     
     func updateSelection(animated: Bool) {
         let newSelection = IndexPath(row: row, section: section)
-        allQuizzesTableView?.selectRow(at: newSelection, animated: false, scrollPosition: .middle)
+        allQuizzesTableView?.selectRow(at: newSelection, animated: animated, scrollPosition: .middle)
         allQuizzesTableView?.deselectRow(at: newSelection, animated: animated)
     }
 }

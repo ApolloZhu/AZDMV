@@ -61,18 +61,13 @@ class ManualsCollectionViewController: UICollectionViewController, CHTCollection
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ManualsCollectionViewCell.reuseIdentifier, for: indexPath) as! ManualsCollectionViewCell
-        cell.iconLabel.text = sections[indexPath.row].symbol
+        cell.iconLabel.text = sections[indexPath.row].symbol.text
         cell.sectionTitleLabel.text = sections[indexPath.row].title
         cell.tableView.tag = indexPath.row
         cell.tableView.delegate = self
         cell.tableView.dataSource = self
         cell.tableView.reloadData()
-        let color = UIColor(
-            hue: .random(in: 0...1),
-            saturation: .random(in: 0.5...1), // stay away from white
-            brightness: .random(in: 0.5...1), // stay away from black
-            alpha: 1
-        )
+        let color = sections[indexPath.row].symbol.color
         cell.iconLabel.textColor = color
         cell.sectionTitleLabel.textColor = color
         cell.layer.shadowColor = color.cgColor
