@@ -24,18 +24,22 @@ class QuizTableViewController: UITableViewController {
         if #available(iOS 11.0, *) {
             navigationItem.largeTitleDisplayMode = .never
         }
-        tableView.tableFooterView = UIView()
         tableView.alwaysBounceVertical = false
+        for direction in [UISwipeGestureRecognizer.Direction.left, .right] {
+            let swipe = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
+            swipe.direction = direction
+            tableView.addGestureRecognizer(swipe)
+        }
     }
     
     // MARK: - UITableViewDataSource
     
     var quiz: Quiz! {
         didSet {
+            selectedAnswers = []
+            tableView.allowsSelection = true
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
-                self.selectedAnswers = []
-                self.tableView.allowsSelection = true
                 self.title = String(
                     format: NSLocalizedString(
                         "Quiz.title",
@@ -43,7 +47,6 @@ class QuizTableViewController: UITableViewController {
                         comment: "Title for quiz view"),
                     self.quiz.questionID, self.quiz.section, self.quiz.subsection
                 )
-                self.tableView.reloadData()
             }
         }
     }
@@ -96,7 +99,7 @@ class QuizTableViewController: UITableViewController {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell", for: indexPath)
             let text = quiz.answers[quiz.answers.count - 1 - indexPath.row].text
-            cell.backgroundColor = .white
+            cell.textLabel?.backgroundColor = .white
             cell.textLabel?.layer.cornerRadius = 0
             cell.textLabel?.layer.masksToBounds = false
             cell.textLabel?.textAlignment = .natural
@@ -141,11 +144,11 @@ class QuizTableViewController: UITableViewController {
         let cell = tableView.cellForRow(at: indexPath)
         if quiz.answers.count - indexPath.row == quiz.correctAnswer {
             tableView.allowsSelection = false
-            tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+            tableView.reloadData()
             correct.showBulletin(above: self)
         } else {
             cell?.isUserInteractionEnabled = false
-            tableView.reloadRows(at: [indexPath], with: .automatic)
+            tableView.reloadRows(at: [indexPath], with: .none)
             wrong.showBulletin(above: self)
         }
     }
@@ -201,76 +204,105 @@ class QuizTableViewController: UITableViewController {
         page.appearance.alternativeButtonTitleColor = .success
         page.actionHandler = { [weak self] _ in
             defer { manager.dismissBulletin() }
-            guard let self = self else { return }
-            let newRow = self.row + 1
-            if newRow == mapped[flattend[self.section]]!.count {
-                if self.section + 1 == flattend.count {
-                    let statusAlert = StatusAlert()
-                    if #available(iOS 10.0, *) {
-                        statusAlert.appearance.blurStyle = .prominent
-                    }
-                    statusAlert.title = NSLocalizedString(
-                        "Quiz.last.title",
-                        value: "Good job!",
-                        comment: "Congradulate to user"
-                    )
-                    statusAlert.message = NSLocalizedString(
-                        "Quiz.last.message",
-                        value: "This is the last question.",
-                        comment: "Clarify it is the last question"
-                    )
-                    statusAlert.showInKeyWindow()
-                } else {
-                    self.row = 0
-                    self.section += 1
-                    self.quiz = mapped[flattend[self.section]]![0]
-                    self.needsSelectionUpdate = true
-                }
-            } else {
-                self.row = newRow
-                self.quiz = mapped[flattend[self.section]]![newRow]
-                self.needsSelectionUpdate = true
-            }
+            self?.showNextQuiz()
         }
         page.alternativeHandler = { [weak self] _ in
             defer { manager.dismissBulletin() }
-            guard let self = self else { return }
-            if self.row == 0 {
-                if self.section == 0 {
-                    let statusAlert = StatusAlert()
-                    if #available(iOS 10.0, *) {
-                        statusAlert.appearance.blurStyle = .prominent
-                    }
-                    statusAlert.title = NSLocalizedString(
-                        "Quiz.first.title",
-                        value: "Try next one?",
-                        comment: "Direct the user to go to next question"
-                    )
-                    statusAlert.message = NSLocalizedString(
-                        "Quiz.first.message",
-                        value: "This is the first question.",
-                        comment: "Clarify it is the first question"
-                    )
-                    statusAlert.showInKeyWindow()
-                } else {
-                    self.section -= 1
-                    let quizzes = mapped[flattend[self.section]]!
-                    self.row = quizzes.count - 1
-                    self.quiz = quizzes.last
-                    self.needsSelectionUpdate = true
-                }
-            } else {
-                self.row -= 1
-                self.quiz = mapped[flattend[self.section]]![self.row]
-                self.needsSelectionUpdate = true
-            }
+            self?.showPreviousQuiz()
         }
         return manager
     }
-
+    
+    private func showPreviousQuiz() {
+        if row == 0 {
+            if section == 0 {
+                let statusAlert = StatusAlert()
+                if #available(iOS 10.0, *) {
+                    statusAlert.appearance.blurStyle = .prominent
+                }
+                statusAlert.title = NSLocalizedString(
+                    "Quiz.first.title",
+                    value: "Try next one?",
+                    comment: "Direct the user to go to next question"
+                )
+                statusAlert.message = NSLocalizedString(
+                    "Quiz.first.message",
+                    value: "This is the first question.",
+                    comment: "Clarify it is the first question"
+                )
+                statusAlert.showInKeyWindow()
+                return
+            } else {
+                section -= 1
+                let quizzes = mapped[flattend[section]]!
+                row = quizzes.count - 1
+                quiz = quizzes.last
+            }
+        } else {
+            row -= 1
+            quiz = mapped[flattend[section]]![row]
+        }
+        needsSelectionUpdate = true
+        tableView.reloadData(animation: .right)
+    }
+    
+    private func showNextQuiz() {
+        let newRow = row + 1
+        if newRow == mapped[flattend[section]]!.count {
+            if section + 1 == flattend.count {
+                let statusAlert = StatusAlert()
+                if #available(iOS 10.0, *) {
+                    statusAlert.appearance.blurStyle = .prominent
+                }
+                statusAlert.title = NSLocalizedString(
+                    "Quiz.last.title",
+                    value: "Good job!",
+                    comment: "Congradulate to user"
+                )
+                statusAlert.message = NSLocalizedString(
+                    "Quiz.last.message",
+                    value: "This is the last question.",
+                    comment: "Clarify it is the last question"
+                )
+                statusAlert.showInKeyWindow()
+                return
+            } else {
+                row = 0
+                section += 1
+                quiz = mapped[flattend[section]]![0]
+            }
+        } else {
+            row = newRow
+            quiz = mapped[flattend[section]]![newRow]
+        }
+        needsSelectionUpdate = true
+        tableView.reloadData(animation: .left)
+    }
+    
+    @objc private func swiped(_ recognizer: UISwipeGestureRecognizer) {
+        switch recognizer.direction {
+        case .left:
+            showPreviousQuiz()
+        case .right:
+            showNextQuiz()
+        default:
+            fatalError("\(recognizer.direction.rawValue)")
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+    }
+    
     // MARK: - Update Selection in Previous Controller
     
-    var needsSelectionUpdate = false
+    private var needsSelectionUpdate = false
     
     weak var allQuizzesVC: QuizzesTableViewController?
     
@@ -295,9 +327,39 @@ class QuizTableViewController: UITableViewController {
         }
     }
     
-    func updateSelection(animated: Bool) {
+    private func updateSelection(animated: Bool) {
         let newSelection = IndexPath(row: row, section: section)
         allQuizzesTableView?.selectRow(at: newSelection, animated: animated, scrollPosition: .middle)
         allQuizzesTableView?.deselectRow(at: newSelection, animated: animated)
+    }
+}
+
+extension UITableView {
+    /// https://stackoverflow.com/questions/33410482/table-view-cell-load-animation-one-after-another#49570817
+    func reloadData(animation: UITableView.RowAnimation) {
+        reloadData()
+        
+        let transform: CGAffineTransform
+        let offset = bounds.size.width
+        switch animation {
+        case .left:
+            transform = CGAffineTransform(translationX: -offset, y: 0)
+        case .right:
+            transform = CGAffineTransform(translationX: offset, y: 0)
+        default:
+            fatalError("Not implemented")
+        }
+        
+        let cells = visibleCells
+        cells.forEach { $0.transform = transform }
+        for (delayCounter, cell) in cells.reversed().enumerated() {
+            UIView.animate(withDuration: 1, delay: 0.06 * Double(delayCounter),
+                           usingSpringWithDamping: 0.8, initialSpringVelocity: 0,
+                           options: .curveEaseInOut, animations: {
+                cell.transform = .identity
+            }, completion: { finished in
+                if !finished { cell.transform = .identity }
+            })
+        }
     }
 }
