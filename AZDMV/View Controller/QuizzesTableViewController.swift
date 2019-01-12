@@ -48,6 +48,9 @@ class QuizzesTableViewController: UITableViewController {
             let quiz = mapped[flattend[indexPath.section]]?[indexPath.row]
             quiz?.translated { translated, _ in
                 vc.quiz = translated ?? quiz
+                vc.section = indexPath.section
+                vc.row = indexPath.row
+                vc.allQuizzesVC = self
             }
         }
     }

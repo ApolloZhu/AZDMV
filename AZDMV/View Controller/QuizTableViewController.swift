@@ -13,28 +13,12 @@ import ReverseExtension
 import StatusAlert
 
 extension UIColor {
-    static let success = #colorLiteral(red: 0.294, green: 0.85, blue: 0.392, alpha: 1)
+    static let success = UIColor.theme
 }
 
 class QuizTableViewController: UITableViewController {
-    var quiz: Quiz? {
-        didSet {
-            guard let quiz = quiz else { return }
-            DispatchQueue.main.async { [weak self] in
-                self?.title = String(
-                    format: NSLocalizedString(
-                        "Quiz.title",
-                        value: "#%1$d, Section %2$d.%3$d",
-                        comment: "Title for quiz view"),
-                    quiz.questionID, quiz.section, quiz.subsection
-                )
-                self?.tableView.reloadData()
-            }
-        }
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
         tableView.allowsSelection = true
         tableView.re.delegate = self
         if #available(iOS 11.0, *) {
@@ -43,46 +27,42 @@ class QuizTableViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         tableView.alwaysBounceVertical = false
     }
-
+    
+    // MARK: - UITableViewDataSource
+    
+    var quiz: Quiz! {
+        didSet {
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                self.selectedAnswers = []
+                self.tableView.allowsSelection = true
+                self.title = String(
+                    format: NSLocalizedString(
+                        "Quiz.title",
+                        value: "#%1$d, Section %2$d.%3$d",
+                        comment: "Title for quiz view"),
+                    self.quiz.questionID, self.quiz.section, self.quiz.subsection
+                )
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let quiz = quiz else { return 0 }
         switch section {
         case 1: return quiz.images.count + 1
         case 0: return quiz.answers.count
         default: return 0
         }
     }
-
-    var selected = [IndexPath]()
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selected.append(indexPath)
-        let cell = tableView.cellForRow(at: indexPath)
-        guard let quiz = quiz else { return }
-        if quiz.answers.count - indexPath.row == quiz.correctAnswer {
-            tableView.allowsSelection = false
-            quiz.answers.indices.forEach {
-                let indexPath = IndexPath(row: $0, section: 0)
-                if selected.contains(indexPath) { return }
-                tableView.cellForRow(at: indexPath)?.textLabel?.textColor = .lightGray
-            }
-            cell?.textLabel?.textColor = .success
-            correct.showBulletin(above: self)
-        } else {
-            cell?.isUserInteractionEnabled = false
-            cell?.textLabel?.textColor = .red
-            wrong.showBulletin(above: self)
-        }
-    }
-
+    
+    private var selectedAnswers = [IndexPath]()
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let quiz = quiz else {
-            return tableView.dequeueReusableCell(withIdentifier: "TextCell", for: indexPath)
-        }
         switch indexPath.section {
         case 1:
             let cell: UITableViewCell
@@ -96,6 +76,9 @@ class QuizTableViewController: UITableViewController {
                 imageView.kf.setImage(with: url) { _, error, _, _ in
                     guard let error = error else { return }
                     let statusAlert = StatusAlert()
+                    if #available(iOS 10.0, *) {
+                        statusAlert.appearance.blurStyle = .prominent
+                    }
                     statusAlert.title = NSLocalizedString(
                         "QuizTableViewController.ImageCell.setImage.error",
                         value: "Failed to load image",
@@ -115,8 +98,8 @@ class QuizTableViewController: UITableViewController {
             cell.textLabel?.text = quiz.answers[quiz.answers.count - 1 - indexPath.row].text
             cell.backgroundColor = .white
             cell.accessoryType = .none
-            if selected.contains(indexPath) {
-                if !tableView.allowsSelection && selected.last == indexPath {
+            if selectedAnswers.contains(indexPath) {
+                if !tableView.allowsSelection && selectedAnswers.last == indexPath {
                     cell.textLabel?.textColor = .success
                 } else {
                     cell.isUserInteractionEnabled = false
@@ -135,8 +118,29 @@ class QuizTableViewController: UITableViewController {
             fatalError("Extra Section")
         }
     }
+    
+    // MARK: - UITableViewDelegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedAnswers.append(indexPath)
+        let cell = tableView.cellForRow(at: indexPath)
+        if quiz.answers.count - indexPath.row == quiz.correctAnswer {
+            tableView.allowsSelection = false
+            quiz.answers.indices.forEach {
+                let indexPath = IndexPath(row: $0, section: 0)
+                if selectedAnswers.contains(indexPath) { return }
+                tableView.cellForRow(at: indexPath)?.textLabel?.textColor = .lightGray
+            }
+            cell?.textLabel?.textColor = .success
+            correct.showBulletin(above: self)
+        } else {
+            cell?.isUserInteractionEnabled = false
+            cell?.textLabel?.textColor = .red
+            wrong.showBulletin(above: self)
+        }
+    }
 
-    private lazy var wrong: BLTNItemManager = {
+    private var wrong: BLTNItemManager {
         let page = BLTNPageItem(title: NSLocalizedString(
             "Quiz.wrong.title",
             value: "Not Quite...",
@@ -159,16 +163,18 @@ class QuizTableViewController: UITableViewController {
             manager.backgroundViewStyle = .blurredLight
         }
         return manager
-    }()
-
-    private lazy var correct: BLTNItemManager = {
+    }
+    
+    var section: Int!
+    var row: Int!
+    
+    private var correct: BLTNItemManager {
         let page = BLTNPageItem(title: NSLocalizedString(
             "Quiz.correct.title",
             value: "Correct!",
             comment: "Enthusiastically congratulate the user."
         ))
         let manager = BLTNItemManager(rootItem: page)
-        page.requiresCloseButton = false
         page.descriptionText = quiz?.feedback
         page.actionButtonTitle = NSLocalizedString(
             "Quiz.correct.action.next",
@@ -176,20 +182,103 @@ class QuizTableViewController: UITableViewController {
             comment: "Prompt the user to move on to next question."
         )
         page.alternativeButtonTitle = NSLocalizedString(
-            "Quiz.correct.action.cancel",
-            value: "Maybe Later",
-            comment: "Give the user a choice to stay in the current quiz."
+            "Quiz.correct.action.previous",
+            value: "Try Previous One",
+            comment: "Prompt the user to move on to previous question."
         )
         page.appearance.actionButtonColor = .success
         page.appearance.actionButtonTitleColor = .white
         page.appearance.alternativeButtonTitleColor = .success
-        page.actionHandler = { _ in
-            #warning("TODO: Implement go to next quiz")
-            manager.dismissBulletin()
+        page.actionHandler = { [weak self] _ in
+            defer { manager.dismissBulletin() }
+            guard let self = self else { return }
+            let newRow = self.row + 1
+            if newRow == mapped[flattend[self.section]]!.count {
+                if self.section + 1 == flattend.count {
+                    let statusAlert = StatusAlert()
+                    if #available(iOS 10.0, *) {
+                        statusAlert.appearance.blurStyle = .prominent
+                    }
+                    statusAlert.title = NSLocalizedString(
+                        "Quiz.last.title",
+                        value: "Good job!",
+                        comment: "Congradulate to user"
+                    )
+                    statusAlert.message = NSLocalizedString(
+                        "Quiz.last.message",
+                        value: "This is the last question.",
+                        comment: "Clarify it is the last question"
+                    )
+                    statusAlert.showInKeyWindow()
+                } else {
+                    self.row = 0
+                    self.section += 1
+                    self.quiz = mapped[flattend[self.section]]![0]
+                }
+            } else {
+                self.row = newRow
+                self.quiz = mapped[flattend[self.section]]![newRow]
+            }
         }
-        page.alternativeHandler = { _ in
-            manager.dismissBulletin()
+        page.alternativeHandler = { [weak self] _ in
+            defer { manager.dismissBulletin() }
+            guard let self = self else { return }
+            if self.row == 0 {
+                if self.section == 0 {
+                    let statusAlert = StatusAlert()
+                    if #available(iOS 10.0, *) {
+                        statusAlert.appearance.blurStyle = .prominent
+                    }
+                    statusAlert.title = NSLocalizedString(
+                        "Quiz.first.title",
+                        value: "Try next one?",
+                        comment: "Direct the user to go to next question"
+                    )
+                    statusAlert.message = NSLocalizedString(
+                        "Quiz.first.message",
+                        value: "This is the first question.",
+                        comment: "Clarify it is the first question"
+                    )
+                    statusAlert.showInKeyWindow()
+                } else {
+                    self.section -= 1
+                    let quizzes = mapped[flattend[self.section]]!
+                    self.row = quizzes.count - 1
+                    self.quiz = quizzes.last
+                }
+            } else {
+                self.row -= 1
+                self.quiz = mapped[flattend[self.section]]![self.row]
+            }
         }
         return manager
-    }()
+    }
+
+    // MARK: - Update Selection in Previous Controller
+    
+    weak var allQuizzesVC: QuizzesTableViewController?
+    
+    private var allQuizzesTableView: UITableView? {
+        return allQuizzesVC?.tableView
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if let oldSelection = allQuizzesTableView?.indexPathForSelectedRow {
+            allQuizzesTableView?.deselectRow(at: oldSelection, animated: false)
+        }
+        super.viewWillDisappear(animated)
+        if let coordinator = transitionCoordinator {
+            coordinator.animate(alongsideTransition: { [weak self] context in
+                self?.updateSelection(animated: animated && context.isAnimated)
+            })
+        } else {
+            updateSelection(animated: animated)
+        }
+    }
+    
+    func updateSelection(animated: Bool) {
+        let newSelection = IndexPath(row: row, section: section)
+        allQuizzesTableView?.selectRow(at: newSelection, animated: false, scrollPosition: .middle)
+        allQuizzesTableView?.deselectRow(at: newSelection, animated: animated)
+    }
 }
