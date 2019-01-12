@@ -16,3 +16,15 @@ struct AnyError: Error {
         comment: "Generic error description"
     ))
 }
+
+import StatusAlert
+
+func showAlert(title: String, message: String) {
+    let statusAlert = StatusAlert()
+    if #available(iOS 10.0, *) {
+        statusAlert.appearance.blurStyle = .prominent
+    }
+    statusAlert.title = title
+    statusAlert.message = message
+    statusAlert.showInKeyWindow()
+}

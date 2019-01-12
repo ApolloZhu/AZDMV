@@ -78,17 +78,14 @@ class QuizTableViewController: UITableViewController {
                 imageView.kf.indicatorType = .activity
                 imageView.kf.setImage(with: url) { _, error, _, _ in
                     guard let error = error else { return }
-                    let statusAlert = StatusAlert()
-                    if #available(iOS 10.0, *) {
-                        statusAlert.appearance.blurStyle = .prominent
-                    }
-                    statusAlert.title = NSLocalizedString(
-                        "QuizTableViewController.ImageCell.setImage.error",
-                        value: "Failed to load image",
-                        comment: "App failed to fetch image used in the current quiz."
+                    showAlert(
+                        title: NSLocalizedString(
+                            "QuizTableViewController.ImageCell.setImage.error",
+                            value: "Failed to load image",
+                            comment: "App failed to fetch image used in the current quiz."
+                        ),
+                        message: error.localizedDescription
                     )
-                    statusAlert.message = error.localizedDescription
-                    statusAlert.showInKeyWindow()
                 }
             } else {
                 cell = tableView.dequeueReusableCell(withIdentifier: "QuestionCell", for: indexPath)
@@ -98,12 +95,12 @@ class QuizTableViewController: UITableViewController {
             return cell
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell", for: indexPath)
-            let text = quiz.answers[quiz.answers.count - 1 - indexPath.row].text
             cell.textLabel?.backgroundColor = .white
             cell.textLabel?.layer.cornerRadius = 0
             cell.textLabel?.layer.masksToBounds = false
             cell.textLabel?.textAlignment = .natural
             cell.accessoryType = .none
+            var attributes: [NSAttributedString.Key: Any]? = nil
             if selectedAnswers.contains(indexPath) {
                 if !tableView.allowsSelection && selectedAnswers.last == indexPath {
                     cell.textLabel?.backgroundColor = .success
@@ -113,14 +110,11 @@ class QuizTableViewController: UITableViewController {
                     cell.textLabel?.textColor = .white
                 } else {
                     cell.isUserInteractionEnabled = false
-                    cell.textLabel?.attributedText = NSAttributedString(
-                        string: text, attributes: [
-                            .strikethroughStyle: NSUnderlineStyle.single.rawValue,
-                            .foregroundColor: UIColor.red,
-                            .baselineOffset: 0
-                        ]
-                    )
-                    return cell
+                    attributes = [
+                        .strikethroughStyle: NSUnderlineStyle.single.rawValue,
+                        .foregroundColor: UIColor.red,
+                        .baselineOffset: 0
+                    ]
                 }
             } else {
                 if tableView.allowsSelection {
@@ -130,7 +124,10 @@ class QuizTableViewController: UITableViewController {
                     cell.textLabel?.textColor = .lightGray
                 }
             }
-            cell.textLabel?.text = text
+            cell.textLabel?.attributedText = NSAttributedString(
+                string: quiz.answers[quiz.answers.count - 1 - indexPath.row].text,
+                attributes: attributes
+            )
             return cell
         default:
             fatalError("Extra Section")
@@ -216,22 +213,18 @@ class QuizTableViewController: UITableViewController {
     private func showPreviousQuiz() {
         if row == 0 {
             if section == 0 {
-                let statusAlert = StatusAlert()
-                if #available(iOS 10.0, *) {
-                    statusAlert.appearance.blurStyle = .prominent
-                }
-                statusAlert.title = NSLocalizedString(
-                    "Quiz.first.title",
-                    value: "Try next one?",
-                    comment: "Direct the user to go to next question"
+                return showAlert(
+                    title: NSLocalizedString(
+                        "Quiz.first.title",
+                        value: "Try next one?",
+                        comment: "Direct the user to go to next question"
+                    ),
+                    message: NSLocalizedString(
+                        "Quiz.first.message",
+                        value: "This is the first question.",
+                        comment: "Clarify it is the first question"
+                    )
                 )
-                statusAlert.message = NSLocalizedString(
-                    "Quiz.first.message",
-                    value: "This is the first question.",
-                    comment: "Clarify it is the first question"
-                )
-                statusAlert.showInKeyWindow()
-                return
             } else {
                 section -= 1
                 let quizzes = mapped[flattend[section]]!
@@ -250,22 +243,18 @@ class QuizTableViewController: UITableViewController {
         let newRow = row + 1
         if newRow == mapped[flattend[section]]!.count {
             if section + 1 == flattend.count {
-                let statusAlert = StatusAlert()
-                if #available(iOS 10.0, *) {
-                    statusAlert.appearance.blurStyle = .prominent
-                }
-                statusAlert.title = NSLocalizedString(
-                    "Quiz.last.title",
-                    value: "Good job!",
-                    comment: "Congradulate to user"
+                return showAlert(
+                    title: NSLocalizedString(
+                        "Quiz.last.title",
+                        value: "Good job!",
+                        comment: "Congradulate to user"
+                    ),
+                    message: NSLocalizedString(
+                        "Quiz.last.message",
+                        value: "This is the last question.",
+                        comment: "Clarify it is the last question"
+                    )
                 )
-                statusAlert.message = NSLocalizedString(
-                    "Quiz.last.message",
-                    value: "This is the last question.",
-                    comment: "Clarify it is the last question"
-                )
-                statusAlert.showInKeyWindow()
-                return
             } else {
                 row = 0
                 section += 1
