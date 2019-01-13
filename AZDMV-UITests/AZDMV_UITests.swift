@@ -15,10 +15,13 @@ class AZDMV_UITests: XCTestCase {
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
 
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
+        let app = XCUIApplication()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        setupSnapshot(app)
+
+        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
+        app.launch()
     }
     
     /// Put teardown code here. This method is called after the invocation of each test method in the class.
@@ -29,6 +32,12 @@ class AZDMV_UITests: XCTestCase {
     /// Use XCTAssert and related functions to verify your tests produce the correct results.
     func testExample() {
         let app = XCUIApplication()
+        
+        let firstLaunch = app.buttons["Continue"]
+        if firstLaunch.exists {
+            firstLaunch.tap()
+        }
+        
         saveScreenshot(withName: "Manuals Collection View")
         
         let subsection = app.collectionViews.tables.cells.staticTexts["5.1 Penalties"]
@@ -61,21 +70,22 @@ class AZDMV_UITests: XCTestCase {
         app.otherElements["Close"].tap()
     }
     
-    private static var screenshotID = 0
+    private static var _screenshotID = 0
+    private static var screenshotID: Int {
+        lock.lock()
+        defer { lock.unlock() }
+        defer { _screenshotID += 1 }
+        return _screenshotID
+    }
     private static let lock = NSLock()
     
     private func saveScreenshot(withName name: String? = nil) {
         let screenshot = XCUIScreen.main.screenshot()
         let attachment = XCTAttachment(screenshot: screenshot)
         attachment.lifetime = .keepAlways
-        if let name = name {
-            attachment.name = name
-        } else {
-            AZDMV_UITests.lock.lock()
-            attachment.name = "\(AZDMV_UITests.screenshotID)"
-            AZDMV_UITests.screenshotID += 1
-            AZDMV_UITests.lock.unlock()
-        }
+        let name = name ?? "\(AZDMV_UITests.screenshotID)"
+        attachment.name = name
+        snapshot(name)
         add(attachment)
     }
 }

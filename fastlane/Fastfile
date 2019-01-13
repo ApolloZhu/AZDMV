@@ -1,0 +1,18 @@
+setup_travis
+
+default_platform(:ios)
+
+platform :ios do
+  cocoapods
+
+  desc "Generate new localized screenshots"
+  lane :screenshots do
+    capture_screenshots(
+      workspace: "AZDMV.xcworkspace",
+      xcargs: "-UseModernBuildSystem=NO",
+      scheme: "AZDMV-UITests",
+      concurrent_simulators: false
+    )
+    upload_to_app_store(force: true, skip_binary_upload: true, skip_metadata: true)
+  end
+end

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5209B15621EA9A2500807884 /* AZDMV_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5209B15521EA9A2500807884 /* AZDMV_UITests.swift */; };
 		52148E63214BFC9A0024B46B /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52148E62214BFC9A0024B46B /* Translate.swift */; };
+		52181D5221EAE4440056CCA5 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52181D5121EAE4430056CCA5 /* SnapshotHelper.swift */; };
 		521E37C520322EB200BA345D /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E37C420322EB200BA345D /* Quiz.swift */; };
 		521E37C720322EC000BA345D /* Manual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E37C620322EC000BA345D /* Manual.swift */; };
 		521E37CB2032339400BA345D /* Fetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E37CA2032339400BA345D /* Fetchable.swift */; };
@@ -55,6 +56,13 @@
 		5209B15521EA9A2500807884 /* AZDMV_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AZDMV_UITests.swift; sourceTree = "<group>"; };
 		5209B15721EA9A2500807884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52148E62214BFC9A0024B46B /* Translate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translate.swift; sourceTree = "<group>"; };
+		52181D5121EAE4430056CCA5 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
+		52181D5321EAE5A40056CCA5 /* Snapfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Snapfile; path = fastlane/Snapfile; sourceTree = SOURCE_ROOT; };
+		52181D5521EAE6CB0056CCA5 /* Appfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Appfile; path = fastlane/Appfile; sourceTree = SOURCE_ROOT; };
+		52181D5621EAE6CB0056CCA5 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = SOURCE_ROOT; };
+		52181D5721EAE7E80056CCA5 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		52181D5821EAE9F80056CCA5 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		52181D5921EAEEBB0056CCA5 /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		521E37C420322EB200BA345D /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		521E37C620322EC000BA345D /* Manual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manual.swift; sourceTree = "<group>"; };
 		521E37CA2032339400BA345D /* Fetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetchable.swift; sourceTree = "<group>"; };
@@ -135,7 +143,11 @@
 		5209B15421EA9A2500807884 /* AZDMV-UITests */ = {
 			isa = PBXGroup;
 			children = (
+				52181D5521EAE6CB0056CCA5 /* Appfile */,
+				52181D5621EAE6CB0056CCA5 /* Fastfile */,
+				52181D5321EAE5A40056CCA5 /* Snapfile */,
 				5209B15521EA9A2500807884 /* AZDMV_UITests.swift */,
+				52181D5121EAE4430056CCA5 /* SnapshotHelper.swift */,
 				5209B15721EA9A2500807884 /* Info.plist */,
 			);
 			path = "AZDMV-UITests";
@@ -167,6 +179,9 @@
 				5258CEE52030A63000FB48DC /* README.md */,
 				5258CEE92030C0C700FB48DC /* CHANGELOG.md */,
 				5258CEE62030A63B00FB48DC /* LICENSE */,
+				52181D5721EAE7E80056CCA5 /* .gitignore */,
+				52181D5821EAE9F80056CCA5 /* .travis.yml */,
+				52181D5921EAEEBB0056CCA5 /* Gemfile */,
 				5258CED02030A06B00FB48DC /* AZDMV */,
 				5209B15421EA9A2500807884 /* AZDMV-UITests */,
 				5258CEB320308E3600FB48DC /* Products */,
@@ -472,6 +487,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5209B15621EA9A2500807884 /* AZDMV_UITests.swift in Sources */,
+				52181D5221EAE4440056CCA5 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
