@@ -19,7 +19,7 @@ struct AnyError: Error {
 
 import StatusAlert
 
-func showAlert(title: String, message: String) {
+func showAlert(title: String, message: String? = nil) {
     let statusAlert = StatusAlert()
     if #available(iOS 10.0, *) {
         statusAlert.appearance.blurStyle = .prominent

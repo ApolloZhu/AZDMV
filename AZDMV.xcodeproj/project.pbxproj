@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5209B15621EA9A2500807884 /* AZDMV_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5209B15521EA9A2500807884 /* AZDMV_UITests.swift */; };
 		52148E63214BFC9A0024B46B /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52148E62214BFC9A0024B46B /* Translate.swift */; };
 		521E37C520322EB200BA345D /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E37C420322EB200BA345D /* Quiz.swift */; };
 		521E37C720322EC000BA345D /* Manual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E37C620322EC000BA345D /* Manual.swift */; };
@@ -39,7 +40,20 @@
 		C22AEFB9A20112D0AD794E49 /* Pods_AZDMV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D300C5BD38B278CBCE5F79A1 /* Pods_AZDMV.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5209B15821EA9A2500807884 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5258CEAA20308E3600FB48DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5258CECE2030A06B00FB48DC;
+			remoteInfo = AZDMV;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		5209B15321EA9A2400807884 /* AZDMV-UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AZDMV-UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5209B15521EA9A2500807884 /* AZDMV_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AZDMV_UITests.swift; sourceTree = "<group>"; };
+		5209B15721EA9A2500807884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52148E62214BFC9A0024B46B /* Translate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translate.swift; sourceTree = "<group>"; };
 		521E37C420322EB200BA345D /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		521E37C620322EC000BA345D /* Manual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manual.swift; sourceTree = "<group>"; };
@@ -100,6 +114,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5209B15021EA9A2400807884 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5258CECC2030A06B00FB48DC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -111,6 +132,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5209B15421EA9A2500807884 /* AZDMV-UITests */ = {
+			isa = PBXGroup;
+			children = (
+				5209B15521EA9A2500807884 /* AZDMV_UITests.swift */,
+				5209B15721EA9A2500807884 /* Info.plist */,
+			);
+			path = "AZDMV-UITests";
+			sourceTree = "<group>";
+		};
 		521E37D02032368400BA345D /* Transformation */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +168,7 @@
 				5258CEE92030C0C700FB48DC /* CHANGELOG.md */,
 				5258CEE62030A63B00FB48DC /* LICENSE */,
 				5258CED02030A06B00FB48DC /* AZDMV */,
+				5209B15421EA9A2500807884 /* AZDMV-UITests */,
 				5258CEB320308E3600FB48DC /* Products */,
 				C51ED9E833B7A9997865D33C /* Pods */,
 				E97DFCE5B06612CF3F7DAEBB /* Frameworks */,
@@ -148,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				5258CECF2030A06B00FB48DC /* AZDMV.app */,
+				5209B15321EA9A2400807884 /* AZDMV-UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -237,6 +269,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5209B15221EA9A2400807884 /* AZDMV-UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5209B15C21EA9A2500807884 /* Build configuration list for PBXNativeTarget "AZDMV-UITests" */;
+			buildPhases = (
+				5209B14F21EA9A2400807884 /* Sources */,
+				5209B15021EA9A2400807884 /* Frameworks */,
+				5209B15121EA9A2400807884 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5209B15921EA9A2500807884 /* PBXTargetDependency */,
+			);
+			name = "AZDMV-UITests";
+			productName = "AZDMV-UITests";
+			productReference = 5209B15321EA9A2400807884 /* AZDMV-UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		5258CECE2030A06B00FB48DC /* AZDMV */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5258CEE02030A07800FB48DC /* Build configuration list for PBXNativeTarget "AZDMV" */;
@@ -263,10 +313,16 @@
 		5258CEAA20308E3600FB48DC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "DMV A-Z";
 				TargetAttributes = {
+					5209B15221EA9A2400807884 = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = KZ7D8X3PRK;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5258CECE2030A06B00FB48DC;
+					};
 					5258CECE2030A06B00FB48DC = {
 						CreatedOnToolsVersion = 9.3;
 						DevelopmentTeam = KZ7D8X3PRK;
@@ -292,11 +348,19 @@
 			projectRoot = "";
 			targets = (
 				5258CECE2030A06B00FB48DC /* AZDMV */,
+				5209B15221EA9A2400807884 /* AZDMV-UITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5209B15121EA9A2400807884 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5258CECD2030A06B00FB48DC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -403,6 +467,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5209B14F21EA9A2400807884 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5209B15621EA9A2500807884 /* AZDMV_UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5258CECB2030A06B00FB48DC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -431,6 +503,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5209B15921EA9A2500807884 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5258CECE2030A06B00FB48DC /* AZDMV */;
+			targetProxy = 5209B15821EA9A2500807884 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		523C7972214C7423005E8E5C /* tboc.json */ = {
@@ -496,6 +576,39 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5209B15A21EA9A2500807884 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "AZDMV-UITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wwitdc.apollo.AZDMV-UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AZDMV;
+			};
+			name = Debug;
+		};
+		5209B15B21EA9A2500807884 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "AZDMV-UITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wwitdc.apollo.AZDMV-UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AZDMV;
+			};
+			name = Release;
+		};
 		5258CEC220308EF300FB48DC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -650,6 +763,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5209B15C21EA9A2500807884 /* Build configuration list for PBXNativeTarget "AZDMV-UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5209B15A21EA9A2500807884 /* Debug */,
+				5209B15B21EA9A2500807884 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5258CEAD20308E3600FB48DC /* Build configuration list for PBXProject "AZDMV" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

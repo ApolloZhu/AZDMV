@@ -51,7 +51,9 @@ class SubSectionViewController: UIViewController, WKNavigationDelegate {
     }
 
     private var loaded = false
-    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+    func webView(_ webView: WKWebView,
+                 decidePolicyFor navigationAction: WKNavigationAction,
+                 decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         if loaded, let url = navigationAction.request.url {
             decisionHandler(.cancel)
             UIApplication.shared.openURL(url)
@@ -60,6 +62,7 @@ class SubSectionViewController: UIViewController, WKNavigationDelegate {
             decisionHandler(.allow)
         }
     }
+    
     override func loadView() {
         let configuration = WKWebViewConfiguration()
         if #available(iOS 10.0, *) {
@@ -79,16 +82,15 @@ class SubSectionViewController: UIViewController, WKNavigationDelegate {
             forName: UIContentSizeCategory.didChangeNotification,
             object: nil, queue: nil
         ) { [weak self] _ in
-            if let self = self {
-                self.webView.evaluateJavaScript(self.js) { [weak self] (_, error) in
-                    if let error = error {
-                        print(error.localizedDescription)
-                    } else {
-                        self?.webView.reload()
-                    }
+            guard let self = self else {
+                return NotificationCenter.default.removeObserver(token)
+            }
+            self.webView.evaluateJavaScript(self.js) { [weak self] (_, error) in
+                if let error = error {
+                    showAlert(title: error.localizedDescription)
+                } else {
+                    self?.webView.reload()
                 }
-            } else {
-                NotificationCenter.default.removeObserver(token)
             }
         }
     }
