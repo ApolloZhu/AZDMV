@@ -84,7 +84,6 @@
 		5258CEE52030A63000FB48DC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5258CEE62030A63B00FB48DC /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		5258CEE72030ACDD00FB48DC /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
-		5258CEE92030C0C700FB48DC /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		5258CEEB2030CF3E00FB48DC /* Pods-AZDMV-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-AZDMV-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-AZDMV/Pods-AZDMV-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
 		5258CEED2030D01200FB48DC /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		5258CEEF2030D11A00FB48DC /* ManualsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualsCollectionViewController.swift; sourceTree = "<group>"; };
@@ -177,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				5258CEE52030A63000FB48DC /* README.md */,
-				5258CEE92030C0C700FB48DC /* CHANGELOG.md */,
 				5258CEE62030A63B00FB48DC /* LICENSE */,
 				52181D5721EAE7E80056CCA5 /* .gitignore */,
 				52181D5821EAE9F80056CCA5 /* .travis.yml */,
@@ -311,7 +309,6 @@
 				5258CECC2030A06B00FB48DC /* Frameworks */,
 				5258CECD2030A06B00FB48DC /* Resources */,
 				6F62A99315FB9B7B73D29DCE /* [CP] Embed Pods Frameworks */,
-				7143FFCBF828B4BEF243F7B2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -335,12 +332,14 @@
 					5209B15221EA9A2400807884 = {
 						CreatedOnToolsVersion = 10.1;
 						DevelopmentTeam = KZ7D8X3PRK;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 5258CECE2030A06B00FB48DC;
 					};
 					5258CECE2030A06B00FB48DC = {
 						CreatedOnToolsVersion = 9.3;
 						DevelopmentTeam = KZ7D8X3PRK;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -401,9 +400,9 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-AZDMV/Pods-AZDMV-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-AZDMV/Pods-AZDMV-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AcknowList/AcknowList.framework",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/BulletinBoard/BLTNBoard.framework",
 				"${BUILT_PRODUCTS_DIR}/CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
@@ -420,7 +419,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AcknowList.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BLTNBoard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHTCollectionViewWaterfallLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
@@ -436,29 +435,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AZDMV/Pods-AZDMV-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7143FFCBF828B4BEF243F7B2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-AZDMV/Pods-AZDMV-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Firestore.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AZDMV/Pods-AZDMV-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AZDMV/Pods-AZDMV-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C69D3C6613AA98A7604BC75F /* [CP] Check Pods Manifest.lock */ = {
@@ -603,7 +580,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wwitdc.apollo.AZDMV-UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = AZDMV;
 			};
@@ -619,7 +596,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wwitdc.apollo.AZDMV-UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = AZDMV;
 			};
@@ -752,7 +729,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wwitdc.apollo.AZDMV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -770,7 +747,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wwitdc.apollo.AZDMV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};

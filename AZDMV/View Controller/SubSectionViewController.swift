@@ -83,7 +83,7 @@ class SubSectionViewController: UIViewController, WKNavigationDelegate {
             object: nil, queue: nil
         ) { [weak self] _ in
             guard let self = self else {
-                return NotificationCenter.default.removeObserver(token)
+                return NotificationCenter.default.removeObserver(token!)
             }
             self.webView.evaluateJavaScript(self.js) { [weak self] (_, error) in
                 if let error = error {

@@ -28,7 +28,6 @@ extension Array: Fetchable where Element: Codable {
             return "https://dmv-node-api-2.azurewebsites.net/api/manual/quiz?manualID=1"
         default: fatalError("\(Element.self) is not fetchable")
         }
-        return .any
     }
 }
 
