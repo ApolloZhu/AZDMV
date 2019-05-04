@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16181BFC34970E105BF926EE /* libPods-AZDMV.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 162B6356F2EA958A4F12FD5B /* libPods-AZDMV.a */; };
 		5209B15621EA9A2500807884 /* AZDMV_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5209B15521EA9A2500807884 /* AZDMV_UITests.swift */; };
 		52148E63214BFC9A0024B46B /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52148E62214BFC9A0024B46B /* Translate.swift */; };
 		52181D5221EAE4440056CCA5 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52181D5121EAE4430056CCA5 /* SnapshotHelper.swift */; };
@@ -38,7 +39,6 @@
 		52E89FAA20331EE2000E6937 /* TableOfContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E89FA920331EE2000E6937 /* TableOfContents.swift */; };
 		52E89FAC20337E5B000E6937 /* Subsection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E89FAB20337E5B000E6937 /* Subsection.swift */; };
 		52E89FAE20337EC0000E6937 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E89FAD20337EC0000E6937 /* Section.swift */; };
-		C22AEFB9A20112D0AD794E49 /* Pods_AZDMV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D300C5BD38B278CBCE5F79A1 /* Pods_AZDMV.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		162B6356F2EA958A4F12FD5B /* libPods-AZDMV.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AZDMV.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5209B15321EA9A2400807884 /* AZDMV-UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AZDMV-UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5209B15521EA9A2500807884 /* AZDMV_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AZDMV_UITests.swift; sourceTree = "<group>"; };
 		5209B15721EA9A2500807884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -117,7 +118,6 @@
 		52E89FAD20337EC0000E6937 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		AE7E81D102AEC2855D84F893 /* Pods-AZDMV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AZDMV.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AZDMV/Pods-AZDMV.debug.xcconfig"; sourceTree = "<group>"; };
 		C093238A876AEA2014E052C6 /* Pods-AZDMV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AZDMV.release.xcconfig"; path = "Pods/Target Support Files/Pods-AZDMV/Pods-AZDMV.release.xcconfig"; sourceTree = "<group>"; };
-		D300C5BD38B278CBCE5F79A1 /* Pods_AZDMV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AZDMV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C22AEFB9A20112D0AD794E49 /* Pods_AZDMV.framework in Frameworks */,
+				16181BFC34970E105BF926EE /* libPods-AZDMV.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +274,7 @@
 		E97DFCE5B06612CF3F7DAEBB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D300C5BD38B278CBCE5F79A1 /* Pods_AZDMV.framework */,
+				162B6356F2EA958A4F12FD5B /* libPods-AZDMV.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -308,7 +308,7 @@
 				5258CECB2030A06B00FB48DC /* Sources */,
 				5258CECC2030A06B00FB48DC /* Frameworks */,
 				5258CECD2030A06B00FB48DC /* Resources */,
-				6F62A99315FB9B7B73D29DCE /* [CP] Embed Pods Frameworks */,
+				6BB1D1A62544987B50CD7103 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -394,48 +394,108 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6F62A99315FB9B7B73D29DCE /* [CP] Embed Pods Frameworks */ = {
+		6BB1D1A62544987B50CD7103 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AZDMV/Pods-AZDMV-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AcknowList/AcknowList.framework",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/BulletinBoard/BLTNBoard.framework",
-				"${BUILT_PRODUCTS_DIR}/CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/ReverseExtension/ReverseExtension.framework",
-				"${BUILT_PRODUCTS_DIR}/StatusAlert/StatusAlert.framework",
-				"${BUILT_PRODUCTS_DIR}/WhatsNew/WhatsNew.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			inputFileListPaths = (
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AZDMV/Pods-AZDMV-resources.sh",
+				"${PODS_ROOT}/AcknowList/Resources/AcknowList.bundle",
+				"${PODS_ROOT}/BulletinBoard/Resources/CloseGlyph.png",
+				"${PODS_ROOT}/BulletinBoard/Resources/CloseGlyph@2x.png",
+				"${PODS_ROOT}/BulletinBoard/Resources/CloseGlyph@3x.png",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/ar.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/ca.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/cs.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/da.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/de.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/el.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/en.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/es.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/fi.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/fr.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/he.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/hi.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/hr.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/hu.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/id.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/it.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/ja.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/ko.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/ms.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/nb.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/nl.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/pl.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/pt-BR.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/pt-PT.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/ro.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/ru.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/sk.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/sv.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/th.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/tr.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/uk.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/vi.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/zh-Hans.lproj",
+				"${PODS_ROOT}/BulletinBoard/Resources/Strings/zh-Hant.lproj",
+				"${PODS_ROOT}/WhatsNew/WhatsNew/Resources/WhatsNew.xib",
+				"${PODS_ROOT}/WhatsNew/WhatsNew/Resources/WhatsNewItemImageView.xib",
+				"${PODS_ROOT}/WhatsNew/WhatsNew/Resources/WhatsNewItemTextView.xib",
+				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-C++/gRPCCertificates.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AcknowList.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BLTNBoard.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHTCollectionViewWaterfallLayout.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReverseExtension.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StatusAlert.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WhatsNew.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AcknowList.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CloseGlyph.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CloseGlyph@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CloseGlyph@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ar.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ca.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/cs.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/da.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/de.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/el.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/es.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/fi.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/fr.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/he.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/hi.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/hr.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/hu.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/id.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/it.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ja.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ko.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ms.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/nb.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/nl.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/pl.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/pt-BR.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/pt-PT.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ro.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ru.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/sk.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/sv.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/th.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/tr.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/uk.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/vi.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zh-Hans.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zh-Hant.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WhatsNew.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WhatsNewItemImageView.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WhatsNewItemTextView.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AZDMV/Pods-AZDMV-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AZDMV/Pods-AZDMV-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C69D3C6613AA98A7604BC75F /* [CP] Check Pods Manifest.lock */ = {
