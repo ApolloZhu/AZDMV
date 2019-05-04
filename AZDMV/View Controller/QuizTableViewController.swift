@@ -76,6 +76,8 @@ class QuizTableViewController: UITableViewController {
                     imageView.accessibilityIgnoresInvertColors = true
                 }
                 imageView.kf.indicatorType = .activity
+                imageView.isAccessibilityElement = true
+                imageView.accessibilityLabel = quiz.images.first
                 imageView.kf.setImage(with: url) { _, error, _, _ in
                     guard let error = error else { return }
                     showAlert(
