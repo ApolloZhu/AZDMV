@@ -20,26 +20,56 @@ class SubSectionViewController: UIViewController, WKNavigationDelegate {
         title = String(
             format: NSLocalizedString(
                 "SubSection.title",
-                value:  "%1$d.%2$d %3$@",
-                comment: "Manual section number and title."),
-            subSection.section, subSection.subSectionID, subSection.title
+                value:  "Section %1$d.%2$d",
+                comment: "Manual section number, including subsection."),
+            subSection.section, subSection.subSectionID
         )
+        let css = """
+        :root {
+            color-scheme: light dark;
+        }
+
+        body {
+            padding: 10pt;
+        }
+        img {
+            width: 100%;
+            height: auto !important;
+        }
+        table {
+            width: 100% !important;
+        }
+
+        a {
+            color: #006666;
+        }
+        @media (prefers-color-scheme: dark) {
+            a {
+                color: #66ccff;
+            }
+        }
+        """
+        let content = subSection.content.dropFirst(10) // drop <h2>x.x
+        let firstH2Slash = content.firstIndex(of: "/")!
+        let h2EndStart = content.index(before: firstH2Slash)
+        let firstTitle = content[..<h2EndStart]
+        // skip /h2>
+        let bodyStart = content.index(firstH2Slash, offsetBy: 4)
+
         let html = """
         <!DOCTYPE html>
         <html>
         <head>
+            <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'>
             <style>
-                body {
-                    padding: 10pt;
-                }
-                img {
-                    width: 100%;
-                    height: auto !important;
-                }
+                \(css)
             </style>
         </head>
         <body id="body">
-            \(subSection.content)
+            <h1>\(subSection.title)</h1>
+            <hr>
+            \(firstTitle == subSection.title ? "" : "<h2>\(firstTitle)</h2>")
+            \(content[bodyStart...])
         </body>
         </html>
         """
@@ -66,45 +96,13 @@ class SubSectionViewController: UIViewController, WKNavigationDelegate {
     override func loadView() {
         let configuration = WKWebViewConfiguration()
         configuration.dataDetectorTypes = .all
-
-        // MARK: - Dynamic Type
-
-        let controller = WKUserContentController()
-
-        controller.addUserScript(WKUserScript(source: js, injectionTime: .atDocumentEnd, forMainFrameOnly: true))
-        configuration.userContentController = controller
         view = WKWebView(frame: .zero, configuration: configuration)
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        var token: NSObjectProtocol!
-        token = NotificationCenter.default.addObserver(
-            forName: UIContentSizeCategory.didChangeNotification,
-            object: nil, queue: nil
-        ) { [weak self] _ in
-            guard let self = self else {
-                return NotificationCenter.default.removeObserver(token!)
-            }
-            self.webView.evaluateJavaScript(self.js) { [weak self] (_, error) in
-                if let error = error {
-                    showAlert(title: error.localizedDescription)
-                } else {
-                    self?.webView.reload()
-                }
-            }
+        if #available(iOS 13.0, *) {
+            // Prevents initial white flash when loading web view
+            // https://forums.developer.apple.com/thread/121139
+            webView.isOpaque = false
+            webView.backgroundColor = UIColor.systemBackground
         }
-    }
-    var js: String {
-        return """
-        HTMLCollection.prototype.forEach = Array.prototype.forEach;
-        document.getElementById("body").style.fontSize = "\(pointSize(ofTextStyle: .body))px";
-        document.getElementsByTagName("h2").forEach(h2 => {
-            h2.style.fontSize = "\(pointSize(ofTextStyle: .title2))px";
-        });
-        document.getElementsByTagName("h3").forEach(h3 => {
-            h3.style.fontSize = "\(pointSize(ofTextStyle: .title3))px";
-        });
-        """
-    }
-    private func pointSize(ofTextStyle style: UIFont.TextStyle) -> CGFloat {
-        return UIFont.preferredFont(forTextStyle: style).pointSize * UIScreen.main.scale
     }
 }

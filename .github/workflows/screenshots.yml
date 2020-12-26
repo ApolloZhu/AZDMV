@@ -5,15 +5,17 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
-
+  screenshots:
     runs-on: macos-latest
-
     steps:
     - uses: actions/checkout@v2
-    - name: Install Dependencies
-      run: bundle install
-    - name: Setup CocoaPods
+    - uses: actions/cache@v2
+      with:
+        path: Pods
+        key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-pods-
+    - name: Install CocoaPods Dependencies
       run: pod install
     - name: Generate new localized screenshots
       run: bundle exec fastlane screenshots

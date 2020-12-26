@@ -140,5 +140,11 @@ var whatsNew: WhatsNewViewController = {
 }()
 
 extension UIColor {
-    static let theme = #colorLiteral(red: 0, green: 0.4, blue: 0.4, alpha: 1)
+    static let theme: UIColor = {
+        if #available(iOS 11.0, *) {
+            return UIColor(named: "Accent")!
+        } else {
+            return #colorLiteral(red: 0, green: 0.4, blue: 0.4, alpha: 1)
+        }
+    }()
 }

@@ -16,8 +16,8 @@ update_fastlane
 default_platform(:ios)
 
 platform :ios do
+  desc "iOS beta distribution to TestFlight"
   lane :beta do
-    ensure_git_status_clean
     increment_build_number(xcodeproj: "AZDMV.xcodeproj")
 
     sync_code_signing(type: "appstore")    # see code signing guide for more information
@@ -30,6 +30,6 @@ platform :ios do
   desc "Generate new localized screenshots"
   lane :screenshots do
     capture_screenshots(workspace: "AZDMV.xcworkspace", scheme: "AZDMV-UITests")
-    upload_to_app_store(skip_binary_upload: true, skip_metadata: true)
+    upload_to_app_store(force: true, skip_binary_upload: true, skip_metadata: true)
   end
 end

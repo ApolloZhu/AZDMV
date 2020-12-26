@@ -132,6 +132,7 @@
                                                                             </label>
                                                                         </subviews>
                                                                     </tableViewCellContentView>
+                                                                    <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                                                 </tableViewCell>
                                                             </prototypes>
                                                         </tableView>
@@ -397,11 +398,14 @@
             <point key="canvasLocation" x="2846.376811594203" y="-637.5"/>
         </scene>
     </scenes>
-    <color key="tintColor" red="0.0" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" name="Accent"/>
     <resources>
         <image name="ic_assignment" width="24" height="24"/>
         <image name="ic_school" width="24" height="24"/>
         <image name="ic_settings" width="24" height="24"/>
+        <namedColor name="Accent">
+            <color red="0.0" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

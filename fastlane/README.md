@@ -20,7 +20,7 @@ or alternatively using `brew install fastlane`
 ```
 fastlane ios beta
 ```
-
+iOS beta distribution to TestFlight
 ### ios screenshots
 ```
 fastlane ios screenshots

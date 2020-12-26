@@ -38,35 +38,35 @@ class AZDMV_UITests: XCTestCase {
             firstLaunch.tap()
         }
         
-        saveScreenshot("Manuals Collection View")
+        saveScreenshot("0. Manuals Collection View")
         
         let subsection = app.collectionViews.tables.cells.staticTexts["5.1 Penalties"]
         app.collectionViews.element(boundBy: 0).scrollToElement(subsection)
         subsection.tap()
         sleep(30)
-        saveScreenshot("Manual Section Web View")
-        app.navigationBars["5.1 Penalties"].buttons["Manuals"].tap()
+        saveScreenshot("1. Manual Section Web View")
+        app.navigationBars.buttons["Manuals"].tap()
         
         XCUIApplication().tabBars.buttons["Quiz"].tap()
-        saveScreenshot("Quizzes Table View")
+        saveScreenshot("2. Quizzes Table View")
         
         let q1502 = app.tables.cells.containing(.staticText, identifier:"1502").element(boundBy: 0)
         app.tables.element(boundBy: 0).scrollToElement(q1502)
         q1502.tap()
         app.tables.staticTexts["Reduce your speed."].tap()
-        app.buttons["Try Aagain"].tap()
+        app.buttons["Try Again"].tap()
         app.tables.staticTexts["Come to a complete stop."].tap()
         app.otherElements["Close"].tap()
-        saveScreenshot("Quiz Completion")
+        saveScreenshot("3. Quiz Completion")
         
         app.tables.children(matching: .cell).element(boundBy: 4).swipeLeft()
         app.tables.staticTexts["Do not enter."].tap()
-        saveScreenshot("Wrong Answer")
-        app.buttons["Try Aagain"].tap()
+        saveScreenshot("4. Wrong Answer")
+        app.buttons["Try Again"].tap()
         
         app.tables.children(matching: .cell).element(boundBy: 4).swipeLeft()
         app.tables.staticTexts["Special conditions or hazards ahead."].tap()
-        saveScreenshot("Right Answer")
+        saveScreenshot("5. Correct Answer")
         app.otherElements["Close"].tap()
     }
     

@@ -97,7 +97,11 @@ class QuizTableViewController: UITableViewController {
             return cell
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell", for: indexPath)
-            cell.textLabel?.backgroundColor = .white
+            if #available(iOS 13.0, *) {
+                cell.textLabel?.backgroundColor = .systemBackground
+            } else {
+                cell.textLabel?.backgroundColor = .white
+            }
             cell.textLabel?.layer.cornerRadius = 0
             cell.textLabel?.layer.masksToBounds = false
             cell.textLabel?.textAlignment = .natural
@@ -114,16 +118,20 @@ class QuizTableViewController: UITableViewController {
                     cell.isUserInteractionEnabled = false
                     attributes = [
                         .strikethroughStyle: NSUnderlineStyle.single.rawValue,
-                        .foregroundColor: UIColor.red,
+                        .foregroundColor: UIColor.systemRed,
                         .baselineOffset: 0
                     ]
                 }
             } else {
                 if tableView.allowsSelection {
                     cell.isUserInteractionEnabled = true
-                    cell.textLabel?.textColor = .black
+                    if #available(iOS 13.0, *) {
+                        cell.textLabel?.textColor = .label
+                    } else {
+                        cell.textLabel?.textColor = .black
+                    }
                 } else {
-                    cell.textLabel?.textColor = .lightGray
+                    cell.textLabel?.textColor = .systemGray
                 }
             }
             cell.textLabel?.attributedText = NSAttributedString(
@@ -163,10 +171,10 @@ class QuizTableViewController: UITableViewController {
         page.descriptionText = quiz?.feedback
         page.actionButtonTitle = NSLocalizedString(
             "Quiz.wrong.action",
-            value: "Try Aagain",
+            value: "Try Again",
             comment: "Prompt the user to select another answer."
         )
-        page.appearance.actionButtonColor = .red
+        page.appearance.actionButtonColor = .systemRed
         page.appearance.actionButtonTitleColor = .white
         page.actionHandler = { _ in
             manager.dismissBulletin()

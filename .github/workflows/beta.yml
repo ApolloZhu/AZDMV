@@ -1,24 +1,29 @@
-name: screenshots
+name: beta
 
 on:
   push:
     branches: [ main ]
 
 jobs:
-  build:
-
+  beta:
     runs-on: macos-latest
-
     steps:
     - uses: actions/checkout@v2
-    - name: Install Dependencies
-      run: bundle install
-    - name: Setup CocoaPods
+    - uses: actions/cache@v2
+      with:
+        path: Pods
+        key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-pods-
+    - name: Install CocoaPods Dependencies
       run: pod install
+    - name: Create Missing Simulators
+      run: xcrun simctl create "iPad Pro (12.9-inch) (2nd generation)" "com.apple.CoreSimulator.SimDeviceType.iPad-Pro--12-9-inch---2nd-generation-"
     - name: Deploy to TestFlight
       run: bundle exec fastlane beta
       env:
         MATCH_KEYCHAIN_PASSWORD: ${{ secrets.MATCH_KEYCHAIN_PASSWORD }}
         FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
+        MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
     - name: Push Version Bump
       run: git push
