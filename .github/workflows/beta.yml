@@ -1,0 +1,24 @@
+name: screenshots
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Dependencies
+      run: bundle install
+    - name: Setup CocoaPods
+      run: pod install
+    - name: Deploy to TestFlight
+      run: bundle exec fastlane beta
+      env:
+        MATCH_KEYCHAIN_PASSWORD: ${{ secrets.MATCH_KEYCHAIN_PASSWORD }}
+        FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
+    - name: Push Version Bump
+      run: git push

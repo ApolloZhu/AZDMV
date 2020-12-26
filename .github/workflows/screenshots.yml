@@ -13,5 +13,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install Dependencies
       run: bundle install
+    - name: Setup CocoaPods
+      run: pod install
     - name: Generate new localized screenshots
       run: bundle exec fastlane screenshots
