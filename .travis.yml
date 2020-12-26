@@ -1,7 +1,0 @@
-language: swift
-osx_image: xcode10.2
-
-before_install:
-  - pod repo update
-script:
-  - fastlane screenshots

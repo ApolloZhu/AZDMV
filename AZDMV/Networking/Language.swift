@@ -153,17 +153,17 @@ extension Language {
     static var preferred: Language {
         get {
             return .English
-            if let preferred = cachedPreferred {
-                return preferred
-            }
-            if let stored = UserDefaults.standard.string(forKey: preferredKey),
-                let preferred = Language(rawValue: stored) {
-                cachedPreferred = preferred
-                return preferred
-            }
-            let preferred = calculatePreferred()
-            cachedPreferred = preferred
-            return preferred
+            // if let preferred = cachedPreferred {
+            //     return preferred
+            // }
+            // if let stored = UserDefaults.standard.string(forKey: preferredKey),
+            //     let preferred = Language(rawValue: stored) {
+            //     cachedPreferred = preferred
+            //     return preferred
+            // }
+            // let preferred = calculatePreferred()
+            // cachedPreferred = preferred
+            // return preferred
         }
         set {
             cachedPreferred = newValue
@@ -184,7 +184,7 @@ extension Language {
         if let language = Language(rawValue: languageCode) {
             self = language
         } else if let prefix = languageCode.split(separator: "-").first,
-            let language = Language(rawValue: "\(prefix)") {
+                  let language = Language(rawValue: "\(prefix)") {
             self = language
         } else {
             return nil
@@ -194,15 +194,15 @@ extension Language {
     /// Choose the most appropriate language based on many factors.
     private static func calculatePreferred() -> Language {
         return .English
-        var languages = Locale.preferredLanguages
-        if let languageCode = Locale.current.languageCode {
-            languages.insert(languageCode, at: 1)
-        }
-        for preferred in languages.lazy {
-            if let language = Language(languageCode: preferred) {
-                return language
-            }
-        }
-        return .English
+        // var languages = Locale.preferredLanguages
+        // if let languageCode = Locale.current.languageCode {
+        //     languages.insert(languageCode, at: 1)
+        // }
+        // for preferred in languages.lazy {
+        //     if let language = Language(languageCode: preferred) {
+        //         return language
+        //     }
+        // }
+        // return .English
     }
 }

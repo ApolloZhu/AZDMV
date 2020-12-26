@@ -56,7 +56,7 @@ class SubSectionViewController: UIViewController, WKNavigationDelegate {
                  decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         if loaded, let url = navigationAction.request.url {
             decisionHandler(.cancel)
-            UIApplication.shared.openURL(url)
+            UIApplication.shared.open(url)
         } else {
             loaded = true
             decisionHandler(.allow)
@@ -65,9 +65,7 @@ class SubSectionViewController: UIViewController, WKNavigationDelegate {
     
     override func loadView() {
         let configuration = WKWebViewConfiguration()
-        if #available(iOS 10.0, *) {
-            configuration.dataDetectorTypes = .all
-        }
+        configuration.dataDetectorTypes = .all
 
         // MARK: - Dynamic Type
 

@@ -8,9 +8,10 @@
 
 import Foundation
 
-struct AnyError: Error {
-    var localizedDescription: String
-    static let errored: Error = AnyError(localizedDescription: NSLocalizedString(
+struct AnyError: LocalizedError {
+    var errorDescription: String?
+
+    static let errored: Error = AnyError(errorDescription: NSLocalizedString(
         "AnyError.errored",
         value: "Oops, something went wrong",
         comment: "Generic error description"

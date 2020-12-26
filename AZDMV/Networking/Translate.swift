@@ -82,7 +82,7 @@ extension Quiz {
                 answers: translations[2...]
             ), nil)
         } else if let error = try? decoder.decode(ErrorWrapper.self, from: data) {
-            process(nil, AnyError(localizedDescription: error.error.message))
+            process(nil, AnyError(errorDescription: error.error.message))
         } else {
             process(nil, AnyError.errored)
         }

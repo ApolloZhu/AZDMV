@@ -78,8 +78,8 @@ class QuizTableViewController: UITableViewController {
                 imageView.kf.indicatorType = .activity
                 imageView.isAccessibilityElement = true
                 imageView.accessibilityLabel = quiz.images.first
-                imageView.kf.setImage(with: url) { _, error, _, _ in
-                    guard let error = error else { return }
+                imageView.kf.setImage(with: url, completionHandler: { result in
+                    guard case let .failure(error) = result else { return }
                     showAlert(
                         title: NSLocalizedString(
                             "QuizTableViewController.ImageCell.setImage.error",
@@ -88,7 +88,7 @@ class QuizTableViewController: UITableViewController {
                         ),
                         message: error.localizedDescription
                     )
-                }
+                })
             } else {
                 cell = tableView.dequeueReusableCell(withIdentifier: "QuestionCell", for: indexPath)
                 cell.textLabel?.text = quiz.question

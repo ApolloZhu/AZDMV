@@ -38,17 +38,17 @@ class AZDMV_UITests: XCTestCase {
             firstLaunch.tap()
         }
         
-        saveScreenshot(withName: "Manuals Collection View")
+        saveScreenshot("Manuals Collection View")
         
         let subsection = app.collectionViews.tables.cells.staticTexts["5.1 Penalties"]
         app.collectionViews.element(boundBy: 0).scrollToElement(subsection)
         subsection.tap()
         sleep(30)
-        saveScreenshot(withName: "Manual Section Web View")
+        saveScreenshot("Manual Section Web View")
         app.navigationBars["5.1 Penalties"].buttons["Manuals"].tap()
         
         XCUIApplication().tabBars.buttons["Quiz"].tap()
-        saveScreenshot(withName: "Quizzes Table View")
+        saveScreenshot("Quizzes Table View")
         
         let q1502 = app.tables.cells.containing(.staticText, identifier:"1502").element(boundBy: 0)
         app.tables.element(boundBy: 0).scrollToElement(q1502)
@@ -57,16 +57,16 @@ class AZDMV_UITests: XCTestCase {
         app.buttons["Try Aagain"].tap()
         app.tables.staticTexts["Come to a complete stop."].tap()
         app.otherElements["Close"].tap()
-        saveScreenshot(withName: "Quiz Completion")
+        saveScreenshot("Quiz Completion")
         
         app.tables.children(matching: .cell).element(boundBy: 4).swipeLeft()
         app.tables.staticTexts["Do not enter."].tap()
-        saveScreenshot(withName: "Wrong Answer")
+        saveScreenshot("Wrong Answer")
         app.buttons["Try Aagain"].tap()
         
         app.tables.children(matching: .cell).element(boundBy: 4).swipeLeft()
         app.tables.staticTexts["Special conditions or hazards ahead."].tap()
-        saveScreenshot(withName: "Right Answer")
+        saveScreenshot("Right Answer")
         app.otherElements["Close"].tap()
     }
     
@@ -79,7 +79,7 @@ class AZDMV_UITests: XCTestCase {
     }
     private static let lock = NSLock()
     
-    private func saveScreenshot(withName name: String? = nil) {
+    private func saveScreenshot(_ name: String? = nil) {
         let screenshot = XCUIScreen.main.screenshot()
         let attachment = XCTAttachment(screenshot: screenshot)
         attachment.lifetime = .keepAlways

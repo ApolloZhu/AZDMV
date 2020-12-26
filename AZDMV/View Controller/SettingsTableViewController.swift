@@ -15,13 +15,6 @@ class SettingsTableViewController: UITableViewController {
         case 0:
             switch indexPath.row {
             case 0:
-                break
-            default:
-                break
-            }
-        case 1:
-            switch indexPath.row {
-            case 0:
                 show(AcknowListViewController(), sender: self)
             default:
                 break

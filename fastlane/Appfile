@@ -1,8 +1,8 @@
 app_identifier("com.wwitdc.apollo.AZDMV") # The bundle identifier of your app
-apple_id("fhz0918@126.com") # Your Apple email address
+apple_id("public-apollonian@outlook.com") # Your Apple email address
 
-itc_team_id("118533641") # App Store Connect Team ID
-team_id("KZ7D8X3PRK") # Developer Portal Team ID
+itc_team_id("120888747") # App Store Connect Team ID
+team_id("2H866F22W7") # Developer Portal Team ID
 
 # For more information about the Appfile, see:
 #     https://docs.fastlane.tools/advanced/#appfile
