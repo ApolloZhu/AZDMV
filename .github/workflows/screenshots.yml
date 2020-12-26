@@ -1,0 +1,17 @@
+name: screenshots
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Dependencies
+      run: bundle install
+    - name: Generate new localized screenshots
+      run: bundle exec fastlane screenshots
