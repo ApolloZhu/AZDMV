@@ -40,6 +40,7 @@
 		52E89FAE20337EC0000E6937 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E89FAD20337EC0000E6937 /* Section.swift */; };
 		D2177D122597B75F00BC0F8D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D2177D112597B75F00BC0F8D /* Kingfisher */; };
 		D2177E5F2597B8CD00BC0F8D /* Pods_AZDMV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF16C83D4F3235E51B769AF /* Pods_AZDMV.framework */; };
+		D217800A2598E23D00BC0F8D /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21780092598E23D00BC0F8D /* UIColor+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		7FF16C83D4F3235E51B769AF /* Pods_AZDMV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AZDMV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE7E81D102AEC2855D84F893 /* Pods-AZDMV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AZDMV.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AZDMV/Pods-AZDMV.debug.xcconfig"; sourceTree = "<group>"; };
 		C093238A876AEA2014E052C6 /* Pods-AZDMV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AZDMV.release.xcconfig"; path = "Pods/Target Support Files/Pods-AZDMV/Pods-AZDMV.release.xcconfig"; sourceTree = "<group>"; };
+		D21780092598E23D00BC0F8D /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +232,7 @@
 			children = (
 				5258CEE72030ACDD00FB48DC /* URL+Extensions.swift */,
 				523C7974214C75DE005E8E5C /* Error+Extensions.swift */,
+				D21780092598E23D00BC0F8D /* UIColor+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				5258CEE82030ACDD00FB48DC /* URL+Extensions.swift in Sources */,
 				521E37CD2032360200BA345D /* Persistent.swift in Sources */,
 				521E37C520322EB200BA345D /* Quiz.swift in Sources */,
+				D217800A2598E23D00BC0F8D /* UIColor+Extensions.swift in Sources */,
 				5258CEF62030E38300FB48DC /* ManualsCollectionViewCell.swift in Sources */,
 				52E1B5A42033B138000926FE /* OptionalCodable.swift in Sources */,
 				5258CEF02030D11A00FB48DC /* ManualsCollectionViewController.swift in Sources */,
@@ -692,7 +696,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 2H866F22W7;
 				INFOPLIST_FILE = "AZDMV/Supporting File/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -714,7 +718,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 2H866F22W7;
 				INFOPLIST_FILE = "AZDMV/Supporting File/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

@@ -43,14 +43,21 @@ class ManualsCollectionViewController: UICollectionViewController, CHTCollection
     let sections = manual?.sections ?? []
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellHeight = CGFloat(110 + 44 * subsections[indexPath.row].count)
-        return CGSize(width: 0, height: cellHeight)
+        let cellHeight = 110 + 44 * subsections[indexPath.row].count
+        return CGSize(width: 0, height: CGFloat(cellHeight))
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, columnCountFor section: Int) -> Int {
-        let width = collectionView.bounds.width
-        let height = collectionView.bounds.height
-        return height > width ? 1 : 2
+        switch traitCollection.horizontalSizeClass {
+        case .regular:
+            return 2
+        case .compact, .unspecified:
+            fallthrough
+        @unknown default:
+            let width = collectionView.bounds.width
+            let height = collectionView.bounds.height
+            return height > width ? 1 : 2
+        }
     }
 
     // MARK: - UICollectionViewDataSource
@@ -81,8 +88,8 @@ class ManualsCollectionViewController: UICollectionViewController, CHTCollection
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowSubSectionContent",
-            let vc = segue.destination as? SubSectionViewController,
-            let subSection = sender as? Subsection {
+           let vc = segue.destination as? SubSectionViewController,
+           let subSection = sender as? Subsection {
             vc.subSection = subSection
         }
     }
@@ -95,42 +102,31 @@ var whatsNew: WhatsNewViewController = {
         WhatsNewItem.image(
             title: NSLocalizedString(
                 "WhatsNew.redesign.title",
-                value: "Better Design",
-                comment: "Short title for redesign"),
+                value: "Dark Mode",
+                comment: "Dark Mode as in the system feature"),
             subtitle: NSLocalizedString(
                 "WhatsNew.redesign.content",
-                value: "Carefully crafted for your convinence. Made with ❤️.",
-                comment: "Short description for redesign"),
+                value: "We updated for the new system designs.",
+                comment: "Short description for the redesign"),
             image: #imageLiteral(resourceName: "outline_color_lens_black_24pt")),
-        /* WhatsNewItem.image(
-            title: NSLocalizedString(
-                "WhatsNew.languages.title",
-                value: "Many Languages",
-                comment: "Short title for auto translate"),
-            subtitle: NSLocalizedString(
-                "WhatsNew.languages.content",
-                value: "Everything is translated into your language. Everyone deserves the right to learn.",
-                comment: "Short description for auto translate"),
-            image: #imageLiteral(resourceName: "outline_language_black_24pt")), */
         WhatsNewItem.image(
             title: NSLocalizedString(
-                "WhatsNew.manual.title",
-                value: "One more thing...",
-                comment: "Short title for including driver's manual"),
+                "WhatsNew.privacy.title",
+                value: "Privacy Policy",
+                comment: "The legal term"),
             subtitle: NSLocalizedString(
-                "WhatsNew.manual.content",
-                value: "Driver's Manual and quizzes. 2 in 1.",
-                comment: "Short description for including driver's manual"),
-            image: #imageLiteral(resourceName: "ic_school"))
-        ]
-    )
+                "WhatsNew.privacy.content",
+                value: "I don't need your data, so nothing is collected.",
+                comment: "Short description for privacy policy update"),
+            image: #imageLiteral(resourceName: "outline_language_black_24pt")),
+    ])
     controller.titleText = NSLocalizedString(
-        "whatsnew.title",
+        "WhatsNew.title",
         value: "What's New",
         comment: "Title for What's New screen"
     )
     controller.buttonText = NSLocalizedString(
-        "whatsnew.continue",
+        "WhatsNew.continue",
         value: "Continue",
         comment: "Continue to use ap from What's New"
     )
@@ -138,13 +134,3 @@ var whatsNew: WhatsNewViewController = {
     controller.buttonBackgroundColor = .theme
     return controller
 }()
-
-extension UIColor {
-    static let theme: UIColor = {
-        if #available(iOS 11.0, *) {
-            return UIColor(named: "Accent")!
-        } else {
-            return #colorLiteral(red: 0, green: 0.4, blue: 0.4, alpha: 1)
-        }
-    }()
-}
