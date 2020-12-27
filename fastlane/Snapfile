@@ -8,9 +8,9 @@ devices([
   "iPad Pro (12.9-inch) (4th generation)"
 ])
 
-languages([
-  "en-US"
-])
+# languages([
+#   "en-US"
+# ])
 
 # The name of the scheme which contains the UI Tests
 # scheme("SchemeName")

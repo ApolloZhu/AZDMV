@@ -23,9 +23,9 @@ extension Array: Fetchable where Element: Codable {
     static var updateURL: URL {
         switch Element.self {
         case is OptionalCodable<Subsection>.Type:
-            return "https://dmv-node-api-2.azurewebsites.net/api/manual/sections?manualID=1"
+            return "https://www.dmv.virginia.gov/dmvapimanuals/api/manual/sections?manualID=1"
         case is Quiz.Type:
-            return "https://dmv-node-api-2.azurewebsites.net/api/manual/quiz?manualID=1"
+            return "https://www.dmv.virginia.gov/dmvapimanuals/api/manual/quiz?manualID=1"
         default: fatalError("\(Element.self) is not fetchable")
         }
     }
@@ -33,7 +33,7 @@ extension Array: Fetchable where Element: Codable {
 
 extension TableOfContents: Fetchable {
     static let localURL = Bundle.main.url(forResource: "tboc", withExtension: "json")
-    static let updateURL: URL = "https://dmv-node-api-2.azurewebsites.net/api/manual/tboc?manualID=1"
+    static let updateURL: URL = "https://www.dmv.virginia.gov/dmvapimanuals/api/manual/tboc?manualID=1"
 }
 
 func fetchAllSubsections(from source: Source, in manual: Manual? = nil) -> [[Subsection]]? {

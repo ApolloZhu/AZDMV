@@ -56,7 +56,7 @@
             </objects>
             <point key="canvasLocation" x="2028" y="682.3088455772114"/>
         </scene>
-        <!--Manuals-->
+        <!--Driver's Manual-->
         <scene sceneID="q71-5z-Wk6">
             <objects>
                 <collectionViewController id="TEU-4u-MJM" customClass="ManualsCollectionViewController" customModule="AZDMV" customModuleProvider="target" sceneMemberID="viewController">
@@ -172,7 +172,9 @@
                             <outlet property="delegate" destination="TEU-4u-MJM" id="lCR-d3-Gov"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Manuals" id="hI0-UD-xon"/>
+                    <navigationItem key="navigationItem" title="Driver's Manual" id="hI0-UD-xon">
+                        <barButtonItem key="backBarButtonItem" title="Manuals" id="sTD-47-Ckm"/>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="C2v-35-3km" kind="show" identifier="ShowSubSectionContent" id="WhA-EL-ehr"/>

@@ -17,8 +17,8 @@ jobs:
           ${{ runner.os }}-pods-
     - name: Install CocoaPods Dependencies
       run: pod install
-    - name: Create Missing Simulators
-      run: xcrun simctl create "iPad Pro (12.9-inch) (2nd generation)" "com.apple.CoreSimulator.SimDeviceType.iPad-Pro--12-9-inch---2nd-generation-"
+    - name: Setup git
+      run: git config user.name 'ApolloZhu'
     - name: Deploy to TestFlight
       run: bundle exec fastlane beta
       env:

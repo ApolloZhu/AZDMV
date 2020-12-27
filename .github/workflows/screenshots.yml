@@ -17,5 +17,7 @@ jobs:
           ${{ runner.os }}-pods-
     - name: Install CocoaPods Dependencies
       run: pod install
+    - name: Create Missing Simulators
+      run: xcrun simctl create "iPad Pro (12.9-inch) (2nd generation)" "com.apple.CoreSimulator.SimDeviceType.iPad-Pro--12-9-inch---2nd-generation-"
     - name: Generate new localized screenshots
       run: bundle exec fastlane screenshots

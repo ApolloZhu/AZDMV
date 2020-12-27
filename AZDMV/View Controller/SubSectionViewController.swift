@@ -54,7 +54,10 @@ class SubSectionViewController: UIViewController, WKNavigationDelegate {
         let h2EndStart = content.index(before: firstH2Slash)
         let firstTitle = content[..<h2EndStart]
         // skip /h2>
-        let bodyStart = content.index(firstH2Slash, offsetBy: 4)
+        let mainStart = content.index(firstH2Slash, offsetBy: 4)
+        let main = content[mainStart...]
+            .replacingOccurrences(of: "src=\"",
+                                  with: "src=\"https://www.dmv.virginia.gov")
 
         let html = """
         <!DOCTYPE html>
@@ -69,7 +72,7 @@ class SubSectionViewController: UIViewController, WKNavigationDelegate {
             <h1>\(subSection.title)</h1>
             <hr>
             \(firstTitle == subSection.title ? "" : "<h2>\(firstTitle)</h2>")
-            \(content[bodyStart...])
+            \(main)
         </body>
         </html>
         """

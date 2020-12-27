@@ -77,7 +77,7 @@ extension Quiz {
 
     var imageURL: URL? {
         guard let name = images.first else { return nil }
-        return URL(string: "https://dmvstore.blob.core.windows.net/manuals/images/1/\(name)")
+        return URL(string: "https://www.dmv.virginia.gov/dmv-manuals/manuals/images/1/\(name)")
     }
 }
 
