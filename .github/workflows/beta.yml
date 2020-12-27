@@ -27,7 +27,6 @@ jobs:
     - name: Deploy to TestFlight
       run: bundle exec fastlane beta
       env:
-        MATCH_GIT_PRIVATE_KEY: ~/.ssh/id_fastlane
         MATCH_KEYCHAIN_PASSWORD: ${{ secrets.MATCH_KEYCHAIN_PASSWORD }}
         FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
     - name: Push Version Bump

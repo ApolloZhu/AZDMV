@@ -1,4 +1,5 @@
 git_url("git@github.com:ApolloZhu/fastlane-match.git")
+match(git_private_key: '~/.ssh/id_fastlane')
 
 storage_mode("git")
 
