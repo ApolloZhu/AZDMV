@@ -65,5 +65,3 @@ fastlane/screenshots
 fastlane/test_output
 .DS_Store
 Gemfile.lock
-
-id_fastlane
