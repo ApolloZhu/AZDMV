@@ -17,13 +17,11 @@ jobs:
           ${{ runner.os }}-pods-
     - name: Install CocoaPods Dependencies
       run: pod install
-    - name: Setup git
-      run: git config user.name 'ApolloZhu'
     - name: Deploy to TestFlight
       run: bundle exec fastlane beta
       env:
+        MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
         MATCH_KEYCHAIN_PASSWORD: ${{ secrets.MATCH_KEYCHAIN_PASSWORD }}
         FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
-        MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
     - name: Push Version Bump
       run: git push
