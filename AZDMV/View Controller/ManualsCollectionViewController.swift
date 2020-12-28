@@ -72,6 +72,13 @@ class ManualsCollectionViewController: UICollectionViewController, CHTCollection
         }
     }
 
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.willTransition(to: newCollection, with: coordinator)
+        coordinator.animate { [weak self] (context) in
+            self?.collectionView.collectionViewLayout.invalidateLayout()
+        }
+    }
+
     // MARK: - UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView,
