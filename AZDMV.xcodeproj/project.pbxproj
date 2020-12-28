@@ -38,7 +38,7 @@
 		52E89FAA20331EE2000E6937 /* TableOfContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E89FA920331EE2000E6937 /* TableOfContents.swift */; };
 		52E89FAC20337E5B000E6937 /* Subsection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E89FAB20337E5B000E6937 /* Subsection.swift */; };
 		52E89FAE20337EC0000E6937 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E89FAD20337EC0000E6937 /* Section.swift */; };
-		D2177D122597B75F00BC0F8D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D2177D112597B75F00BC0F8D /* Kingfisher */; };
+		D2177D122597B75F00BC0F8D /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = D2177D112597B75F00BC0F8D /* SwiftPackageProductDependency */; };
 		D2177E5F2597B8CD00BC0F8D /* Pods_AZDMV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF16C83D4F3235E51B769AF /* Pods_AZDMV.framework */; };
 		D217800A2598E23D00BC0F8D /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21780092598E23D00BC0F8D /* UIColor+Extensions.swift */; };
 /* End PBXBuildFile section */
@@ -110,7 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2177D122597B75F00BC0F8D /* Kingfisher in Frameworks */,
+				D2177D122597B75F00BC0F8D /* BuildFile in Frameworks */,
 				D2177E5F2597B8CD00BC0F8D /* Pods_AZDMV.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,7 +291,7 @@
 			);
 			name = AZDMV;
 			packageProductDependencies = (
-				D2177D112597B75F00BC0F8D /* Kingfisher */,
+				D2177D112597B75F00BC0F8D /* SwiftPackageProductDependency */,
 			);
 			productName = AZDMV;
 			productReference = 5258CECF2030A06B00FB48DC /* AZDMV.app */;
@@ -332,7 +332,7 @@
 			);
 			mainGroup = 5258CEA920308E3600FB48DC;
 			packageReferences = (
-				D2177D102597B75F00BC0F8D /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				D2177D102597B75F00BC0F8D /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = 5258CEB320308E3600FB48DC /* Products */;
 			projectDirPath = "";
@@ -382,6 +382,11 @@
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/BulletinBoard/BLTNBoard.framework",
 				"${BUILT_PRODUCTS_DIR}/CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseCore/FirebaseCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseCoreDiagnostics/FirebaseCoreDiagnostics.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseFirestore/FirebaseFirestore.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseInstallations/FirebaseInstallations.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleDataTransport/GoogleDataTransport.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/ReverseExtension/ReverseExtension.framework",
@@ -399,6 +404,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BLTNBoard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHTCollectionViewWaterfallLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreDiagnostics.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseFirestore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseInstallations.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleDataTransport.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReverseExtension.framework",
@@ -767,7 +777,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D2177D102597B75F00BC0F8D /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		D2177D102597B75F00BC0F8D /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
 			requirement = {
@@ -778,9 +788,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D2177D112597B75F00BC0F8D /* Kingfisher */ = {
+		D2177D112597B75F00BC0F8D /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D2177D102597B75F00BC0F8D /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = D2177D102597B75F00BC0F8D /* RemoteSwiftPackageReference */;
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -1,18 +1,18 @@
-# DMV A-Z
+# Learn to Drive A-Z
 
-An app for preparing the Driver's Knowledge Exam of Virginia.
+An app for preparing the Driver's Knowledge Exam of Virginia. FKA *DMV A-Z*.
 
 ## Disclaimer
 
 This program and its author(s) have no affiliation with the Department of Motor Vehicles (DMV) of Virginia or similar agencies of any other states. All contents provided might be outdated. Please refer to the [Virginia Driver's Study Guide](https://www.dmv.virginia.gov/dmv-manuals/#/sections/manual/1) or the equivalent in your state for the most accurate information. This program's license can be found in the source files, or as stated here:
 
 ```swift
-//  Copyright © 2016-2019 DMV A-Z. MIT License.
+//  Copyright © 2016-2020 Zhiyu Zhu. MIT License.
 ```
 
 ## Why do I want to use this app?
 
-I was practicing for the knowledge exam to get my own learner's permit back in 2016, Dec. 22. I wrote this app and used it myself, and got ALL CORRECT on both parts of the exam. For now, you can use the older version on the App Store (search for [DMV A-Z](https://itunes.apple.com/app/id1193281712)), but I'm currently developing a brand new, carefully redesigned version, with plenty of additional functionalities. So stay tuned!
+I was practicing for the knowledge exam to get my own learner's permit back in 2016, Dec. 22. I wrote this app and used it myself, and got ALL CORRECT on both parts of the exam. You can [download this app on the App Store](https://itunes.apple.com/app/id1193281712)
 
 ## Tips for taking the knowledge exam
 
@@ -27,4 +27,4 @@ And my drivers ed teacher put together a Kahoot game: [Driver Education Review b
 
 ## But...
 
-All right. If you noticed a bug in my program, you have a brilliant idea, or you are concerned about something, feel free to [tell me](https://github.com/ApolloZhu/AZDMV/issues/new). However, it's just impossible for me to get everything done in a snap, so if you want to check on my progress, it's [here](https://github.com/ApolloZhu/AZDMV/projects/1). If you are interested in helping out, sure, create a pull request!
+All right. If you noticed a bug in my program, have a feature that you want to see in the app, or are concerned about something, please feel free to tell me by [creating a new issue](https://github.com/ApolloZhu/AZDMV/issues/new). However, it's just impossible for me to get everything done in a snap, so if you want to check on my progress, it's [here](https://github.com/ApolloZhu/AZDMV/projects/1). If you are interested in helping out, sure, create a pull request!

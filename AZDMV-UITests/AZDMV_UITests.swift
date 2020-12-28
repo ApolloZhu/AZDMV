@@ -3,7 +3,7 @@
 //  AZDMV-UITests
 //
 //  Created by Apollo Zhu on 1/12/19.
-//  Copyright © 2019 DMV A-Z. All rights reserved.
+//  Copyright © 2016-2020 DMV A-Z. MIT License.
 //
 
 import XCTest
