@@ -21,12 +21,23 @@ platform :ios do
     setup_ci
 
     increment_build_number(xcodeproj: "AZDMV.xcodeproj")
-
-    sync_code_signing(type: "appstore")
-    build_app(scheme: "AZDMV")
-    upload_to_testflight(skip_waiting_for_build_processing: true)
-
     commit_version_bump(xcodeproj: "AZDMV.xcodeproj")
+
+    # codesign always "fun"
+    sync_code_signing(type: "appstore", readonly: is_ci)
+    update_code_signing_settings(
+      use_automatic_signing: false,
+      path: "AZDMV.xcodeproj",
+      profile_name: "match AppStore com.wwitdc.apollo.AZDMV",
+      code_sign_identity: "iPhone Distribution"
+    )
+
+    build_app(scheme: "AZDMV")
+    upload_to_testflight(
+      skip_waiting_for_build_processing: true,
+      # An automatically generated ID assigned to your app.
+      apple_id: "1193281712" # very confusing to name 2 things the same, huh?
+    )
   end
 
   desc "Generate new localized screenshots"
