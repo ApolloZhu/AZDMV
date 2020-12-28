@@ -11,6 +11,7 @@ import UIKit
 class ManualsCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "ManualsCollectionViewCell"
     @IBOutlet weak var iconLabel: UILabel!
+    @IBOutlet weak var sectionTitleStack: UIStackView!
     @IBOutlet weak var sectionTitleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     var subSection: Subsection?

@@ -70,7 +70,7 @@ class SubSectionViewController: UIViewController, WKNavigationDelegate {
         </head>
         <body id="body">
             <h1>\(subSection.title)</h1>
-            <hr>
+            <hr role="presentation">
             \(firstTitle == subSection.title ? "" : "<h2>\(firstTitle)</h2>")
             \(main)
         </body>

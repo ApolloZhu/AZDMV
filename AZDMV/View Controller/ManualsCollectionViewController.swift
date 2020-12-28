@@ -30,26 +30,38 @@ class ManualsCollectionViewController: UICollectionViewController, CHTCollection
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
         return subsections[tableView.tag].count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SubSectionTableViewCell", for: indexPath)
-        cell.textLabel?.text = subsections[tableView.tag][indexPath.row].name
+        let text = subsections[tableView.tag][indexPath.row].name
+        cell.accessibilityValue = text
+        cell.textLabel?.text = text
         return cell
     }
 
     let sections = manual?.sections ?? []
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellHeight = 110 + 44 * subsections[indexPath.row].count
         return CGSize(width: 0, height: CGFloat(cellHeight))
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, columnCountFor section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        columnCountFor section: Int) -> Int {
         switch traitCollection.horizontalSizeClass {
         case .regular:
+            if #available(iOS 11.0, *),
+               traitCollection.preferredContentSizeCategory.isAccessibilityCategory {
+                return 1
+            }
             return 2
         case .compact, .unspecified:
             fallthrough
@@ -62,11 +74,13 @@ class ManualsCollectionViewController: UICollectionViewController, CHTCollection
 
     // MARK: - UICollectionViewDataSource
 
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView,
+                                 numberOfItemsInSection section: Int) -> Int {
         return sections.count
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView,
+                                 cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ManualsCollectionViewCell.reuseIdentifier, for: indexPath) as! ManualsCollectionViewCell
         cell.iconLabel.text = sections[indexPath.row].symbol.text
         cell.sectionTitleLabel.text = sections[indexPath.row].title

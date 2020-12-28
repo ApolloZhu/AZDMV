@@ -77,7 +77,9 @@ class QuizTableViewController: UITableViewController {
                 }
                 imageView.kf.indicatorType = .activity
                 imageView.isAccessibilityElement = true
-                imageView.accessibilityLabel = quiz.images.first
+                imageView.accessibilityLabel = quiz.images.first.map {
+                    String($0.dropFirst().dropLast(4))
+                }
                 imageView.kf.setImage(with: url, completionHandler: { result in
                     guard case let .failure(error) = result else { return }
                     showAlert(
@@ -91,12 +93,21 @@ class QuizTableViewController: UITableViewController {
                 })
             } else {
                 cell = tableView.dequeueReusableCell(withIdentifier: "QuestionCell", for: indexPath)
+                cell.accessibilityLabel = NSLocalizedString(
+                    "Quiz.question",
+                    value: "Question",
+                    comment: "Accessibility label for the question."
+                )
+                cell.accessibilityValue = quiz.question
                 cell.textLabel?.text = quiz.question
             }
             cell.isUserInteractionEnabled = false
             return cell
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell", for: indexPath)
+            let text = quiz.answers[quiz.answers.count - 1 - indexPath.row].text
+            cell.accessibilityValue = text
+
             if #available(iOS 13.0, *) {
                 cell.textLabel?.backgroundColor = .systemBackground
             } else {
@@ -107,15 +118,27 @@ class QuizTableViewController: UITableViewController {
             cell.textLabel?.textAlignment = .natural
             cell.accessoryType = .none
             var attributes: [NSAttributedString.Key: Any]? = nil
+
             if selectedAnswers.contains(indexPath) {
+                cell.accessibilityTraits = [.button, .notEnabled]
                 if !tableView.allowsSelection && selectedAnswers.last == indexPath {
+                    cell.accessibilityLabel = NSLocalizedString(
+                        "Quiz.answer.correct",
+                        value: "Correct answer",
+                        comment: "Accessibility label for the right answer choice."
+                    )
                     cell.textLabel?.backgroundColor = .success
+                    cell.textLabel?.textColor = .white
                     cell.textLabel?.layer.cornerRadius = 5
                     cell.textLabel?.layer.masksToBounds = true
                     cell.textLabel?.textAlignment = .center
-                    cell.textLabel?.textColor = .white
                 } else {
                     cell.isUserInteractionEnabled = false
+                    cell.accessibilityLabel = NSLocalizedString(
+                        "Quiz.answer.wrong",
+                        value: "Wrong answer",
+                        comment: "Accessibility label for wrong answer choice."
+                    )
                     attributes = [
                         .strikethroughStyle: NSUnderlineStyle.single.rawValue,
                         .foregroundColor: UIColor.systemRed,
@@ -124,6 +147,12 @@ class QuizTableViewController: UITableViewController {
                 }
             } else {
                 if tableView.allowsSelection {
+                    cell.accessibilityTraits = .button
+                    cell.accessibilityLabel = NSLocalizedString(
+                        "Quiz.answer.choice",
+                        value: "Answer choice",
+                        comment: "Accessibility label for a generic answer choice."
+                    )
                     cell.isUserInteractionEnabled = true
                     if #available(iOS 13.0, *) {
                         cell.textLabel?.textColor = .label
@@ -131,11 +160,17 @@ class QuizTableViewController: UITableViewController {
                         cell.textLabel?.textColor = .black
                     }
                 } else {
+                    cell.accessibilityTraits = [.button, .notEnabled]
+                    cell.accessibilityLabel = NSLocalizedString(
+                        "Quiz.answer.wrong",
+                        value: "Wrong answer",
+                        comment: "Accessibility label for wrong answer choice."
+                    )
                     cell.textLabel?.textColor = .systemGray
                 }
             }
             cell.textLabel?.attributedText = NSAttributedString(
-                string: quiz.answers[quiz.answers.count - 1 - indexPath.row].text,
+                string: text,
                 attributes: attributes
             )
             return cell
@@ -237,13 +272,13 @@ class QuizTableViewController: UITableViewController {
                 )
             } else {
                 section -= 1
-                let quizzes = mapped[flattend[section]]!
+                let quizzes = mapped[flattened[section]]!
                 row = quizzes.count - 1
                 quiz = quizzes.last
             }
         } else {
             row -= 1
-            quiz = mapped[flattend[section]]![row]
+            quiz = mapped[flattened[section]]![row]
         }
         needsSelectionUpdate = true
         tableView.reloadData(animation: .right)
@@ -251,8 +286,8 @@ class QuizTableViewController: UITableViewController {
     
     private func showNextQuiz() {
         let newRow = row + 1
-        if newRow == mapped[flattend[section]]!.count {
-            if section + 1 == flattend.count {
+        if newRow == mapped[flattened[section]]!.count {
+            if section + 1 == flattened.count {
                 return showAlert(
                     title: NSLocalizedString(
                         "Quiz.last.title",
@@ -268,11 +303,11 @@ class QuizTableViewController: UITableViewController {
             } else {
                 row = 0
                 section += 1
-                quiz = mapped[flattend[section]]![0]
+                quiz = mapped[flattened[section]]![0]
             }
         } else {
             row = newRow
-            quiz = mapped[flattend[section]]![newRow]
+            quiz = mapped[flattened[section]]![newRow]
         }
         needsSelectionUpdate = true
         tableView.reloadData(animation: .left)
