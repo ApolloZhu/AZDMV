@@ -10,9 +10,10 @@ import UIKit
 import AcknowList
 
 class SettingsTableViewController: UITableViewController {
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView,
+                            didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
-        case 0:
+        case 1:
             switch indexPath.row {
             case 0:
                 show(AcknowListViewController(), sender: self)

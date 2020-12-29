@@ -38,9 +38,18 @@
 		52E89FAA20331EE2000E6937 /* TableOfContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E89FA920331EE2000E6937 /* TableOfContents.swift */; };
 		52E89FAC20337E5B000E6937 /* Subsection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E89FAB20337E5B000E6937 /* Subsection.swift */; };
 		52E89FAE20337EC0000E6937 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E89FAD20337EC0000E6937 /* Section.swift */; };
-		D2177D122597B75F00BC0F8D /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = D2177D112597B75F00BC0F8D /* SwiftPackageProductDependency */; };
+		D2177D122597B75F00BC0F8D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D2177D112597B75F00BC0F8D /* Kingfisher */; };
 		D2177E5F2597B8CD00BC0F8D /* Pods_AZDMV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF16C83D4F3235E51B769AF /* Pods_AZDMV.framework */; };
 		D217800A2598E23D00BC0F8D /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21780092598E23D00BC0F8D /* UIColor+Extensions.swift */; };
+		D236734C259B7D3600135C87 /* IconsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D236734B259B7D3600135C87 /* IconsTableViewController.swift */; };
+		D2367351259B7F5700135C87 /* DZNEmptyDataSet in Frameworks */ = {isa = PBXBuildFile; productRef = D2367350259B7F5700135C87 /* DZNEmptyDataSet */; };
+		D2367355259B829500135C87 /* IconsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2367354259B829500135C87 /* IconsTableViewCell.swift */; };
+		D236735E259B848F00135C87 /* Bookmark@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D236735C259B848F00135C87 /* Bookmark@3x.png */; };
+		D236735F259B848F00135C87 /* Bookmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D236735D259B848F00135C87 /* Bookmark@2x.png */; };
+		D2367366259B85CF00135C87 /* Manual@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D2367364259B85CF00135C87 /* Manual@3x.png */; };
+		D2367367259B85CF00135C87 /* Manual@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D2367365259B85CF00135C87 /* Manual@2x.png */; };
+		D236736C259B8D7300135C87 /* A-Z@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D236736A259B8D7300135C87 /* A-Z@3x.png */; };
+		D236736D259B8D7300135C87 /* A-Z@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D236736B259B8D7300135C87 /* A-Z@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +105,14 @@
 		AE7E81D102AEC2855D84F893 /* Pods-AZDMV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AZDMV.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AZDMV/Pods-AZDMV.debug.xcconfig"; sourceTree = "<group>"; };
 		C093238A876AEA2014E052C6 /* Pods-AZDMV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AZDMV.release.xcconfig"; path = "Pods/Target Support Files/Pods-AZDMV/Pods-AZDMV.release.xcconfig"; sourceTree = "<group>"; };
 		D21780092598E23D00BC0F8D /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		D236734B259B7D3600135C87 /* IconsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsTableViewController.swift; sourceTree = "<group>"; };
+		D2367354259B829500135C87 /* IconsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsTableViewCell.swift; sourceTree = "<group>"; };
+		D236735C259B848F00135C87 /* Bookmark@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bookmark@3x.png"; sourceTree = "<group>"; };
+		D236735D259B848F00135C87 /* Bookmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bookmark@2x.png"; sourceTree = "<group>"; };
+		D2367364259B85CF00135C87 /* Manual@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Manual@3x.png"; sourceTree = "<group>"; };
+		D2367365259B85CF00135C87 /* Manual@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Manual@2x.png"; sourceTree = "<group>"; };
+		D236736A259B8D7300135C87 /* A-Z@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "A-Z@3x.png"; sourceTree = "<group>"; };
+		D236736B259B8D7300135C87 /* A-Z@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "A-Z@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +127,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2177D122597B75F00BC0F8D /* BuildFile in Frameworks */,
+				D2177D122597B75F00BC0F8D /* Kingfisher in Frameworks */,
 				D2177E5F2597B8CD00BC0F8D /* Pods_AZDMV.framework in Frameworks */,
+				D2367351259B7F5700135C87 /* DZNEmptyDataSet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +206,12 @@
 			children = (
 				5258CED12030A06B00FB48DC /* AppDelegate.swift */,
 				5258CED82030A07800FB48DC /* Assets.xcassets */,
+				D236736B259B8D7300135C87 /* A-Z@2x.png */,
+				D236736A259B8D7300135C87 /* A-Z@3x.png */,
+				D236735D259B848F00135C87 /* Bookmark@2x.png */,
+				D236735C259B848F00135C87 /* Bookmark@3x.png */,
+				D2367365259B85CF00135C87 /* Manual@2x.png */,
+				D2367364259B85CF00135C87 /* Manual@3x.png */,
 				5258CEF32030E23E00FB48DC /* icomoon.ttf */,
 				5258CEDA2030A07800FB48DC /* LaunchScreen.storyboard */,
 				5258CEDD2030A07800FB48DC /* Info.plist */,
@@ -207,6 +231,8 @@
 				5258CEF12030D12900FB48DC /* QuizzesTableViewController.swift */,
 				52CCD786214EB5D8009A57B0 /* QuizTableViewController.swift */,
 				5258CEED2030D01200FB48DC /* SettingsTableViewController.swift */,
+				D236734B259B7D3600135C87 /* IconsTableViewController.swift */,
+				D2367354259B829500135C87 /* IconsTableViewCell.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -291,7 +317,8 @@
 			);
 			name = AZDMV;
 			packageProductDependencies = (
-				D2177D112597B75F00BC0F8D /* SwiftPackageProductDependency */,
+				D2177D112597B75F00BC0F8D /* Kingfisher */,
+				D2367350259B7F5700135C87 /* DZNEmptyDataSet */,
 			);
 			productName = AZDMV;
 			productReference = 5258CECF2030A06B00FB48DC /* AZDMV.app */;
@@ -332,7 +359,8 @@
 			);
 			mainGroup = 5258CEA920308E3600FB48DC;
 			packageReferences = (
-				D2177D102597B75F00BC0F8D /* RemoteSwiftPackageReference */,
+				D2177D102597B75F00BC0F8D /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				D236734F259B7F5700135C87 /* XCRemoteSwiftPackageReference "DZNEmptyDataSet" */,
 			);
 			productRefGroup = 5258CEB320308E3600FB48DC /* Products */;
 			projectDirPath = "";
@@ -356,13 +384,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D236736D259B8D7300135C87 /* A-Z@2x.png in Resources */,
 				5258CEF42030E23E00FB48DC /* icomoon.ttf in Resources */,
+				D2367366259B85CF00135C87 /* Manual@3x.png in Resources */,
 				523C7970214C7423005E8E5C /* tboc.json in Resources */,
 				523C7968214C3A3E005E8E5C /* GoogleService-Info.plist in Resources */,
+				D236736C259B8D7300135C87 /* A-Z@3x.png in Resources */,
+				D236735E259B848F00135C87 /* Bookmark@3x.png in Resources */,
 				529726082169F7EF00C62F19 /* sections.json in Resources */,
+				D2367367259B85CF00135C87 /* Manual@2x.png in Resources */,
 				5258CEEC2030CF3F00FB48DC /* Pods-AZDMV-acknowledgements.plist in Resources */,
 				5297260C2169F80400C62F19 /* quiz.json in Resources */,
 				5258CEDC2030A07800FB48DC /* LaunchScreen.storyboard in Resources */,
+				D236735F259B848F00135C87 /* Bookmark@2x.png in Resources */,
 				5258CED92030A07800FB48DC /* Assets.xcassets in Resources */,
 				5258CED72030A06C00FB48DC /* Main.storyboard in Resources */,
 			);
@@ -461,10 +495,12 @@
 			files = (
 				5258CEEE2030D01200FB48DC /* SettingsTableViewController.swift in Sources */,
 				5258CEE82030ACDD00FB48DC /* URL+Extensions.swift in Sources */,
+				D2367355259B829500135C87 /* IconsTableViewCell.swift in Sources */,
 				521E37CD2032360200BA345D /* Persistent.swift in Sources */,
 				521E37C520322EB200BA345D /* Quiz.swift in Sources */,
 				D217800A2598E23D00BC0F8D /* UIColor+Extensions.swift in Sources */,
 				5258CEF62030E38300FB48DC /* ManualsCollectionViewCell.swift in Sources */,
+				D236734C259B7D3600135C87 /* IconsTableViewController.swift in Sources */,
 				52E1B5A42033B138000926FE /* OptionalCodable.swift in Sources */,
 				5258CEF02030D11A00FB48DC /* ManualsCollectionViewController.swift in Sources */,
 				521E37C720322EC000BA345D /* Manual.swift in Sources */,
@@ -777,7 +813,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D2177D102597B75F00BC0F8D /* RemoteSwiftPackageReference */ = {
+		D2177D102597B75F00BC0F8D /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
 			requirement = {
@@ -785,13 +821,26 @@
 				minimumVersion = 5.15.8;
 			};
 		};
+		D236734F259B7F5700135C87 /* XCRemoteSwiftPackageReference "DZNEmptyDataSet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dzenbot/DZNEmptyDataSet";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D2177D112597B75F00BC0F8D /* SwiftPackageProductDependency */ = {
+		D2177D112597B75F00BC0F8D /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D2177D102597B75F00BC0F8D /* RemoteSwiftPackageReference */;
+			package = D2177D102597B75F00BC0F8D /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		D2367350259B7F5700135C87 /* DZNEmptyDataSet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D236734F259B7F5700135C87 /* XCRemoteSwiftPackageReference "DZNEmptyDataSet" */;
+			productName = DZNEmptyDataSet;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
