@@ -38,7 +38,8 @@ class IconsTableViewController: UITableViewController, DZNEmptyDataSetSource, DZ
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if #available(iOS 10.3, *){
+        if #available(iOS 10.3, *),
+           UIApplication.shared.supportsAlternateIcons {
             return 1
         }
         return 0 // can't do this
@@ -55,7 +56,7 @@ class IconsTableViewController: UITableViewController, DZNEmptyDataSetSource, DZ
     func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
         return NSAttributedString(string: NSLocalizedString(
             "AppIcon.notAvailable.description",
-            value: "Your iOS version doesn't support custom icons.",
+            value: "Your system doesn't support custom icons.",
             comment: "Description for why custom icons are not available."
         ))
     }
@@ -90,7 +91,6 @@ class IconsTableViewController: UITableViewController, DZNEmptyDataSetSource, DZ
         }
         return cell
     }
-
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if #available(iOS 10.3, *) {
