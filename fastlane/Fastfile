@@ -44,7 +44,7 @@ platform :ios do
   lane :screenshots do
     capture_screenshots(workspace: "AZDMV.xcworkspace", scheme: "AZDMV-UITests")
     upload_to_app_store(
-      force: true, # skip verification of HTML preview
+      force: is_ci, # skip verification of HTML preview
       overwrite_screenshots: true, # clear all previous screenshots
       skip_binary_upload: true, skip_metadata: true
     )
