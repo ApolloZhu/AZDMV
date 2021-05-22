@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import WhatsNew
 import CHTCollectionViewWaterfallLayout
 
 let manual = TableOfContents.fetch(from: .bundled)?.manuals.first
@@ -21,13 +20,18 @@ class ManualsCollectionViewController: UICollectionViewController, CHTCollection
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        whatsNew.presentIfNeeded(on: self)
         if #available(iOS 11, *) {
             layout.sectionInsetReference = .fromSafeArea
         }
         layout.minimumColumnSpacing = 20
         layout.minimumInteritemSpacing = 20
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // Present WhatsNewViewController if needed
+        getWhatsNewViewController().map { present($0, animated: true) }
     }
 
     func tableView(_ tableView: UITableView,
@@ -115,43 +119,3 @@ class ManualsCollectionViewController: UICollectionViewController, CHTCollection
         }
     }
 }
-
-// MARK: - What's New
-
-var whatsNew: WhatsNewViewController = {
-    let controller = WhatsNewViewController(items: [
-        WhatsNewItem.image(
-            title: NSLocalizedString(
-                "WhatsNew.redesign.title",
-                value: "Dark Mode",
-                comment: "Dark Mode as in the system feature"),
-            subtitle: NSLocalizedString(
-                "WhatsNew.redesign.content",
-                value: "We updated for the new system designs.",
-                comment: "Short description for the redesign"),
-            image: #imageLiteral(resourceName: "outline_color_lens_black_24pt")),
-        WhatsNewItem.image(
-            title: NSLocalizedString(
-                "WhatsNew.privacy.title",
-                value: "Privacy Policy",
-                comment: "The legal term"),
-            subtitle: NSLocalizedString(
-                "WhatsNew.privacy.content",
-                value: "I don't need your data, so nothing is collected.",
-                comment: "Short description for privacy policy update"),
-            image: #imageLiteral(resourceName: "outline_language_black_24pt")),
-    ])
-    controller.titleText = NSLocalizedString(
-        "WhatsNew.title",
-        value: "What's New",
-        comment: "Title for What's New screen"
-    )
-    controller.buttonText = NSLocalizedString(
-        "WhatsNew.continue",
-        value: "Continue",
-        comment: "Continue to use ap from What's New"
-    )
-    controller.buttonTextColor = .white
-    controller.buttonBackgroundColor = .theme
-    return controller
-}()

@@ -8,13 +8,10 @@ target 'AZDMV' do
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
 
-
-  pod 'AcknowList'
   pod 'BulletinBoard'
   pod 'CHTCollectionViewWaterfallLayout/Swift', :git => 'https://github.com/chiahsien/CHTCollectionViewWaterfallLayout.git', :branch => 'master'
   pod 'ReverseExtension'
   pod 'StatusAlert'
-  pod 'WhatsNew'
 
 end
 
