@@ -38,11 +38,11 @@
 		52E89FAA20331EE2000E6937 /* TableOfContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E89FA920331EE2000E6937 /* TableOfContents.swift */; };
 		52E89FAC20337E5B000E6937 /* Subsection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E89FAB20337E5B000E6937 /* Subsection.swift */; };
 		52E89FAE20337EC0000E6937 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E89FAD20337EC0000E6937 /* Section.swift */; };
-		D2177D122597B75F00BC0F8D /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = D2177D112597B75F00BC0F8D /* SwiftPackageProductDependency */; };
+		D2177D122597B75F00BC0F8D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D2177D112597B75F00BC0F8D /* Kingfisher */; };
 		D2177E5F2597B8CD00BC0F8D /* Pods_AZDMV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF16C83D4F3235E51B769AF /* Pods_AZDMV.framework */; };
 		D217800A2598E23D00BC0F8D /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21780092598E23D00BC0F8D /* UIColor+Extensions.swift */; };
 		D236734C259B7D3600135C87 /* IconsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D236734B259B7D3600135C87 /* IconsTableViewController.swift */; };
-		D2367351259B7F5700135C87 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = D2367350259B7F5700135C87 /* SwiftPackageProductDependency */; };
+		D2367351259B7F5700135C87 /* DZNEmptyDataSet in Frameworks */ = {isa = PBXBuildFile; productRef = D2367350259B7F5700135C87 /* DZNEmptyDataSet */; };
 		D2367355259B829500135C87 /* IconsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2367354259B829500135C87 /* IconsTableViewCell.swift */; };
 		D236735E259B848F00135C87 /* Bookmark@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D236735C259B848F00135C87 /* Bookmark@3x.png */; };
 		D236735F259B848F00135C87 /* Bookmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D236735D259B848F00135C87 /* Bookmark@2x.png */; };
@@ -51,8 +51,15 @@
 		D236736C259B8D7300135C87 /* A-Z@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D236736A259B8D7300135C87 /* A-Z@3x.png */; };
 		D236736D259B8D7300135C87 /* A-Z@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D236736B259B8D7300135C87 /* A-Z@2x.png */; };
 		D2A853502658D55000FFF49D /* WhatsNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A8534F2658D55000FFF49D /* WhatsNew.swift */; };
-		D2A853532658D77300FFF49D /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = D2A853522658D77300FFF49D /* SwiftPackageProductDependency */; };
-		D2A853562658DCDC00FFF49D /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = D2A853552658DCDC00FFF49D /* SwiftPackageProductDependency */; };
+		D2A853532658D77300FFF49D /* WhatsNewKit in Frameworks */ = {isa = PBXBuildFile; productRef = D2A853522658D77300FFF49D /* WhatsNewKit */; };
+		D2A853562658DCDC00FFF49D /* AcknowList in Frameworks */ = {isa = PBXBuildFile; productRef = D2A853552658DCDC00FFF49D /* AcknowList */; };
+		D2A853C32658E3CF00FFF49D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A853C22658E3CF00FFF49D /* WidgetKit.framework */; };
+		D2A853C52658E3CF00FFF49D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A853C42658E3CF00FFF49D /* SwiftUI.framework */; };
+		D2A853C82658E3CF00FFF49D /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A853C72658E3CF00FFF49D /* Widget.swift */; };
+		D2A853CB2658E3D000FFF49D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2A853CA2658E3D000FFF49D /* Assets.xcassets */; };
+		D2A853CD2658E3D000FFF49D /* Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = D2A853C92658E3CF00FFF49D /* Widget.intentdefinition */; };
+		D2A853CE2658E3D000FFF49D /* Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = D2A853C92658E3CF00FFF49D /* Widget.intentdefinition */; };
+		D2A853D12658E3D000FFF49D /* WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D2A853C12658E3CF00FFF49D /* WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +70,28 @@
 			remoteGlobalIDString = 5258CECE2030A06B00FB48DC;
 			remoteInfo = AZDMV;
 		};
+		D2A853CF2658E3D000FFF49D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5258CEAA20308E3600FB48DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2A853C02658E3CF00FFF49D;
+			remoteInfo = WidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D2A853D22658E3D000FFF49D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D2A853D12658E3D000FFF49D /* WidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5209B15321EA9A2400807884 /* AZDMV-UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AZDMV-UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +145,13 @@
 		D236736A259B8D7300135C87 /* A-Z@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "A-Z@3x.png"; sourceTree = "<group>"; };
 		D236736B259B8D7300135C87 /* A-Z@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "A-Z@2x.png"; sourceTree = "<group>"; };
 		D2A8534F2658D55000FFF49D /* WhatsNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNew.swift; sourceTree = "<group>"; };
+		D2A853C12658E3CF00FFF49D /* WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2A853C22658E3CF00FFF49D /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		D2A853C42658E3CF00FFF49D /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		D2A853C72658E3CF00FFF49D /* Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
+		D2A853C92658E3CF00FFF49D /* Widget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Widget.intentdefinition; sourceTree = "<group>"; };
+		D2A853CA2658E3D000FFF49D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D2A853CC2658E3D000FFF49D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,11 +166,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2A853562658DCDC00FFF49D /* BuildFile in Frameworks */,
-				D2A853532658D77300FFF49D /* BuildFile in Frameworks */,
-				D2177D122597B75F00BC0F8D /* BuildFile in Frameworks */,
+				D2A853562658DCDC00FFF49D /* AcknowList in Frameworks */,
+				D2A853532658D77300FFF49D /* WhatsNewKit in Frameworks */,
+				D2177D122597B75F00BC0F8D /* Kingfisher in Frameworks */,
 				D2177E5F2597B8CD00BC0F8D /* Pods_AZDMV.framework in Frameworks */,
-				D2367351259B7F5700135C87 /* BuildFile in Frameworks */,
+				D2367351259B7F5700135C87 /* DZNEmptyDataSet in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2A853BE2658E3CF00FFF49D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2A853C52658E3CF00FFF49D /* SwiftUI.framework in Frameworks */,
+				D2A853C32658E3CF00FFF49D /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +224,7 @@
 				52181D5721EAE7E80056CCA5 /* .gitignore */,
 				5258CED02030A06B00FB48DC /* AZDMV */,
 				5209B15421EA9A2500807884 /* AZDMV-UITests */,
+				D2A853C62658E3CF00FFF49D /* Widget */,
 				5258CEB320308E3600FB48DC /* Products */,
 				C51ED9E833B7A9997865D33C /* Pods */,
 				E97DFCE5B06612CF3F7DAEBB /* Frameworks */,
@@ -191,6 +236,7 @@
 			children = (
 				5258CECF2030A06B00FB48DC /* AZDMV.app */,
 				5209B15321EA9A2400807884 /* AZDMV-UITests.xctest */,
+				D2A853C12658E3CF00FFF49D /* WidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -279,10 +325,23 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D2A853C62658E3CF00FFF49D /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				D2A853C72658E3CF00FFF49D /* Widget.swift */,
+				D2A853C92658E3CF00FFF49D /* Widget.intentdefinition */,
+				D2A853CA2658E3D000FFF49D /* Assets.xcassets */,
+				D2A853CC2658E3D000FFF49D /* Info.plist */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
 		E97DFCE5B06612CF3F7DAEBB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				7FF16C83D4F3235E51B769AF /* Pods_AZDMV.framework */,
+				D2A853C22658E3CF00FFF49D /* WidgetKit.framework */,
+				D2A853C42658E3CF00FFF49D /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -317,21 +376,40 @@
 				5258CECC2030A06B00FB48DC /* Frameworks */,
 				5258CECD2030A06B00FB48DC /* Resources */,
 				2F72E50A17829F432545B2C2 /* [CP] Embed Pods Frameworks */,
+				D2A853D22658E3D000FFF49D /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2A853D02658E3D000FFF49D /* PBXTargetDependency */,
+			);
+			name = AZDMV;
+			packageProductDependencies = (
+				D2177D112597B75F00BC0F8D /* Kingfisher */,
+				D2367350259B7F5700135C87 /* DZNEmptyDataSet */,
+				D2A853522658D77300FFF49D /* WhatsNewKit */,
+				D2A853552658DCDC00FFF49D /* AcknowList */,
+			);
+			productName = AZDMV;
+			productReference = 5258CECF2030A06B00FB48DC /* AZDMV.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D2A853C02658E3CF00FFF49D /* WidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2A853D52658E3D000FFF49D /* Build configuration list for PBXNativeTarget "WidgetExtension" */;
+			buildPhases = (
+				D2A853BD2658E3CF00FFF49D /* Sources */,
+				D2A853BE2658E3CF00FFF49D /* Frameworks */,
+				D2A853BF2658E3CF00FFF49D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = AZDMV;
-			packageProductDependencies = (
-				D2177D112597B75F00BC0F8D /* SwiftPackageProductDependency */,
-				D2367350259B7F5700135C87 /* SwiftPackageProductDependency */,
-				D2A853522658D77300FFF49D /* SwiftPackageProductDependency */,
-				D2A853552658DCDC00FFF49D /* SwiftPackageProductDependency */,
-			);
-			productName = AZDMV;
-			productReference = 5258CECF2030A06B00FB48DC /* AZDMV.app */;
-			productType = "com.apple.product-type.application";
+			name = WidgetExtension;
+			productName = WidgetExtension;
+			productReference = D2A853C12658E3CF00FFF49D /* WidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -339,7 +417,7 @@
 		5258CEAA20308E3600FB48DC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = "DMV A-Z";
 				TargetAttributes = {
@@ -356,6 +434,9 @@
 						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
+					D2A853C02658E3CF00FFF49D = {
+						CreatedOnToolsVersion = 12.5;
+					};
 				};
 			};
 			buildConfigurationList = 5258CEAD20308E3600FB48DC /* Build configuration list for PBXProject "AZDMV" */;
@@ -368,10 +449,10 @@
 			);
 			mainGroup = 5258CEA920308E3600FB48DC;
 			packageReferences = (
-				D2177D102597B75F00BC0F8D /* RemoteSwiftPackageReference */,
-				D236734F259B7F5700135C87 /* RemoteSwiftPackageReference */,
-				D2A853512658D77300FFF49D /* RemoteSwiftPackageReference */,
-				D2A853542658DCDC00FFF49D /* RemoteSwiftPackageReference */,
+				D2177D102597B75F00BC0F8D /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				D236734F259B7F5700135C87 /* XCRemoteSwiftPackageReference "DZNEmptyDataSet" */,
+				D2A853512658D77300FFF49D /* XCRemoteSwiftPackageReference "WhatsNewKit" */,
+				D2A853542658DCDC00FFF49D /* XCRemoteSwiftPackageReference "AcknowList" */,
 			);
 			productRefGroup = 5258CEB320308E3600FB48DC /* Products */;
 			projectDirPath = "";
@@ -379,6 +460,7 @@
 			targets = (
 				5258CECE2030A06B00FB48DC /* AZDMV */,
 				5209B15221EA9A2400807884 /* AZDMV-UITests */,
+				D2A853C02658E3CF00FFF49D /* WidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -410,6 +492,14 @@
 				D236735F259B848F00135C87 /* Bookmark@2x.png in Resources */,
 				5258CED92030A07800FB48DC /* Assets.xcassets in Resources */,
 				5258CED72030A06C00FB48DC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2A853BF2658E3CF00FFF49D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2A853CB2658E3D000FFF49D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +599,7 @@
 				D217800A2598E23D00BC0F8D /* UIColor+Extensions.swift in Sources */,
 				5258CEF62030E38300FB48DC /* ManualsCollectionViewCell.swift in Sources */,
 				D236734C259B7D3600135C87 /* IconsTableViewController.swift in Sources */,
+				D2A853CE2658E3D000FFF49D /* Widget.intentdefinition in Sources */,
 				52E1B5A42033B138000926FE /* OptionalCodable.swift in Sources */,
 				5258CEF02030D11A00FB48DC /* ManualsCollectionViewController.swift in Sources */,
 				521E37C720322EC000BA345D /* Manual.swift in Sources */,
@@ -527,6 +618,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D2A853BD2658E3CF00FFF49D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2A853CD2658E3D000FFF49D /* Widget.intentdefinition in Sources */,
+				D2A853C82658E3CF00FFF49D /* Widget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -534,6 +634,11 @@
 			isa = PBXTargetDependency;
 			target = 5258CECE2030A06B00FB48DC /* AZDMV */;
 			targetProxy = 5209B15821EA9A2500807884 /* PBXContainerItemProxy */;
+		};
+		D2A853D02658E3D000FFF49D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2A853C02658E3CF00FFF49D /* WidgetExtension */;
+			targetProxy = D2A853CF2658E3D000FFF49D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -748,6 +853,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AE7E81D102AEC2855D84F893 /* Pods-AZDMV.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
@@ -770,6 +876,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C093238A876AEA2014E052C6 /* Pods-AZDMV.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
@@ -783,6 +890,53 @@
 				MARKETING_VERSION = 0.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wwitdc.apollo.AZDMV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D2A853D32658E3D000FFF49D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2H866F22W7;
+				INFOPLIST_FILE = Widget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wwitdc.apollo.AZDMV.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D2A853D42658E3D000FFF49D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2H866F22W7;
+				INFOPLIST_FILE = Widget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wwitdc.apollo.AZDMV.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -818,10 +972,19 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		D2A853D52658E3D000FFF49D /* Build configuration list for PBXNativeTarget "WidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2A853D32658E3D000FFF49D /* Debug */,
+				D2A853D42658E3D000FFF49D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D2177D102597B75F00BC0F8D /* RemoteSwiftPackageReference */ = {
+		D2177D102597B75F00BC0F8D /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
 			requirement = {
@@ -829,7 +992,7 @@
 				minimumVersion = 5.15.8;
 			};
 		};
-		D236734F259B7F5700135C87 /* RemoteSwiftPackageReference */ = {
+		D236734F259B7F5700135C87 /* XCRemoteSwiftPackageReference "DZNEmptyDataSet" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dzenbot/DZNEmptyDataSet";
 			requirement = {
@@ -837,7 +1000,7 @@
 				kind = branch;
 			};
 		};
-		D2A853512658D77300FFF49D /* RemoteSwiftPackageReference */ = {
+		D2A853512658D77300FFF49D /* XCRemoteSwiftPackageReference "WhatsNewKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SvenTiigi/WhatsNewKit.git";
 			requirement = {
@@ -845,7 +1008,7 @@
 				minimumVersion = 1.3.7;
 			};
 		};
-		D2A853542658DCDC00FFF49D /* RemoteSwiftPackageReference */ = {
+		D2A853542658DCDC00FFF49D /* XCRemoteSwiftPackageReference "AcknowList" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/vtourraine/AcknowList";
 			requirement = {
@@ -856,24 +1019,24 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D2177D112597B75F00BC0F8D /* SwiftPackageProductDependency */ = {
+		D2177D112597B75F00BC0F8D /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D2177D102597B75F00BC0F8D /* RemoteSwiftPackageReference */;
+			package = D2177D102597B75F00BC0F8D /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
-		D2367350259B7F5700135C87 /* SwiftPackageProductDependency */ = {
+		D2367350259B7F5700135C87 /* DZNEmptyDataSet */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D236734F259B7F5700135C87 /* RemoteSwiftPackageReference */;
+			package = D236734F259B7F5700135C87 /* XCRemoteSwiftPackageReference "DZNEmptyDataSet" */;
 			productName = DZNEmptyDataSet;
 		};
-		D2A853522658D77300FFF49D /* SwiftPackageProductDependency */ = {
+		D2A853522658D77300FFF49D /* WhatsNewKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D2A853512658D77300FFF49D /* RemoteSwiftPackageReference */;
+			package = D2A853512658D77300FFF49D /* XCRemoteSwiftPackageReference "WhatsNewKit" */;
 			productName = WhatsNewKit;
 		};
-		D2A853552658DCDC00FFF49D /* SwiftPackageProductDependency */ = {
+		D2A853552658DCDC00FFF49D /* AcknowList */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D2A853542658DCDC00FFF49D /* RemoteSwiftPackageReference */;
+			package = D2A853542658DCDC00FFF49D /* XCRemoteSwiftPackageReference "AcknowList" */;
 			productName = AcknowList;
 		};
 /* End XCSwiftPackageProductDependency section */
