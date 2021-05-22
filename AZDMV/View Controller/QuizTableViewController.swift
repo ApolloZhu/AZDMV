@@ -11,6 +11,7 @@ import Kingfisher
 import BLTNBoard
 import ReverseExtension
 import StatusAlert
+import AZDMVShared
 
 extension UIColor {
     static let success = UIColor.theme
@@ -64,6 +65,10 @@ class QuizTableViewController: UITableViewController {
     }
     
     private var selectedAnswers = [IndexPath]()
+
+    private func answerForIndexPath(_ indexPath: IndexPath) -> Quiz.Answer {
+        return quiz.answers[quiz.answers.count - 1 - indexPath.row]
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
@@ -105,7 +110,7 @@ class QuizTableViewController: UITableViewController {
             return cell
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell", for: indexPath)
-            let text = quiz.answers[quiz.answers.count - 1 - indexPath.row].text
+            let text = answerForIndexPath(indexPath).text
             cell.accessibilityValue = text
 
             if #available(iOS 13.0, *) {
@@ -180,15 +185,14 @@ class QuizTableViewController: UITableViewController {
     }
     
     // MARK: - UITableViewDelegate
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedAnswers.append(indexPath)
-        let cell = tableView.cellForRow(at: indexPath)
-        if quiz.answers.count - indexPath.row == quiz.correctAnswer {
+        if quiz.isCorrectAnswer(answerForIndexPath(indexPath)) {
             tableView.allowsSelection = false
             tableView.reloadData()
             correct.showBulletin(above: self)
         } else {
+            let cell = tableView.cellForRow(at: indexPath)
             cell?.isUserInteractionEnabled = false
             tableView.reloadRows(at: [indexPath], with: .none)
             wrong.showBulletin(above: self)

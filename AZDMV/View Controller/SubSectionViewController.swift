@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+import AZDMVShared
 
 class SubSectionViewController: UIViewController, WKNavigationDelegate {
     var subSection: Subsection!

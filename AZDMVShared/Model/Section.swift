@@ -6,10 +6,10 @@
 //  Copyright © 2016-2020 DMV A-Z. MIT License.
 //
 
-struct Section: Codable {
-    let symbolID: String
-    let title: String
-    let rawSectionID: String
+public struct Section: Codable {
+    public let symbolID: String
+    public let title: String
+    public let rawSectionID: String
     enum CodingKeys: String, CodingKey {
         case symbolID = "symbol"
         case rawSectionID = "sectionID"
@@ -20,11 +20,11 @@ struct Section: Codable {
 import UIKit
 
 extension Section {
-    var sectionID: Int {
+    public var sectionID: Int {
         return Int(rawSectionID)!
     }
 
-    var symbol: (text: String, color: UIColor) {
+    public var symbol: (text: String, color: UIColor) {
         switch symbolID {
         case "edit": return ("\u{f044}", #colorLiteral(red: 0.01960784314, green: 0.4666666667, blue: 0.2823529412, alpha: 1))
         case "signIcon": return ("\u{e606}", #colorLiteral(red: 0.7647058824, green: 0.1529411765, blue: 0.168627451, alpha: 1))

@@ -8,23 +8,23 @@
 
 import Foundation
 
-struct Quiz: Codable, Persistent {
-    let rawSection: String
-    let rawSubsection: String
-    let rawQuestionID: String
-    let question: String
+public struct Quiz: Codable, Persistent {
+    private let rawSection: String
+    private let rawSubsection: String
+    private let rawQuestionID: String
+    public let question: String
     /// Normally use .first
-    let images: [String]
-    let feedback: String
-    let rawCorrectAnswer: String
-    let rawAnswers: [Answer]
-    var answers: [Answer] {
+    public let images: [String]
+    public let feedback: String
+    private let rawCorrectAnswer: String
+    private let rawAnswers: [Answer]
+    public var answers: [Answer] {
         return rawAnswers.filter { !$0.text.isEmpty }
     }
-    struct Answer: Codable, Equatable {
+    public struct Answer: Codable, Equatable {
         /// index, 1-4
         let value: String
-        let text: String
+        public let text: String
     }
     /// Tue Sep 06 2016 13:15:00 GMT+0000 (Coordinated Universal Time)
     let update: String?
@@ -47,20 +47,20 @@ struct Quiz: Codable, Persistent {
 }
 
 extension Quiz {
-    var section: Int {
+    public var section: Int {
         return Int(rawSection)!
     }
     
-    var subsection: Int {
+    public var subsection: Int {
         return Int(rawSubsection)!
     }
     
-    var questionID: Int {
+    public var questionID: Int {
         return Int(rawQuestionID)!
     }
 
     /// 5->1,6->2,7->all
-    var correctAnswer: Int {
+    private var valueOfCorrectAnswer: Int {
         let correctAnswer = Int(rawCorrectAnswer)!
         switch correctAnswer {
         case 1...4: return correctAnswer
@@ -70,15 +70,19 @@ extension Quiz {
         }
     }
 
-    /// For performance reason, answer is assumed to be in `answers`.
-    func isCorrectAnswer(_ answer: Answer) -> Bool {
-        return Int(answer.value)! == correctAnswer
+    public var correctAnswer: Answer {
+        return answers[valueOfCorrectAnswer - 1]
     }
 
-    var imageURL: URL? {
+    /// For performance reason, answer is assumed to be in `answers`.
+    public func isCorrectAnswer(_ answer: Answer) -> Bool {
+        return Int(answer.value)! == valueOfCorrectAnswer
+    }
+
+    public var imageURL: URL? {
         guard let name = images.first else { return nil }
         return URL(string: "https://www.dmv.virginia.gov/dmv-manuals/manuals/images/1/\(name)")
     }
 }
 
-typealias Quizzes = [Quiz]
+public typealias Quizzes = [Quiz]

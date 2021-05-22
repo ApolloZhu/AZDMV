@@ -9,14 +9,19 @@
 import WidgetKit
 import SwiftUI
 import Intents
+import AZDMVShared
 
 struct Provider: IntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationIntent())
+        SimpleEntry(date: Date(),
+                    quiz: quizzes.randomElement()!,
+                    configuration: ConfigurationIntent())
     }
 
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), configuration: configuration)
+        let entry = SimpleEntry(date: Date(),
+                                quiz: quizzes.randomElement()!,
+                                configuration: configuration)
         completion(entry)
     }
 
@@ -27,7 +32,9 @@ struct Provider: IntentTimelineProvider {
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration)
+            let entry = SimpleEntry(date: entryDate,
+                                    quiz: quizzes.randomElement()!,
+                                    configuration: configuration)
             entries.append(entry)
         }
 
@@ -37,20 +44,56 @@ struct Provider: IntentTimelineProvider {
 }
 
 struct SimpleEntry: TimelineEntry {
-    let date: Date
+    var date: Date
+
+    let quiz: Quiz
+    let image: Image?
     let configuration: ConfigurationIntent
+
+    init(date: Date, quiz: Quiz, configuration: ConfigurationIntent) {
+        self.quiz = quiz
+        self.image = quiz.imageURL.flatMap {
+            try? Data(contentsOf: $0)
+        }
+        .flatMap(UIImage.init)
+        .map(Image.init)
+        self.date = date
+        self.configuration = configuration
+    }
 }
 
 struct WidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        Text(entry.date, style: .time)
+        HStack {
+            Spacer()
+            VStack(alignment: .leading) {
+                Spacer()
+                Text(entry.quiz.question)
+                Spacer()
+                Text(entry.quiz.correctAnswer.text)
+                    .fontWeight(.bold)
+                Spacer()
+            }
+            VStack {
+                Spacer()
+                if let image = entry.image {
+                    image
+                        .aspectRatio(1, contentMode: .fit)
+                }
+                Spacer()
+                Spacer()
+                Spacer()
+            }
+            Spacer()
+        }
+        .padding()
     }
 }
 
 @main
-struct Widget: SwiftUI.Widget {
+struct AZDMVWidget: Widget {
     let kind: String = "Widget"
 
     var body: some WidgetConfiguration {
@@ -64,10 +107,11 @@ struct Widget: SwiftUI.Widget {
     }
 }
 
-struct Widget_Previews: PreviewProvider {
+struct AZDMVWidget_Previews: PreviewProvider {
     static var previews: some View {
         WidgetEntryView(entry: SimpleEntry(date: Date(),
+                                           quiz: quizzes.randomElement()!,
                                            configuration: ConfigurationIntent()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
 }

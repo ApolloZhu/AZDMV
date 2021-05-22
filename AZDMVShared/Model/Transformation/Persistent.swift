@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Persistent {
+public protocol Persistent {
     @discardableResult
     func persist(withID identifier: String) -> Bool
     static func retrieve(withID identifier: String) -> Self?
@@ -27,7 +27,7 @@ extension Array: Persistent where Element: Codable { }
 
 extension Persistent where Self: Codable {
     @discardableResult
-    func persist(withID identifier: String) -> Bool {
+    public func persist(withID identifier: String) -> Bool {
         guard let encoded = try? JSONEncoder().encode(self)
             , let url = Self.url(forID: identifier)
             , let _ = try? encoded.write(to: url)
@@ -35,7 +35,7 @@ extension Persistent where Self: Codable {
         return true
     }
     
-    static func retrieve(withID identifier: String) -> Self? {
+    public static func retrieve(withID identifier: String) -> Self? {
         guard let url = Self.url(forID: identifier)
             , let data = try? Data(contentsOf: url)
             , let decoded = try? JSONDecoder().decode(self, from: data)

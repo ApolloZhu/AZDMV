@@ -8,35 +8,39 @@
 
 import Foundation
 
+extension Bundle {
+    static let current = Bundle(identifier: "io.github.apollozhu.AZDMVShared")!
+}
+
 /// Swift generics can do better
 extension Array: Fetchable where Element: Codable {
-    static var localURL: URL? {
+    public static var localURL: URL? {
         switch Element.self {
         case is OptionalCodable<Subsection>.Type:
-            return Bundle.main.url(forResource: "sections", withExtension: "json")
+            return Bundle.current.url(forResource: "sections", withExtension: "json")
         case is Quiz.Type:
-            return Bundle.main.url(forResource: "quiz", withExtension: "json")
+            return Bundle.current.url(forResource: "quiz", withExtension: "json")
         default: fatalError("\(Element.self) is not fetchable")
         }
     }
 
-    static var updateURL: URL {
+    public static var updateURL: URL {
         switch Element.self {
         case is OptionalCodable<Subsection>.Type:
-            return "https://www.dmv.virginia.gov/dmvapimanuals/api/manual/sections?manualID=1"
+            return URL(string:  "https://www.dmv.virginia.gov/dmvapimanuals/api/manual/sections?manualID=1")!
         case is Quiz.Type:
-            return "https://www.dmv.virginia.gov/dmvapimanuals/api/manual/quiz?manualID=1"
+            return URL(string: "https://www.dmv.virginia.gov/dmvapimanuals/api/manual/quiz?manualID=1")!
         default: fatalError("\(Element.self) is not fetchable")
         }
     }
 }
 
 extension TableOfContents: Fetchable {
-    static let localURL = Bundle.main.url(forResource: "tboc", withExtension: "json")
-    static let updateURL: URL = "https://www.dmv.virginia.gov/dmvapimanuals/api/manual/tboc?manualID=1"
+    public static let localURL = Bundle.current.url(forResource: "tboc", withExtension: "json")
+    public static let updateURL: URL = URL(string: "https://www.dmv.virginia.gov/dmvapimanuals/api/manual/tboc?manualID=1")!
 }
 
-func fetchAllSubsections(from source: Source, in manual: Manual? = nil) -> [[Subsection]]? {
+public func fetchAllSubsections(from source: Source, in manual: Manual? = nil) -> [[Subsection]]? {
     guard let subsections = Subsections.fetch(from: source)
         , let manual = manual ?? TableOfContents.fetch(from: source)?.manuals.first
         else { return nil }

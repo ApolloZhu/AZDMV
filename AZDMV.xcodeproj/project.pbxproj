@@ -8,15 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5209B15621EA9A2500807884 /* AZDMV_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5209B15521EA9A2500807884 /* AZDMV_UITests.swift */; };
-		52148E63214BFC9A0024B46B /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52148E62214BFC9A0024B46B /* Translate.swift */; };
 		52181D5221EAE4440056CCA5 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52181D5121EAE4430056CCA5 /* SnapshotHelper.swift */; };
-		521E37C520322EB200BA345D /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E37C420322EB200BA345D /* Quiz.swift */; };
-		521E37C720322EC000BA345D /* Manual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E37C620322EC000BA345D /* Manual.swift */; };
-		521E37CB2032339400BA345D /* Fetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E37CA2032339400BA345D /* Fetchable.swift */; };
-		521E37CD2032360200BA345D /* Persistent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E37CC2032360200BA345D /* Persistent.swift */; };
 		523C7968214C3A3E005E8E5C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 523C7967214C3A3D005E8E5C /* GoogleService-Info.plist */; };
-		523C796B214C5F1E005E8E5C /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523C796A214C5F1E005E8E5C /* Language.swift */; };
-		523C7970214C7423005E8E5C /* tboc.json in Resources */ = {isa = PBXBuildFile; fileRef = 523C7972214C7423005E8E5C /* tboc.json */; };
 		523C7975214C75DE005E8E5C /* Error+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523C7974214C75DE005E8E5C /* Error+Extensions.swift */; };
 		5258CED22030A06B00FB48DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258CED12030A06B00FB48DC /* AppDelegate.swift */; };
 		5258CED72030A06C00FB48DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5258CED52030A06C00FB48DC /* Main.storyboard */; };
@@ -29,15 +22,8 @@
 		5258CEF22030D12900FB48DC /* QuizzesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258CEF12030D12900FB48DC /* QuizzesTableViewController.swift */; };
 		5258CEF42030E23E00FB48DC /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5258CEF32030E23E00FB48DC /* icomoon.ttf */; };
 		5258CEF62030E38300FB48DC /* ManualsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258CEF52030E38300FB48DC /* ManualsCollectionViewCell.swift */; };
-		529726082169F7EF00C62F19 /* sections.json in Resources */ = {isa = PBXBuildFile; fileRef = 5297260A2169F7EF00C62F19 /* sections.json */; };
-		5297260C2169F80400C62F19 /* quiz.json in Resources */ = {isa = PBXBuildFile; fileRef = 5297260E2169F80400C62F19 /* quiz.json */; };
-		52AFC0D5214D741800ABB97D /* Conformance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC0D4214D741800ABB97D /* Conformance.swift */; };
 		52AFC0D7214D880600ABB97D /* SubSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC0D6214D880600ABB97D /* SubSectionViewController.swift */; };
 		52CCD787214EB5D8009A57B0 /* QuizTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CCD786214EB5D8009A57B0 /* QuizTableViewController.swift */; };
-		52E1B5A42033B138000926FE /* OptionalCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E1B5A32033B138000926FE /* OptionalCodable.swift */; };
-		52E89FAA20331EE2000E6937 /* TableOfContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E89FA920331EE2000E6937 /* TableOfContents.swift */; };
-		52E89FAC20337E5B000E6937 /* Subsection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E89FAB20337E5B000E6937 /* Subsection.swift */; };
-		52E89FAE20337EC0000E6937 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E89FAD20337EC0000E6937 /* Section.swift */; };
 		D2177D122597B75F00BC0F8D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D2177D112597B75F00BC0F8D /* Kingfisher */; };
 		D2177E5F2597B8CD00BC0F8D /* Pods_AZDMV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF16C83D4F3235E51B769AF /* Pods_AZDMV.framework */; };
 		D217800A2598E23D00BC0F8D /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21780092598E23D00BC0F8D /* UIColor+Extensions.swift */; };
@@ -55,11 +41,30 @@
 		D2A853562658DCDC00FFF49D /* AcknowList in Frameworks */ = {isa = PBXBuildFile; productRef = D2A853552658DCDC00FFF49D /* AcknowList */; };
 		D2A853C32658E3CF00FFF49D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A853C22658E3CF00FFF49D /* WidgetKit.framework */; };
 		D2A853C52658E3CF00FFF49D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A853C42658E3CF00FFF49D /* SwiftUI.framework */; };
-		D2A853C82658E3CF00FFF49D /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A853C72658E3CF00FFF49D /* Widget.swift */; };
+		D2A853C82658E3CF00FFF49D /* AZDMVWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A853C72658E3CF00FFF49D /* AZDMVWidget.swift */; };
 		D2A853CB2658E3D000FFF49D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2A853CA2658E3D000FFF49D /* Assets.xcassets */; };
 		D2A853CD2658E3D000FFF49D /* Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = D2A853C92658E3CF00FFF49D /* Widget.intentdefinition */; };
 		D2A853CE2658E3D000FFF49D /* Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = D2A853C92658E3CF00FFF49D /* Widget.intentdefinition */; };
-		D2A853D12658E3D000FFF49D /* WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D2A853C12658E3CF00FFF49D /* WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D2A853D12658E3D000FFF49D /* AZDMVWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D2A853C12658E3CF00FFF49D /* AZDMVWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D2A853E42658E66E00FFF49D /* AZDMVShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A853DB2658E66E00FFF49D /* AZDMVShared.framework */; };
+		D2A853EB2658E66E00FFF49D /* AZDMVSharedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A853EA2658E66E00FFF49D /* AZDMVSharedTests.swift */; };
+		D2A853ED2658E66E00FFF49D /* AZDMVShared.h in Headers */ = {isa = PBXBuildFile; fileRef = D2A853DD2658E66E00FFF49D /* AZDMVShared.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2A853F02658E66E00FFF49D /* AZDMVShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A853DB2658E66E00FFF49D /* AZDMVShared.framework */; };
+		D2A853F12658E66E00FFF49D /* AZDMVShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2A853DB2658E66E00FFF49D /* AZDMVShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2A853FE2658E6DF00FFF49D /* Fetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E37CA2032339400BA345D /* Fetchable.swift */; };
+		D2A853FF2658E6DF00FFF49D /* OptionalCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E1B5A32033B138000926FE /* OptionalCodable.swift */; };
+		D2A854002658E6DF00FFF49D /* Persistent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E37CC2032360200BA345D /* Persistent.swift */; };
+		D2A854012658E6DF00FFF49D /* Conformance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC0D4214D741800ABB97D /* Conformance.swift */; };
+		D2A854022658E6E800FFF49D /* TableOfContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E89FA920331EE2000E6937 /* TableOfContents.swift */; };
+		D2A854032658E6EF00FFF49D /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E37C420322EB200BA345D /* Quiz.swift */; };
+		D2A854042658E6EF00FFF49D /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E89FAD20337EC0000E6937 /* Section.swift */; };
+		D2A854052658E6EF00FFF49D /* Subsection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E89FAB20337E5B000E6937 /* Subsection.swift */; };
+		D2A854062658E6EF00FFF49D /* Manual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E37C620322EC000BA345D /* Manual.swift */; };
+		D2A854072658E6F400FFF49D /* tboc.json in Resources */ = {isa = PBXBuildFile; fileRef = 523C7972214C7423005E8E5C /* tboc.json */; };
+		D2A854082658E70100FFF49D /* sections.json in Resources */ = {isa = PBXBuildFile; fileRef = 5297260A2169F7EF00C62F19 /* sections.json */; };
+		D2A854092658E70F00FFF49D /* quiz.json in Resources */ = {isa = PBXBuildFile; fileRef = 5297260E2169F80400C62F19 /* quiz.json */; };
+		D2A8540A2658E8D100FFF49D /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523C796A214C5F1E005E8E5C /* Language.swift */; };
+		D2A8540D2658E91F00FFF49D /* Quizzes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A8540C2658E91F00FFF49D /* Quizzes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +82,27 @@
 			remoteGlobalIDString = D2A853C02658E3CF00FFF49D;
 			remoteInfo = WidgetExtension;
 		};
+		D2A853E52658E66E00FFF49D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5258CEAA20308E3600FB48DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2A853DA2658E66E00FFF49D;
+			remoteInfo = AZDMVShared;
+		};
+		D2A853E72658E66E00FFF49D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5258CEAA20308E3600FB48DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5258CECE2030A06B00FB48DC;
+			remoteInfo = AZDMV;
+		};
+		D2A853EE2658E66E00FFF49D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5258CEAA20308E3600FB48DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2A853DA2658E66E00FFF49D;
+			remoteInfo = AZDMVShared;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -86,9 +112,20 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				D2A853D12658E3D000FFF49D /* WidgetExtension.appex in Embed App Extensions */,
+				D2A853D12658E3D000FFF49D /* AZDMVWidgetExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2A853F52658E66E00FFF49D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D2A853F12658E66E00FFF49D /* AZDMVShared.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -145,13 +182,20 @@
 		D236736A259B8D7300135C87 /* A-Z@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "A-Z@3x.png"; sourceTree = "<group>"; };
 		D236736B259B8D7300135C87 /* A-Z@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "A-Z@2x.png"; sourceTree = "<group>"; };
 		D2A8534F2658D55000FFF49D /* WhatsNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNew.swift; sourceTree = "<group>"; };
-		D2A853C12658E3CF00FFF49D /* WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2A853C12658E3CF00FFF49D /* AZDMVWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AZDMVWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A853C22658E3CF00FFF49D /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		D2A853C42658E3CF00FFF49D /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		D2A853C72658E3CF00FFF49D /* Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
+		D2A853C72658E3CF00FFF49D /* AZDMVWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AZDMVWidget.swift; sourceTree = "<group>"; };
 		D2A853C92658E3CF00FFF49D /* Widget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Widget.intentdefinition; sourceTree = "<group>"; };
 		D2A853CA2658E3D000FFF49D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2A853CC2658E3D000FFF49D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2A853DB2658E66E00FFF49D /* AZDMVShared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AZDMVShared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2A853DD2658E66E00FFF49D /* AZDMVShared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AZDMVShared.h; sourceTree = "<group>"; };
+		D2A853DE2658E66E00FFF49D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2A853E32658E66E00FFF49D /* AZDMVSharedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AZDMVSharedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2A853EA2658E66E00FFF49D /* AZDMVSharedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AZDMVSharedTests.swift; sourceTree = "<group>"; };
+		D2A853EC2658E66E00FFF49D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2A8540C2658E91F00FFF49D /* Quizzes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quizzes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +212,7 @@
 			files = (
 				D2A853562658DCDC00FFF49D /* AcknowList in Frameworks */,
 				D2A853532658D77300FFF49D /* WhatsNewKit in Frameworks */,
+				D2A853F02658E66E00FFF49D /* AZDMVShared.framework in Frameworks */,
 				D2177D122597B75F00BC0F8D /* Kingfisher in Frameworks */,
 				D2177E5F2597B8CD00BC0F8D /* Pods_AZDMV.framework in Frameworks */,
 				D2367351259B7F5700135C87 /* DZNEmptyDataSet in Frameworks */,
@@ -180,6 +225,21 @@
 			files = (
 				D2A853C52658E3CF00FFF49D /* SwiftUI.framework in Frameworks */,
 				D2A853C32658E3CF00FFF49D /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2A853D82658E66E00FFF49D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2A853E02658E66E00FFF49D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2A853E42658E66E00FFF49D /* AZDMVShared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,7 +284,9 @@
 				52181D5721EAE7E80056CCA5 /* .gitignore */,
 				5258CED02030A06B00FB48DC /* AZDMV */,
 				5209B15421EA9A2500807884 /* AZDMV-UITests */,
-				D2A853C62658E3CF00FFF49D /* Widget */,
+				D2A853C62658E3CF00FFF49D /* AZDMVWidget */,
+				D2A853DC2658E66E00FFF49D /* AZDMVShared */,
+				D2A853E92658E66E00FFF49D /* AZDMVSharedTests */,
 				5258CEB320308E3600FB48DC /* Products */,
 				C51ED9E833B7A9997865D33C /* Pods */,
 				E97DFCE5B06612CF3F7DAEBB /* Frameworks */,
@@ -236,7 +298,9 @@
 			children = (
 				5258CECF2030A06B00FB48DC /* AZDMV.app */,
 				5209B15321EA9A2400807884 /* AZDMV-UITests.xctest */,
-				D2A853C12658E3CF00FFF49D /* WidgetExtension.appex */,
+				D2A853C12658E3CF00FFF49D /* AZDMVWidgetExtension.appex */,
+				D2A853DB2658E66E00FFF49D /* AZDMVShared.framework */,
+				D2A853E32658E66E00FFF49D /* AZDMVSharedTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -244,8 +308,6 @@
 		5258CED02030A06B00FB48DC /* AZDMV */ = {
 			isa = PBXGroup;
 			children = (
-				523C7969214C5EFB005E8E5C /* Networking */,
-				5258CEE32030A0E400FB48DC /* Model */,
 				5258CEE22030A0C700FB48DC /* View Controller */,
 				5258CEE42030A0FB00FB48DC /* Extensions */,
 				5258CEE12030A0B800FB48DC /* Supporting File */,
@@ -302,6 +364,7 @@
 				52E89FAB20337E5B000E6937 /* Subsection.swift */,
 				5297260E2169F80400C62F19 /* quiz.json */,
 				521E37C420322EB200BA345D /* Quiz.swift */,
+				D2A8540C2658E91F00FFF49D /* Quizzes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -325,15 +388,35 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		D2A853C62658E3CF00FFF49D /* Widget */ = {
+		D2A853C62658E3CF00FFF49D /* AZDMVWidget */ = {
 			isa = PBXGroup;
 			children = (
-				D2A853C72658E3CF00FFF49D /* Widget.swift */,
+				D2A853C72658E3CF00FFF49D /* AZDMVWidget.swift */,
 				D2A853C92658E3CF00FFF49D /* Widget.intentdefinition */,
 				D2A853CA2658E3D000FFF49D /* Assets.xcassets */,
 				D2A853CC2658E3D000FFF49D /* Info.plist */,
 			);
-			path = Widget;
+			path = AZDMVWidget;
+			sourceTree = "<group>";
+		};
+		D2A853DC2658E66E00FFF49D /* AZDMVShared */ = {
+			isa = PBXGroup;
+			children = (
+				523C7969214C5EFB005E8E5C /* Networking */,
+				5258CEE32030A0E400FB48DC /* Model */,
+				D2A853DD2658E66E00FFF49D /* AZDMVShared.h */,
+				D2A853DE2658E66E00FFF49D /* Info.plist */,
+			);
+			path = AZDMVShared;
+			sourceTree = "<group>";
+		};
+		D2A853E92658E66E00FFF49D /* AZDMVSharedTests */ = {
+			isa = PBXGroup;
+			children = (
+				D2A853EA2658E66E00FFF49D /* AZDMVSharedTests.swift */,
+				D2A853EC2658E66E00FFF49D /* Info.plist */,
+			);
+			path = AZDMVSharedTests;
 			sourceTree = "<group>";
 		};
 		E97DFCE5B06612CF3F7DAEBB /* Frameworks */ = {
@@ -347,6 +430,17 @@
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2A853D62658E66E00FFF49D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2A853ED2658E66E00FFF49D /* AZDMVShared.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		5209B15221EA9A2400807884 /* AZDMV-UITests */ = {
@@ -377,11 +471,13 @@
 				5258CECD2030A06B00FB48DC /* Resources */,
 				2F72E50A17829F432545B2C2 /* [CP] Embed Pods Frameworks */,
 				D2A853D22658E3D000FFF49D /* Embed App Extensions */,
+				D2A853F52658E66E00FFF49D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				D2A853D02658E3D000FFF49D /* PBXTargetDependency */,
+				D2A853EF2658E66E00FFF49D /* PBXTargetDependency */,
 			);
 			name = AZDMV;
 			packageProductDependencies = (
@@ -394,9 +490,9 @@
 			productReference = 5258CECF2030A06B00FB48DC /* AZDMV.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D2A853C02658E3CF00FFF49D /* WidgetExtension */ = {
+		D2A853C02658E3CF00FFF49D /* AZDMVWidgetExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D2A853D52658E3D000FFF49D /* Build configuration list for PBXNativeTarget "WidgetExtension" */;
+			buildConfigurationList = D2A853D52658E3D000FFF49D /* Build configuration list for PBXNativeTarget "AZDMVWidgetExtension" */;
 			buildPhases = (
 				D2A853BD2658E3CF00FFF49D /* Sources */,
 				D2A853BE2658E3CF00FFF49D /* Frameworks */,
@@ -406,10 +502,47 @@
 			);
 			dependencies = (
 			);
-			name = WidgetExtension;
+			name = AZDMVWidgetExtension;
 			productName = WidgetExtension;
-			productReference = D2A853C12658E3CF00FFF49D /* WidgetExtension.appex */;
+			productReference = D2A853C12658E3CF00FFF49D /* AZDMVWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
+		};
+		D2A853DA2658E66E00FFF49D /* AZDMVShared */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2A853F22658E66E00FFF49D /* Build configuration list for PBXNativeTarget "AZDMVShared" */;
+			buildPhases = (
+				D2A853D62658E66E00FFF49D /* Headers */,
+				D2A853D72658E66E00FFF49D /* Sources */,
+				D2A853D82658E66E00FFF49D /* Frameworks */,
+				D2A853D92658E66E00FFF49D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AZDMVShared;
+			productName = AZDMVShared;
+			productReference = D2A853DB2658E66E00FFF49D /* AZDMVShared.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D2A853E22658E66E00FFF49D /* AZDMVSharedTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2A853F62658E66E00FFF49D /* Build configuration list for PBXNativeTarget "AZDMVSharedTests" */;
+			buildPhases = (
+				D2A853DF2658E66E00FFF49D /* Sources */,
+				D2A853E02658E66E00FFF49D /* Frameworks */,
+				D2A853E12658E66E00FFF49D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2A853E62658E66E00FFF49D /* PBXTargetDependency */,
+				D2A853E82658E66E00FFF49D /* PBXTargetDependency */,
+			);
+			name = AZDMVSharedTests;
+			productName = AZDMVSharedTests;
+			productReference = D2A853E32658E66E00FFF49D /* AZDMVSharedTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -437,6 +570,13 @@
 					D2A853C02658E3CF00FFF49D = {
 						CreatedOnToolsVersion = 12.5;
 					};
+					D2A853DA2658E66E00FFF49D = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					D2A853E22658E66E00FFF49D = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 5258CECE2030A06B00FB48DC;
+					};
 				};
 			};
 			buildConfigurationList = 5258CEAD20308E3600FB48DC /* Build configuration list for PBXProject "AZDMV" */;
@@ -460,7 +600,9 @@
 			targets = (
 				5258CECE2030A06B00FB48DC /* AZDMV */,
 				5209B15221EA9A2400807884 /* AZDMV-UITests */,
-				D2A853C02658E3CF00FFF49D /* WidgetExtension */,
+				D2A853C02658E3CF00FFF49D /* AZDMVWidgetExtension */,
+				D2A853DA2658E66E00FFF49D /* AZDMVShared */,
+				D2A853E22658E66E00FFF49D /* AZDMVSharedTests */,
 			);
 		};
 /* End PBXProject section */
@@ -480,14 +622,11 @@
 				D236736D259B8D7300135C87 /* A-Z@2x.png in Resources */,
 				5258CEF42030E23E00FB48DC /* icomoon.ttf in Resources */,
 				D2367366259B85CF00135C87 /* Manual@3x.png in Resources */,
-				523C7970214C7423005E8E5C /* tboc.json in Resources */,
 				523C7968214C3A3E005E8E5C /* GoogleService-Info.plist in Resources */,
 				D236736C259B8D7300135C87 /* A-Z@3x.png in Resources */,
 				D236735E259B848F00135C87 /* Bookmark@3x.png in Resources */,
-				529726082169F7EF00C62F19 /* sections.json in Resources */,
 				D2367367259B85CF00135C87 /* Manual@2x.png in Resources */,
 				5258CEEC2030CF3F00FB48DC /* Pods-AZDMV-acknowledgements.plist in Resources */,
-				5297260C2169F80400C62F19 /* quiz.json in Resources */,
 				5258CEDC2030A07800FB48DC /* LaunchScreen.storyboard in Resources */,
 				D236735F259B848F00135C87 /* Bookmark@2x.png in Resources */,
 				5258CED92030A07800FB48DC /* Assets.xcassets in Resources */,
@@ -500,6 +639,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2A853CB2658E3D000FFF49D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2A853D92658E66E00FFF49D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2A854072658E6F400FFF49D /* tboc.json in Resources */,
+				D2A854082658E70100FFF49D /* sections.json in Resources */,
+				D2A854092658E70F00FFF49D /* quiz.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2A853E12658E66E00FFF49D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,27 +750,16 @@
 				5258CEE82030ACDD00FB48DC /* URL+Extensions.swift in Sources */,
 				D2A853502658D55000FFF49D /* WhatsNew.swift in Sources */,
 				D2367355259B829500135C87 /* IconsTableViewCell.swift in Sources */,
-				521E37CD2032360200BA345D /* Persistent.swift in Sources */,
-				521E37C520322EB200BA345D /* Quiz.swift in Sources */,
 				D217800A2598E23D00BC0F8D /* UIColor+Extensions.swift in Sources */,
 				5258CEF62030E38300FB48DC /* ManualsCollectionViewCell.swift in Sources */,
 				D236734C259B7D3600135C87 /* IconsTableViewController.swift in Sources */,
 				D2A853CE2658E3D000FFF49D /* Widget.intentdefinition in Sources */,
-				52E1B5A42033B138000926FE /* OptionalCodable.swift in Sources */,
 				5258CEF02030D11A00FB48DC /* ManualsCollectionViewController.swift in Sources */,
-				521E37C720322EC000BA345D /* Manual.swift in Sources */,
-				52E89FAE20337EC0000E6937 /* Section.swift in Sources */,
 				5258CEF22030D12900FB48DC /* QuizzesTableViewController.swift in Sources */,
 				523C7975214C75DE005E8E5C /* Error+Extensions.swift in Sources */,
 				52CCD787214EB5D8009A57B0 /* QuizTableViewController.swift in Sources */,
 				52AFC0D7214D880600ABB97D /* SubSectionViewController.swift in Sources */,
-				521E37CB2032339400BA345D /* Fetchable.swift in Sources */,
-				52E89FAC20337E5B000E6937 /* Subsection.swift in Sources */,
-				52AFC0D5214D741800ABB97D /* Conformance.swift in Sources */,
 				5258CED22030A06B00FB48DC /* AppDelegate.swift in Sources */,
-				523C796B214C5F1E005E8E5C /* Language.swift in Sources */,
-				52E89FAA20331EE2000E6937 /* TableOfContents.swift in Sources */,
-				52148E63214BFC9A0024B46B /* Translate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,7 +768,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2A853CD2658E3D000FFF49D /* Widget.intentdefinition in Sources */,
-				D2A853C82658E3CF00FFF49D /* Widget.swift in Sources */,
+				D2A853C82658E3CF00FFF49D /* AZDMVWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2A853D72658E66E00FFF49D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2A854002658E6DF00FFF49D /* Persistent.swift in Sources */,
+				D2A8540A2658E8D100FFF49D /* Language.swift in Sources */,
+				D2A853FF2658E6DF00FFF49D /* OptionalCodable.swift in Sources */,
+				D2A854052658E6EF00FFF49D /* Subsection.swift in Sources */,
+				D2A854032658E6EF00FFF49D /* Quiz.swift in Sources */,
+				D2A854042658E6EF00FFF49D /* Section.swift in Sources */,
+				D2A854062658E6EF00FFF49D /* Manual.swift in Sources */,
+				D2A853FE2658E6DF00FFF49D /* Fetchable.swift in Sources */,
+				D2A854012658E6DF00FFF49D /* Conformance.swift in Sources */,
+				D2A854022658E6E800FFF49D /* TableOfContents.swift in Sources */,
+				D2A8540D2658E91F00FFF49D /* Quizzes.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2A853DF2658E66E00FFF49D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2A853EB2658E66E00FFF49D /* AZDMVSharedTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,8 +808,23 @@
 		};
 		D2A853D02658E3D000FFF49D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D2A853C02658E3CF00FFF49D /* WidgetExtension */;
+			target = D2A853C02658E3CF00FFF49D /* AZDMVWidgetExtension */;
 			targetProxy = D2A853CF2658E3D000FFF49D /* PBXContainerItemProxy */;
+		};
+		D2A853E62658E66E00FFF49D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2A853DA2658E66E00FFF49D /* AZDMVShared */;
+			targetProxy = D2A853E52658E66E00FFF49D /* PBXContainerItemProxy */;
+		};
+		D2A853E82658E66E00FFF49D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5258CECE2030A06B00FB48DC /* AZDMV */;
+			targetProxy = D2A853E72658E66E00FFF49D /* PBXContainerItemProxy */;
+		};
+		D2A853EF2658E66E00FFF49D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2A853DA2658E66E00FFF49D /* AZDMVShared */;
+			targetProxy = D2A853EE2658E66E00FFF49D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -902,7 +1088,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2H866F22W7;
-				INFOPLIST_FILE = Widget/Info.plist;
+				INFOPLIST_FILE = AZDMVWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -926,7 +1112,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2H866F22W7;
-				INFOPLIST_FILE = Widget/Info.plist;
+				INFOPLIST_FILE = AZDMVWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -939,6 +1125,108 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D2A853F32658E66E00FFF49D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2H866F22W7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = AZDMVShared/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.apollozhu.AZDMVShared;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D2A853F42658E66E00FFF49D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2H866F22W7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = AZDMVShared/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.apollozhu.AZDMVShared;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D2A853F72658E66E00FFF49D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2H866F22W7;
+				INFOPLIST_FILE = AZDMVSharedTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.apollozhu.AZDMVSharedTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AZDMV.app/AZDMV";
+			};
+			name = Debug;
+		};
+		D2A853F82658E66E00FFF49D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2H866F22W7;
+				INFOPLIST_FILE = AZDMVSharedTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.apollozhu.AZDMVSharedTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AZDMV.app/AZDMV";
 			};
 			name = Release;
 		};
@@ -972,11 +1260,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D2A853D52658E3D000FFF49D /* Build configuration list for PBXNativeTarget "WidgetExtension" */ = {
+		D2A853D52658E3D000FFF49D /* Build configuration list for PBXNativeTarget "AZDMVWidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D2A853D32658E3D000FFF49D /* Debug */,
 				D2A853D42658E3D000FFF49D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2A853F22658E66E00FFF49D /* Build configuration list for PBXNativeTarget "AZDMVShared" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2A853F32658E66E00FFF49D /* Debug */,
+				D2A853F42658E66E00FFF49D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2A853F62658E66E00FFF49D /* Build configuration list for PBXNativeTarget "AZDMVSharedTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2A853F72658E66E00FFF49D /* Debug */,
+				D2A853F82658E66E00FFF49D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -989,7 +1295,7 @@
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.15.8;
+				minimumVersion = 6.3.0;
 			};
 		};
 		D236734F259B7F5700135C87 /* XCRemoteSwiftPackageReference "DZNEmptyDataSet" */ = {

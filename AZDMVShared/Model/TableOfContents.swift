@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct TableOfContents: Codable, Persistent {
-    let manuals: [Manual]
+public struct TableOfContents: Codable, Persistent {
+    public let manuals: [Manual]
     enum CodingKeys: String, CodingKey {
         case manuals = "manualData"
     }

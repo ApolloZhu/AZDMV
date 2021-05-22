@@ -6,7 +6,7 @@
 //  Copyright © 2016-2020 DMV A-Z. MIT License.
 //
 
-struct OptionalCodable<Wrapped: Codable>: Codable {
+public struct OptionalCodable<Wrapped: Codable>: Codable {
     let some: Wrapped?
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()

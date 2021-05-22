@@ -8,14 +8,14 @@
 
 import Foundation
 
-enum Source {
+public enum Source {
     case bundled
     case online
     /// Only valid if `Self` is `Decodable`
     case cache(identifier: String)
 }
 
-protocol Fetchable {
+public protocol Fetchable {
     /// URL for `Source.bundled`
     static var localURL: URL? { get }
     /// URL for `Source.online`
@@ -26,7 +26,7 @@ protocol Fetchable {
 // MARK: - Default Implementations
 
 extension Fetchable where Self: Persistent & Decodable {
-    static func fetch(from source: Source) -> Self? {
+    public static func fetch(from source: Source) -> Self? {
         switch source {
         case .bundled:
             guard let url = localURL

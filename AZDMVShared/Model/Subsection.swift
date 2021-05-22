@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct Subsection: Codable, Hashable {
-    let rawSection: String
-    let rawSubSectionID: String
-    let title: String
-    let content: String
+public struct Subsection: Codable, Hashable {
+    private let rawSection: String
+    private let rawSubSectionID: String
+    public let title: String
+    public let content: String
     /// Wed Sep 07 2016 15:07:58 GMT+0000 (Coordinated Universal Time)
     let update: String?
     enum CodingKeys: String, CodingKey {
@@ -25,15 +25,15 @@ struct Subsection: Codable, Hashable {
 }
 
 extension Subsection {
-    var section: Int {
+    public var section: Int {
         return Int(rawSection)!
     }
     
-    var subSectionID: Int {
+    public var subSectionID: Int {
         return Int(rawSubSectionID)!
     }
 
-    var name: String {
+    public var name: String {
         return String(
             format: NSLocalizedString(
                 "Subsection.name",
@@ -44,4 +44,4 @@ extension Subsection {
     }
 }
 
-typealias Subsections = [OptionalCodable<Subsection>]
+public typealias Subsections = [OptionalCodable<Subsection>]

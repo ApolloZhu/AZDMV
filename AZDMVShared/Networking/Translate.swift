@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import AZDMVShared
 
 let db = Firestore.firestore()
 private let urlPrefix = "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to="

@@ -47,6 +47,16 @@
                ReferencedContainer = "container:AZDMV.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D2A853E22658E66E00FFF49D"
+               BuildableName = "AZDMVSharedTests.xctest"
+               BlueprintName = "AZDMVSharedTests"
+               ReferencedContainer = "container:AZDMV.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

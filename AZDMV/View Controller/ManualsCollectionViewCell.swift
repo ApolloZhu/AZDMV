@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AZDMVShared
 
 class ManualsCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "ManualsCollectionViewCell"

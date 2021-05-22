@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct Manual: Codable {
+public struct Manual: Codable {
     // let manualID: String
-    let title: String
-    let symbol: String
-    let rawTotalSections: String
-    let rawSections: [Section]
+    public let title: String
+    public let symbol: String
+    private let rawTotalSections: String
+    private let rawSections: [Section]
     /// x.x
-    let noQuiz: [String]
+    public let noQuiz: [String]
     
     enum CodingKeys: String, CodingKey {
         case title, symbol
@@ -26,11 +26,11 @@ struct Manual: Codable {
 }
 
 extension Manual {
-    var totalSections: Int {
+    public var totalSections: Int {
         return Int(rawTotalSections)! + 1
     }
 
-    var sections: ArraySlice<Section> {
+    public var sections: ArraySlice<Section> {
         return rawSections.dropLast()
     }
 }

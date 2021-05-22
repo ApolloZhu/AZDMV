@@ -8,9 +8,7 @@
 
 import UIKit
 import CHTCollectionViewWaterfallLayout
-
-let manual = TableOfContents.fetch(from: .bundled)?.manuals.first
-let subsections = fetchAllSubsections(from: .bundled, in: manual) ?? []
+import AZDMVShared
 
 class ManualsCollectionViewController: UICollectionViewController, CHTCollectionViewDelegateWaterfallLayout, UITableViewDelegate, UITableViewDataSource {
 
